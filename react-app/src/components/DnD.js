@@ -1,13 +1,13 @@
 import React from "react";
-import NavBar from "./NavBar";
+import NavBar from "./navbar/NavBar";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import LoginForm from "./auth/LoginForm";
 import SignUpForm from "./auth/SignUpForm";
 import ProtectedRoute from "./auth/ProtectedRoute";
-import UsersList from "./UsersList";
-import User from "./User";
+import UsersList from "./utility/UsersList";
+import UserView from "./utility/UserView";
 
-export default function POF(){
+export default function DnD(){
     return(
     <BrowserRouter>
         <NavBar />
@@ -22,7 +22,7 @@ export default function POF(){
                 <UsersList/>
             </ProtectedRoute>
             <ProtectedRoute path="/users/:userId" exact={true} >
-                <User />
+                <UserView />
             </ProtectedRoute>
             <ProtectedRoute path="/" exact={true} >
                 <h1>My Home Page</h1>

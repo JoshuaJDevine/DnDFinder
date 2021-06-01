@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-function User() {
+function UserView() {
   const [user, setUser] = useState({});
   // Notice we use useParams here instead of getting the params
   // From props.
@@ -36,4 +36,4 @@ function User() {
     </ul>
   );
 }
-export default User;
+export default UserView;

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authenticate } from "./store/session";
 
-//POF -----------------------------------------------------
-import POF from "./components/POF";
+//DnD -----------------------------------------------------
+import DnD from "./components/DnD";
 
 function App() {
   const user = useSelector(state => state.session.user)
@@ -22,7 +22,7 @@ function App() {
   }
 
   return (
-    <POF/>
+    <DnD/>
   );
 }
 

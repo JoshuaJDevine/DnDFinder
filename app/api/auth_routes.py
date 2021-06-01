@@ -52,7 +52,7 @@ def logout():
     Logs a user out
     """
     logout_user()
-    return {'message': 'User logged out'}
+    return {'message': 'UserView logged out'}
 
 
 @auth_routes.route('/signup', methods=['POST'])
