@@ -1,2 +1,2 @@
 # DnDFinder
-A Dungeons and Dragons group finder
+An open source DnD group finder
