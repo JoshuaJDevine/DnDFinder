@@ -1,18 +1,22 @@
-.dnd__Navbar{
-    background-color: var(--main-palette-light-babyPowder);
+.DnD__Navbar{
+    background-color: var(--main-palette-light-meetupBrightWhite);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
 }
-.dnd__Navbar ul{
+.DnD__Navbar ul{
     margin: 0;
     display: flex;
 }
-.dnd__Navbar--ul{
+.DnD__Navbar--ul{
     padding: 0;
     height: 7%;
-    min-height: 50px;
+    height: 70px;
     justify-content: center;
     align-items: center;
 }
-.dnd__Navbar--ul li{
+.DnD__Navbar--ul li{
     margin-left: 10px;
     margin-right: 10px;
     list-style-type: none;

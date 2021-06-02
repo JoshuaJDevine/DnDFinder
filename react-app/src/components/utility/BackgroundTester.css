@@ -1,0 +1,18 @@
+.DnD__BackgroundTester{
+ display: flex;
+    height: 200px;
+    width: 100%;
+    background-color: #0f1721;
+}
+.DnD__BackgroundTester--test1{
+    height: 200px;
+    width: 200px;
+    background-color: #273e55;
+}
+.DnD__BackgroundTester--test2{
+    height: 200px;
+    width: 300px;
+    background-image: url("https://i.imgur.com/15gSrxF.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
