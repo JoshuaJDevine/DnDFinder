@@ -33,18 +33,29 @@ const deleteGroup = (group) => ({
 
 
 export const getAllGroups = () => async (dispatch)  => {
-    const response = await fetch('/api/groups', {
-        method: 'POST',
-            headers: {
-            'Content-Type': 'application/json'
-        }
+    const response = await fetch('/api/auth/',{
+      headers: {
+        'Content-Type': 'application/json'
+      }
     });
     const data = await response.json();
     if (data.errors) {
-        return data;
+        return;
+    }
+
+    dispatch(getGroups(data))
 }
 
-export const createNewGroup = (name, details, where, module, dayOfWeek, startTime, endTime, timeOfDay, groupAdmin, maxPartySize) => async (dispatch)  => {
+export const createNewGroup = (name,
+                               details,
+                               where,
+                               module,
+                               dayOfWeek,
+                               startTime,
+                               endTime,
+                               timeOfDay,
+                               groupAdmin,
+                               maxPartySize) => async (dispatch)  => {
     const response = await fetch("/api/groups/", {
         method: "POST",
         headers: {
@@ -66,14 +77,10 @@ export const createNewGroup = (name, details, where, module, dayOfWeek, startTim
         const data = await response.json();
         if (data.errors) {
         return data;
-    }
+         }
 
     dispatch(createGroup(data))
     return {};
-}
-
-dispatch(getGroups(data))
-return {};
 }
 
 
