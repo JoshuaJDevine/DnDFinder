@@ -10,8 +10,12 @@ export default function Home(){
         <div className="DnD__Home">
             <SplashBar />
 
-            <SearchBar/>
+            <SearchBar text={"Filter 1"}/>
+            <SearchBar text={"Filter 2"}/>
 
+
+            <GroupFinder />
+            <GroupFinder />
             <GroupFinder />
 
             {/*<BackgroundTester/>*/}

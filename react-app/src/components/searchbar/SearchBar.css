@@ -1,16 +1,24 @@
 
 .DnD__SearchBar{
-  display: flex;
-  align-items: center;
-  min-height: 80px;
-  position: relative;
-  width: 80%;
-  margin: auto;
-  top: -20px;
-  background-color: Var(--main-palette-dark-meetupBlack);
-  padding-left: 20px;
-  justify-content: space-between;
-  transition: all 0.3s ease-in-out, border 0.3s ease-in-out;
+    /*Scroll*/
+    background-image: url("https://i.imgur.com/iIwzjrf.png");
+    /*Sign*/
+    /*background-image: url("https://i.imgur.com/IwoYq0q.png");*/
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    min-height: 80px;
+    position: relative;
+    width: 80%;
+    margin: auto;
+    top: -120px;
+    /*background-color: Var(--main-palette-dark-meetupBlack);*/
+    padding-left: 20px;
+    justify-content: center;
+    transition: all 0.3s ease-in-out, border 0.3s ease-in-out;
 }
 @media (max-width: 900px) {
   .DnD__SearchBar {
@@ -35,7 +43,7 @@
 }
 .DnD__SearchBar input {
   width: 16px;
-  height: 16px;
+  height: 8px;
   border: none;
   outline: none;
   padding: 16px;
@@ -43,8 +51,10 @@
   font-size: 1em;
   transition: 0.5s;
   color: #a3acc4;
-  background-color: #fff;
+  background-color: #d0d0d0;
   caret-color: #828e9e;
+  position: relative;
+  top: 5px;
 }
 .DnD__SearchBar input:hover {
   cursor: pointer;
@@ -62,4 +72,9 @@
 }
 .DnD__SearchBar--buttonWrapper button {
   margin-right: 10px;
+}
+.DnD__SearchBar p {
+  position: relative;
+  left: -10px;
+  top: 10px;
 }

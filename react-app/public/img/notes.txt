@@ -1,2 +1,5 @@
 board1_ https://i.imgur.com/1KZdfIV.png
 scroll1_ https://i.imgur.com/8qHiKh0.png
+wideScrollSmall_ https://i.imgur.com/iIwzjrf.png
+wideScrollLarge_ https://i.imgur.com/hrPMjjS.png
+signMd_ https://i.imgur.com/IwoYq0q.png

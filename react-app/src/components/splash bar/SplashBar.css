@@ -1,12 +1,18 @@
 .DnD__SplashBar--Splash{
-    background-color: var(--main-palette-dark-meetupBlue);
+    background-image: url("https://i.imgur.com/hrPMjjS.png");
+    z-index: -10;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
     display: flex;
     flex-direction: column;
+    height: 20vw;
 }
 .DnD__SplashBar--Title{
     align-self: center;
 }
 .DnD__SplashBar--Title h1 {
+    font-size: 3vw;
     margin-top: 40px;
     margin-bottom: 5px;
 }
@@ -16,5 +22,6 @@
     align-self: center;
 }
 .DnD__SplashBar--subTitle p{
+    font-size: 2vw;
     margin: 5px 10px 35px;
 }
