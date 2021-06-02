@@ -2,4 +2,11 @@
     background-color: var(--main-palette-mid-ultraRed);
     height: 280px;
     padding: 10px;
+    transition: all 0.2s ease-in-out, border 0.3s ease-in-out;
+}
+.DnD__GroupCard:hover{
+    background: rgb(127, 31, 48);
+    box-shadow: 0 8px 32px 0 rgb(0, 0, 0);
+    backdrop-filter: blur( 3px );
+    -webkit-backdrop-filter: blur( 3px );
 }

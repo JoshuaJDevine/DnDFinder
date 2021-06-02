@@ -8,27 +8,7 @@ export  default function GroupFinder({groupList}){
         { id: 1, name: "John Doe" },
         { id: 2, name: "Victor Wayne" },
         { id: 3, name: "Jane Doe" },
-        { id: 1, name: "John Doe" },
-        { id: 2, name: "Victor Wayne" },
-        { id: 3, name: "Jane Doe" },
-        { id: 1, name: "John Doe" },
-        { id: 2, name: "Victor Wayne" },
-        { id: 3, name: "Jane Doe" },
-        { id: 1, name: "John Doe" },
-        { id: 2, name: "Victor Wayne" },
-        { id: 3, name: "Jane Doe" },
-        { id: 1, name: "John Doe" },
-        { id: 2, name: "Victor Wayne" },
-        { id: 3, name: "Jane Doe" },
-        { id: 1, name: "John Doe" },
-        { id: 2, name: "Victor Wayne" },
-        { id: 3, name: "Jane Doe" },
-        { id: 1, name: "John Doe" },
-        { id: 2, name: "Victor Wayne" },
-        { id: 3, name: "Jane Doe" },
-        { id: 1, name: "John Doe" },
-        { id: 2, name: "Victor Wayne" },
-        { id: 3, name: "Jane Doe" },
+
     ];
 
     return (
