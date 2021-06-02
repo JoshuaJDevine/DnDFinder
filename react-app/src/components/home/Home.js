@@ -14,7 +14,7 @@ export default function Home(){
 
             <GroupFinder />
 
-            <BackgroundTester/>
+            {/*<BackgroundTester/>*/}
 
         </div>
     )

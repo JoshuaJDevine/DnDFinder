@@ -1,12 +1,23 @@
 .DnD__GroupCard{
-    background-color: var(--main-palette-mid-ultraRed);
-    height: 280px;
-    padding: 10px;
+    /*background-color: var(--main-palette-mid-ultraRed);*/
+    background-image: url("https://i.imgur.com/8qHiKh0.png");
+    background-position: center;
+    background-repeat: no-repeat;
+
+    background-size: auto;
+    height: 368px;
+    margin-top: 20%;
+    margin-bottom: 76%;
     transition: all 0.2s ease-in-out, border 0.3s ease-in-out;
 }
 .DnD__GroupCard:hover{
-    background: rgb(127, 31, 48);
-    box-shadow: 0 8px 32px 0 rgb(56, 15, 15);
+    /*background: rgb(127, 31, 48);*/
+    box-shadow: 0 8px 32px 0 rgb(255, 255, 255);
     backdrop-filter: blur( 3px );
     -webkit-backdrop-filter: blur( 3px );
 }
+/*@media (min-width: 1400px) {*/
+/*  .DnD__GroupCard {     margin-bottom: 40%;; }*/
+/*}*/
+
+/**/
