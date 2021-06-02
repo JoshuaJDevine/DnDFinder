@@ -15,6 +15,7 @@
 }
 
 html, body {
+    min-width: 600px;
     background-color: var(--main-palette-light-meetupAshWhite);
     margin: 0;
     height: 100%;
