@@ -1,0 +1,19 @@
+.dnd__navbar{
+
+}
+.dnd__navbar ul{
+    margin: 0;
+    display: flex;
+}
+.dnd__navbar--ul{
+    padding: 0;
+    height: 7%;
+    min-height: 50px;
+    justify-content: center;
+    align-items: center;
+}
+.dnd__navbar--ul li{
+    margin-left: 10px;
+    margin-right: 10px;
+    list-style-type: none;
+}
