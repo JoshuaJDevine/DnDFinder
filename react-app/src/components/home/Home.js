@@ -2,6 +2,7 @@ import React from "react";
 
 import "./Home.css"
 import SearchBar from "../searchbar/SearchBar";
+import GroupFinder from "../group finder/GroupFinder";
 export default function Home(){
     return (
         <div className="DnD__Home">
@@ -17,6 +18,9 @@ export default function Home(){
             </div>
 
             <SearchBar/>
+
+            <GroupFinder />
+
         </div>
     )
 }
