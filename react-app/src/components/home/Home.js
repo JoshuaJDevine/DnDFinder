@@ -5,7 +5,6 @@ import SearchBar from "../searchbar/SearchBar";
 import GroupFinder from "../group finder/GroupFinder";
 import SplashBar from "../splash bar/SplashBar";
 import BackgroundTester from "../utility/BackgroundTester";
-import GroupWrapper from "../group wrapper/GroupWrapper";
 import Footer from "../footer/Footer";
 export default function Home(){
     return (
@@ -14,11 +13,11 @@ export default function Home(){
 
             <SearchBar text={"Filter 1"}/>
             <SearchBar text={"Filter 2"}/>
-
-            <GroupFinder />
-            <GroupFinder />
-            <GroupFinder />
-
+            <div className="GroupWrapper">
+                <GroupFinder />
+                <GroupFinder />
+                <GroupFinder />
+            </div>
             <Footer/>
 
             {/*<BackgroundTester/>*/}
