@@ -32,8 +32,14 @@ def groups():
 @login_required
 @group_routes.route('/', methods=['POST'])
 def create_group():
+    print("-----------------------------------")
+    print("-----------------------------------")
+    print("api/groups/")
+
     form = CreateGroupForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    # print(form.data['name'], form.validate_on_submit())
+
     if form.validate_on_submit():
         group = Group(
             name=form.data['name'],
@@ -50,4 +56,6 @@ def create_group():
         db.session.add(group)
         db.session.commit()
         return group.to_dict()
+    # print(validation_errors_to_error_messages(form.errors))
+
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401

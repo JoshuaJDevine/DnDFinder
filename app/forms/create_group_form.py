@@ -18,12 +18,12 @@ class CreateGroupForm(FlaskForm):
                                 ('Saturday', 'Saturday'),
                                 ('Sunday', 'Sunday')
                             ])
-    startTime = TimeField('startTime', validators=[DataRequired()])
-    endTime = TimeField('endTime', validators=[DataRequired()])
+    startTime = IntegerField('startTime', validators=[DataRequired()])
+    endTime = IntegerField('endTime', validators=[DataRequired()])
     timeOfDay = SelectField('timeOfDay', validators=[DataRequired()],
                             choices=[
                                 ('AM', 'AM'),
                                 ('PM', 'PM'),
                             ])
     groupAdmin = IntegerField('groupAdmin', validators=[DataRequired()])
-    maxPartySize = NumberRange('partySize')
+    maxPartySize = IntegerField('partySize')
