@@ -4,6 +4,7 @@ import "./Home.css"
 import SearchBar from "../searchbar/SearchBar";
 import GroupFinder from "../group finder/GroupFinder";
 import SplashBar from "../splash bar/SplashBar";
+import BackgroundTester from "../utility/BackgroundTester";
 export default function Home(){
     return (
         <div className="DnD__Home">
@@ -12,6 +13,8 @@ export default function Home(){
             <SearchBar/>
 
             <GroupFinder />
+
+            <BackgroundTester/>
 
         </div>
     )

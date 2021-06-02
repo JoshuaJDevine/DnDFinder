@@ -3,6 +3,7 @@ import React from "react";
 import "./GroupFinder.css"
 import GroupCard from "../group card/GroupCard";
 
+
 export  default function GroupFinder({groupList}){
     groupList = [
         { id: 1, name: "John Doe" },

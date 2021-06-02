@@ -1,18 +1,18 @@
-.dnd__Navbar{
+.DnD__Navbar{
     background-color: var(--main-palette-light-meetupBrightWhite);
 }
-.dnd__Navbar ul{
+.DnD__Navbar ul{
     margin: 0;
     display: flex;
 }
-.dnd__Navbar--ul{
+.DnD__Navbar--ul{
     padding: 0;
     height: 7%;
     min-height: 70px;
     justify-content: center;
     align-items: center;
 }
-.dnd__Navbar--ul li{
+.DnD__Navbar--ul li{
     margin-left: 10px;
     margin-right: 10px;
     list-style-type: none;
