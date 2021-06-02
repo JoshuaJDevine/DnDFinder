@@ -1,0 +1,13 @@
+:root {
+    --main-palette-light-babyPowder: #FFFCF9;
+    --main-palette-mid-ultraRed: #ff6978;
+    --main-palette-mid-viridian: #3F826D;
+    --main-palette-mid-glaucous: #6E7DAB;
+    --main-palette-dark-blackCoffee: #352D39;
+}
+
+html, body {
+    background-color: var(--main-palette-dark-blackCoffee);
+    margin: 0;
+    height: 100%;
+}

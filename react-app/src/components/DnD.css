@@ -1,0 +1,9 @@
+.DnD{
+    background-color: var(--main-palette-dark-blackCoffee);
+    color: var(--main-palette-light-babyPowder);
+    width: 100%;
+    height: 100%;
+}
+.DnD a:visited{
+    color: var(--main-palette-mid-viridian);
+}
