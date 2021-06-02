@@ -5,3 +5,5 @@ wideScrollLarge_ https://i.imgur.com/hrPMjjS.png
 signMd_ https://i.imgur.com/IwoYq0q.png
 woodBoard_Sm_ https://i.imgur.com/SqrUFSn.png
 div_ https://i.imgur.com/THuQZ8L.png
+foorter_lg https://i.imgur.com/9Gcuc1I.png
+footer_ https://i.imgur.com/H7v8Z4M.png

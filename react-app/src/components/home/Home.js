@@ -5,6 +5,8 @@ import SearchBar from "../searchbar/SearchBar";
 import GroupFinder from "../group finder/GroupFinder";
 import SplashBar from "../splash bar/SplashBar";
 import BackgroundTester from "../utility/BackgroundTester";
+import GroupWrapper from "../group wrapper/GroupWrapper";
+import Footer from "../footer/Footer";
 export default function Home(){
     return (
         <div className="DnD__Home">
@@ -16,6 +18,8 @@ export default function Home(){
             <GroupFinder />
             <GroupFinder />
             <GroupFinder />
+
+            <Footer/>
 
             {/*<BackgroundTester/>*/}
 
