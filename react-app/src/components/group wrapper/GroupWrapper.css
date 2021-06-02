@@ -1,0 +1,9 @@
+.Dnd__GroupWrapper{
+    display: grid;
+      grid-template-columns: 1fr ;
+}
+@media (min-width: 900px) {
+  .Dnd__GroupWrapper {
+      grid-template-columns: 1fr 1fr;
+    }
+}

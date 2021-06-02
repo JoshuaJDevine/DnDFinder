@@ -9,13 +9,58 @@
     text-align: center;
     transition: all 0.2s ease-in-out, border 0.3s ease-in-out;
     justify-content: center;
+    overflow-wrap: break-word;
 }
 .DnD__GroupCard:hover{
     /*background: rgb(127, 31, 48);*/
     box-shadow: 0 8px 32px 0 rgb(255, 255, 255);
-    backdrop-filter: blur( 3px );
-    -webkit-backdrop-filter: blur( 3px );
+    backdrop-filter: blur( 2px );
+    -webkit-backdrop-filter: blur( 2px );
 }
-/*@media (min-width: 900px) {*/
-/*  .DnD__GroupFinder { grid-template-columns: repeat(2, 1fr); }*/
-/*}*/
+.DnD__GroupCard h1{
+    font-size: 3vw;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+}
+.DnD__GroupCard h2{
+    margin-top: 0;
+
+    margin-bottom: 10px;
+    font-size: 2vw;
+}
+.DnD__GroupCard h3{
+    margin-top: 10px;
+
+    margin-bottom: 10px;
+    font-size: 2vw;
+}
+.DnD__GroupCard h4{
+    margin-top: 0;
+
+    margin-bottom: 10px;
+    font-size: 1.5vw;
+}
+.DnD__GroupCard h5{
+    margin-top: 0;
+
+    margin-bottom: 10px;
+    font-size: 1.4vw;
+}
+.DnD__GroupCard img{
+    max-width: 100px;
+    margin: 0 auto;
+}
+
+
+/*To keep text in bounds*/
+@media (min-width: 900px) {
+.DnD__GroupCard h1{
+    font-size: 3vw;
+    margin-top: 20px;
+    padding-left: 80px;
+    padding-right: 80px;
+    margin-bottom: 10px;
+}
+}

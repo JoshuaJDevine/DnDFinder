@@ -13,12 +13,7 @@
     background-size: contain;
     background-repeat: no-repeat;
 }
-@media (min-width: 900px) {
-  .DnD__GroupFinder {
-        grid-template-columns: 1fr 1fr 1fr;
-    padding: 50px 50px;
-    }
-}
+
 /*@media (min-width: 1150px) {*/
 /*  .DnD__GroupFinder { grid-template-columns: repeat(3, 1fr); }*/
 /*}*/

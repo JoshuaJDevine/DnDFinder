@@ -13,7 +13,6 @@ export default function Home(){
             <SearchBar text={"Filter 1"}/>
             <SearchBar text={"Filter 2"}/>
 
-
             <GroupFinder />
             <GroupFinder />
             <GroupFinder />

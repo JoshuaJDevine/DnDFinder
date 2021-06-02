@@ -10,15 +10,14 @@
     background-size: contain;
     display: flex;
     align-items: center;
-    min-height: 80px;
     position: relative;
+    height: 8vw;
     width: 80%;
     margin: auto;
-    top: -120px;
+    top: -20px;
     /*background-color: Var(--main-palette-dark-meetupBlack);*/
     padding-left: 20px;
     justify-content: center;
-    transition: all 0.3s ease-in-out, border 0.3s ease-in-out;
 }
 @media (max-width: 900px) {
   .DnD__SearchBar {
