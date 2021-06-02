@@ -10,11 +10,10 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    group_one_id = db.Column(db.Integer, db.ForeignKey("groups.id"))
-    group_two_id = db.Column(db.Integer, db.ForeignKey("groups.id"))
-    group_three_id = db.Column(db.Integer, db.ForeignKey("groups.id"))
 
-    user = db.relationship("Group", back_populates="users")
+    group_id = db.Column(db.Integer, db.ForeignKey("groups.id"))
+
+    group = db.relationship("Group", back_populates="users")
 
     @property
     def password(self):

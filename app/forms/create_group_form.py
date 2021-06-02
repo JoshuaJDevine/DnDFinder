@@ -1,13 +1,9 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SelectField, TimeField
+from wtforms import StringField, SelectField, TimeField, IntegerField
 from wtforms.validators import DataRequired, Email, ValidationError, NumberRange
 
 
-class NumberRangeField:
-    pass
-
-
-class JoinGroupForm(FlaskForm):
+class CreateGroupForm(FlaskForm):
     name = StringField('name', validators=[DataRequired()])
     details = StringField('details', validators=[DataRequired()])
     where = StringField('where', validators=[DataRequired()])
@@ -29,4 +25,5 @@ class JoinGroupForm(FlaskForm):
                                 ('AM', 'AM'),
                                 ('PM', 'PM'),
                             ])
+    groupAdmin = IntegerField('groupAdmin', validators=[DataRequired()])
     maxPartySize = NumberRange('partySize')
