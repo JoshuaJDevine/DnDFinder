@@ -4,14 +4,21 @@
   align-items: center;
   min-height: 80px;
   position: relative;
-  top: -10px;
-  margin-left: 25%;
-  margin-right: 25%;
-  background-color: Var(--main-palette-mid-viridian);
+  width: 80%;
+  margin: auto;
+  top: -20px;
+  background-color: Var(--main-palette-dark-meetupBlack);
   padding-left: 20px;
   justify-content: space-between;
+  transition: all 0.3s ease-in-out, border 0.3s ease-in-out;
 }
+@media (max-width: 900px) {
+  .DnD__SearchBar {
+    margin: 0;
+    width: 100%;
+  }
 
+}
 .DnD__SearchBar label {
   position: relative;
   cursor: pointer;

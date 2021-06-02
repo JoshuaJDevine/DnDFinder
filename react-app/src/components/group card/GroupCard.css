@@ -6,7 +6,7 @@
 }
 .DnD__GroupCard:hover{
     background: rgb(127, 31, 48);
-    box-shadow: 0 8px 32px 0 rgb(0, 0, 0);
+    box-shadow: 0 8px 32px 0 rgb(56, 15, 15);
     backdrop-filter: blur( 3px );
     -webkit-backdrop-filter: blur( 3px );
 }

@@ -1,5 +1,5 @@
 .dnd__Navbar{
-    background-color: var(--main-palette-light-babyPowder);
+    background-color: var(--main-palette-light-meetupBrightWhite);
 }
 .dnd__Navbar ul{
     margin: 0;
@@ -8,7 +8,7 @@
 .dnd__Navbar--ul{
     padding: 0;
     height: 7%;
-    min-height: 50px;
+    min-height: 70px;
     justify-content: center;
     align-items: center;
 }

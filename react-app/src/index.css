@@ -1,13 +1,21 @@
 :root {
+    /*Coolers Palette*/
     --main-palette-light-babyPowder: #FFFCF9;
     --main-palette-mid-ultraRed: #ff6978;
     --main-palette-mid-viridian: #3F826D;
     --main-palette-mid-glaucous: #6E7DAB;
     --main-palette-dark-blackCoffee: #352D39;
+
+    /*Meetup Colors*/
+    --main-palette-light-meetupBrightWhite: #ffffff;
+    --main-palette-light-meetupAshWhite: #fafafa;
+    --main-palette-dark-meetupBlack: #0f1721;
+    --main-palette-dark-meetupBlue: #00455d;
+    --main-palette-text-light-meetupGrey: #757575;
 }
 
 html, body {
-    background-color: var(--main-palette-dark-blackCoffee);
+    background-color: var(--main-palette-light-meetupAshWhite);
     margin: 0;
     height: 100%;
 }

@@ -1,6 +1,6 @@
 .DnD{
-    background-color: var(--main-palette-dark-blackCoffee);
-    color: var(--main-palette-light-babyPowder);
+    background-color: var(--main-palette-light-meetupAshWhite);
+    color: var(--main-palette-light-meetupBrightWhite);
     width: 100%;
     height: 100%;
 }
