@@ -8,6 +8,7 @@ import UsersList from "./utility/UsersList";
 import UserView from "./utility/UserView";
 
 import "./DnD.css"
+import Home from "./home/Home";
 
 export default function DnD(){
     return(
@@ -28,7 +29,7 @@ export default function DnD(){
                     <UserView />
                 </ProtectedRoute>
                 <ProtectedRoute path="/" exact={true} >
-                    <h1>My Home Page</h1>
+                    <Home />
                 </ProtectedRoute>
             </Switch>
         </BrowserRouter>

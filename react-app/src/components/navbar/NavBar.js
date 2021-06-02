@@ -6,8 +6,8 @@ import "./NavBar.css"
 
 const NavBar = () => {
   return (
-    <nav className="dnd__navbar">
-      <ul className="dnd__navbar--ul">
+    <nav className="dnd__Navbar">
+      <ul className="dnd__Navbar--ul">
         <li>
           <NavLink to="/" exact={true} activeClassName="active">
             Home
