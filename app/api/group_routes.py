@@ -72,7 +72,7 @@ def create_group():
 
 
 @login_required
-@group_routes.route('/<int:id>', methods=['DELETE'])
+@group_routes.route('/<int:id>/', methods=['DELETE'])
 def delete_game(id):
     group_to_delete = Group.query.get(id)
     db.session.delete(group_to_delete)

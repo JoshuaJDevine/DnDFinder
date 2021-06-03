@@ -9,7 +9,6 @@ export default function DeleteGroupForm( {setShowModal, groupId} ){
         setShowModal(false);
     }
     const handleOK = async () => {
-        console.log("Trying to delete group " + groupId)
         return await dispatch(deleteMyGroup(groupId))
         .catch(async (res) => {
             const data = await res;

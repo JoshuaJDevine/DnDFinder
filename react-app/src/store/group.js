@@ -90,7 +90,7 @@ export const createNewGroup = (name,
 }
 
 export const deleteMyGroup = (id) => async (dispatch) => {
-    const response = await fetch(`/api/groups/${id}`, {
+    const response = await fetch(`/api/groups/${id}/`, {
         method: "DELETE"
     });
     if (response.ok) {
