@@ -26,8 +26,11 @@ def user(id):
 @group_routes.route('/')
 def groups():
     groups = Group.query.all()
-    return {"groups": [group.to_dict() for group in groups]}
-
+    all_groups = []
+    for group in [group.to_dict() for group in groups]:
+        all_groups.append(group)
+    # return {"groups": [group.to_dict() for group in groups]}
+    return jsonify(all_groups)
 
 @login_required
 @group_routes.route('/', methods=['POST'])

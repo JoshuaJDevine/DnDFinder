@@ -10,6 +10,8 @@ export  default function GroupFinder({groupList}){
         { id: 2, name: "Dungeon of loot", module: "Ebberon", day:"Saturday", time: "1-3PM EST ", members:3 },
     ];
 
+    console.log(groupList)
+
     return (
     <div className="DnD__GroupFinder">
         {groupList.map((group, idx) => {

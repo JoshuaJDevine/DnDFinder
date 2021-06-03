@@ -2,13 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authenticate } from "./store/session";
 import { createNewGroup, getAllGroups} from "./store/group";
-
-//DnD -----------------------------------------------------
 import DnD from "./components/DnD";
 
 function App() {
-  const user = useSelector(state => state.session.user)
-  const groups = useSelector(state => state.group.groups)
+  // const user = useSelector(state => state.session.user)
+  // const groups = useSelector(state => state.groupData.groups)
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
 
@@ -44,11 +42,11 @@ function App() {
   //--------------------------------------------------------------------------------------------------------------------
     //Test block for getAllGroups Dispatch
   //--------------------------------------------------------------------------------------------------------------------
-  // useEffect(() => {
-  //   (async () => {
-  //     await dispatch(getAllGroups());
-  //   })();
-  // }, []);
+  useEffect(() => {
+    (async () => {
+      await dispatch(getAllGroups());
+    })();
+  }, []);
 
 
   if (!loaded) {
