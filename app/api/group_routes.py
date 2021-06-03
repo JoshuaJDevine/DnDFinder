@@ -32,6 +32,7 @@ def groups():
     # return {"groups": [group.to_dict() for group in groups]}
     return jsonify(all_groups)
 
+
 @login_required
 @group_routes.route('/', methods=['POST'])
 def create_group():
@@ -58,7 +59,6 @@ def create_group():
             maxPartySize=form.data['maxPartySize'],
             timeZone=form.data['timeZone']
         )
-        print(group)
 
         db.session.add(group)
         db.session.commit()
@@ -69,3 +69,12 @@ def create_group():
     # print(validation_errors_to_error_messages(form.errors))
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@login_required
+@group_routes.route('/<int:id>', methods=['DELETE'])
+def delete_game(id):
+    group_to_delete = Group.query.get(id)
+    db.session.delete(group_to_delete)
+    db.session.commit()
+    return group_to_delete.to_dict()
