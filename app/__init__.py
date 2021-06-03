@@ -30,9 +30,9 @@ def load_user(id):
 app.cli.add_command(seed_commands)
 
 app.config.from_object(Config)
-app.register_blueprint(user_routes, url_prefix='/api/users')
-app.register_blueprint(auth_routes, url_prefix='/api/auth')
-app.register_blueprint(group_routes, url_prefix='/api/groups')
+app.register_blueprint(user_routes, url_prefix='/api/users/')
+app.register_blueprint(auth_routes, url_prefix='/api/auth/')
+app.register_blueprint(group_routes, url_prefix='/api/groups/')
 db.init_app(app)
 Migrate(app, db)
 

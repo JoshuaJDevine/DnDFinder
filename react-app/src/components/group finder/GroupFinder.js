@@ -14,7 +14,7 @@ export  default function GroupFinder({groupList}){
     <div className="DnD__GroupFinder">
         {groupList.map((group, idx) => {
               return(
-                  <GroupCard data={group} />
+                  <GroupCard key={idx} data={group} />
               )
         })
     }

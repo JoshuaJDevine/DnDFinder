@@ -33,7 +33,8 @@ const deleteGroup = (group) => ({
 
 
 export const getAllGroups = () => async (dispatch)  => {
-    const response = await fetch('/api/auth/',{
+    const response = await fetch('/api/groups/',{
+      method: "GET",
       headers: {
         'Content-Type': 'application/json'
       }
