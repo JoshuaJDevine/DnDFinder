@@ -18,14 +18,14 @@ Update the REACT_APP_BASE_URL variable in the Dockerfile. This should be the ful
 
 Push your docker container to heroku from the root directory of your project. This will build the dockerfile and push the image to your heroku container registry
 
-heroku container:push web -a whisk-project
+heroku container:push web -a dnd-finder
 Release your docker container to heroku
 
-heroku container:release web -a whisk-project
+heroku container:release web -a dnd-finder
 set up your database:
 
-heroku run -a whisk-project flask db upgrade
-heroku run -a whisk-project flask seed all
+heroku run -a dnd-finder flask db upgrade
+heroku run -a dnd-finder flask seed all
 Under Settings find "Config Vars" and add any additional/secret .env variables.
 
 profit
