@@ -4,7 +4,7 @@ import {Modal} from "./Modal";
 import "./DeleteGroupModal.css"
 import DeleteGroupForm from "./DeleteGroupForm";
 
-export default function CreateNewGroupModal(){
+export default function CreateNewGroupModal( {groupId} ){
     const [showModal, setShowModal] = useState(false);
 
     //---------------------------------------------------------
@@ -16,7 +16,7 @@ export default function CreateNewGroupModal(){
             <button onClick={() => setShowModal(true)}></button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <DeleteGroupForm setShowModal={setShowModal}/>
+                    <DeleteGroupForm groupId={groupId} setShowModal={setShowModal}/>
                 </Modal>
             )}
         </>

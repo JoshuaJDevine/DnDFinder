@@ -29,6 +29,7 @@ const updateGroup = (group) => ({
 
 const deleteGroup = (group) => ({
     type: UPDATE_GROUP,
+    payload: group
 })
 
 
@@ -84,9 +85,22 @@ export const createNewGroup = (name,
             console.log(data.errors);
             return data.errors;
          }
-    console.log(data)
     dispatch(getAllGroups())
     return {};
+}
+
+export const deleteMyGroup = (id) => async (dispatch) => {
+    const response = await fetch(`/api/groups/${id}`, {
+        method: "DELETE"
+    });
+    if (response.ok) {
+        await dispatch(deleteGroup(id));
+        dispatch(getAllGroups())
+        return response;
+    }
+    else {
+        console.log("Error deleting group" + id)
+    }
 }
 
 

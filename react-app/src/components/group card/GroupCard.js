@@ -6,12 +6,12 @@ import DeleteGroupModal from "../modals/DeleteGroupModal";
 
 export default function GroupCard({data}){
     const sessionUser = useSelector(state => state.session.user);
-
+    console.log(data)
     return(
 
         <div className="DnD__GroupCard">
             {sessionUser.id === data.groupAdmin ?
-                <DeleteGroupModal />
+                <DeleteGroupModal groupId={data.id} />
                 :
                 <>
                 </>
