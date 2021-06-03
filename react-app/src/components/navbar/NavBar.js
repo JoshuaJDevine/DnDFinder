@@ -4,40 +4,48 @@ import LogoutButton from '../auth/LogoutButton';
 
 import "./NavBar.css"
 import CreateNewGroupModal from "../modals/CreateNewGroupModal";
+import {useSelector} from "react-redux";
 
 const NavBar = () => {
-  return (
-    <nav className="DnD__Navbar">
-      <ul className="DnD__Navbar--ul">
-        <li>
-          <NavLink to="/" exact={true} activeClassName="active">
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/login" exact={true} activeClassName="active">
-            Login
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/sign-up" exact={true} activeClassName="active">
-            Sign Up
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/users" exact={true} activeClassName="active">
-            Users
-          </NavLink>
-        </li>
-        <li>
-          <LogoutButton />
-        </li>
-        <li>
-          <CreateNewGroupModal/>
-        </li>
-      </ul>
-    </nav>
-  );
+    const sessionUser = useSelector(state => state.session.user);
+
+    return (
+      <nav className="DnD__Navbar">
+        <ul className="DnD__Navbar--ul">
+          <li>
+            <NavLink to="/" exact={true} activeClassName="active">
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/login" exact={true} activeClassName="active">
+              Login
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/sign-up" exact={true} activeClassName="active">
+              Sign Up
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/users" exact={true} activeClassName="active">
+              Users
+            </NavLink>
+          </li>
+          <li>
+            <LogoutButton />
+          </li>
+          {sessionUser ?
+          <li>
+            <CreateNewGroupModal/>
+          </li>
+          :
+          <></>
+          }
+
+        </ul>
+      </nav>
+    );
 }
 
 export default NavBar;

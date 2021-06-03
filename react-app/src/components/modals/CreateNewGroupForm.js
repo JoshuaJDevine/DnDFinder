@@ -81,13 +81,13 @@ export default function CreateNewGroupForm({setShowModal}){
                 {/*DETAILS*/}
                 {/*------------------------------------------------------*/}
                 <label htmlFor='details'>
-                    Name
+                    Game Details
                 </label>
                 <textarea
                     id='details'
                     type="text"
                     value={details}
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => setDetails(e.target.value)}
                     required
                 />
 
