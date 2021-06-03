@@ -3,6 +3,7 @@ import {useSelector} from "react-redux";
 
 import "./GroupCard.css"
 import DeleteGroupModal from "../modals/DeleteGroupModal";
+import EditGroupModal from "../modals/EditGroupModal";
 
 export default function GroupCard({data}){
     const sessionUser = useSelector(state => state.session.user);
@@ -10,7 +11,10 @@ export default function GroupCard({data}){
 
         <div className="DnD__GroupCard">
             {sessionUser.id === data.groupAdmin ?
-                <DeleteGroupModal groupId={data.id} />
+                <>
+                    <DeleteGroupModal groupId={data.id} />
+                    <EditGroupModal group={data} />
+                </>
                 :
                 <>
                 </>

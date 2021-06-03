@@ -12,8 +12,7 @@ export default function CreateNewGroupModal( {groupId} ){
     //Since this is a child of DnD__GroupCard the style will be in GroupCard.css
     return (
         <>
-
-            <button onClick={() => setShowModal(true)}></button>
+            <button id="DnD__DeleteGroupForm--DeleteButton" onClick={() => setShowModal(true)}></button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <DeleteGroupForm groupId={groupId} setShowModal={setShowModal}/>

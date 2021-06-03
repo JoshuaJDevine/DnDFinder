@@ -103,6 +103,47 @@ export const deleteMyGroup = (id) => async (dispatch) => {
     }
 }
 
+export const updateMyGroup =  (id,
+                               name,
+                               details,
+                               where,
+                               module,
+                               dayOfWeek,
+                               startTime,
+                               endTime,
+                               timeOfDay,
+                               groupAdmin,
+                               maxPartySize,
+                               timeZone,
+                               ) => async (dispatch)  => {
+    const response = await fetch(`/api/groups/${id}/`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            name,
+            details,
+            where,
+            module,
+            dayOfWeek,
+            startTime,
+            endTime,
+            timeOfDay,
+            groupAdmin,
+            maxPartySize,
+            timeZone
+            }),
+        });
+        const data = await response.json();
+        if (data.errors) {
+            console.log("Received the following errors");
+            console.log(data.errors);
+            return data.errors;
+         }
+    dispatch(getAllGroups())
+    return {};
+}
 
 
 

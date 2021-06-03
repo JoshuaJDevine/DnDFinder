@@ -36,10 +36,6 @@ def groups():
 @login_required
 @group_routes.route('/', methods=['POST'])
 def create_group():
-    print("-----------------------------------")
-    print("-----------------------------------")
-    print("api/groups/")
-
     form = CreateGroupForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     print(form.data['name'], form.validate_on_submit())
@@ -69,6 +65,47 @@ def create_group():
     # print(validation_errors_to_error_messages(form.errors))
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+
+@login_required
+@group_routes.route('/<int:id>/', methods=['PUT'])
+def update_group(id):
+    form = CreateGroupForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        group = Group(
+            name=form.data['name'],
+            details=form.data['details'],
+            where=form.data['where'],
+            module=form.data['module'],
+            dayOfWeek=form.data['dayOfWeek'],
+            startTime=form.data['startTime'],
+            endTime=form.data['endTime'],
+            timeOfDay=form.data['timeOfDay'],
+            groupAdmin=form.data['groupAdmin'],
+            maxPartySize=form.data['maxPartySize'],
+            timeZone=form.data['timeZone']
+        )
+
+        group_to_update = Group.query.get(id)
+        group_to_update.name = form.data['name'],
+        group_to_update.details = form.data['details'],
+        group_to_update.where = form.data['where'],
+        group_to_update.module = form.data['module'],
+        group_to_update.dayOfWeek = form.data['dayOfWeek'],
+        group_to_update.startTime = form.data['startTime'],
+        group_to_update.endTime = form.data['endTime'],
+        group_to_update.timeOfDay = form.data['timeOfDay'],
+        group_to_update.groupAdmin = form.data['groupAdmin'],
+        group_to_update.maxPartySize = form.data['maxPartySize'],
+        group_to_update.timeZone = form.data['timeZone']
+
+        db.session.commit()
+
+        return jsonify(group_to_update)
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
 
 
 @login_required
