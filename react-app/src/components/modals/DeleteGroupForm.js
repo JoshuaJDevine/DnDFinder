@@ -26,7 +26,7 @@ export default function DeleteGroupForm( {setShowModal, groupId} ){
             <p>Are you sure you want to delete you group?</p>
             <p>This cannot be undone.</p>
             <button onClick={handleCancel}>Cancel</button>
-            <button onClick={handleOK}>Cancel</button>
+            <button onClick={handleOK}>Delete</button>
         </div>
     )
 }

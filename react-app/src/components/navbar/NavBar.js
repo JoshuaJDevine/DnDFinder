@@ -5,6 +5,7 @@ import LogoutButton from '../auth/LogoutButton';
 import "./NavBar.css"
 import CreateNewGroupModal from "../modals/CreateNewGroupModal";
 import {useSelector} from "react-redux";
+import DemoUserModal from "../modals/DemoUserModal";
 
 const NavBar = () => {
     const sessionUser = useSelector(state => state.session.user);
@@ -27,6 +28,14 @@ const NavBar = () => {
               <NavLink to="/login" exact={true} activeClassName="active">
                 Login
               </NavLink>
+              :
+              <>
+              </>
+            }
+          </li>
+          <li>
+            {!sessionUser ?
+              <DemoUserModal/>
               :
               <>
               </>
