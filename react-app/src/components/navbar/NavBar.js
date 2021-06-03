@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 
 import "./NavBar.css"
+import CreateNewGroupModal from "../modals/CreateNewGroupModal";
 
 const NavBar = () => {
   return (
@@ -30,6 +31,9 @@ const NavBar = () => {
         </li>
         <li>
           <LogoutButton />
+        </li>
+        <li>
+          <CreateNewGroupModal/>
         </li>
       </ul>
     </nav>

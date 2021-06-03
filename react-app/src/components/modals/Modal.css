@@ -1,0 +1,63 @@
+#modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+
+}
+#modal-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2) linear-gradient(10deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.4));
+}
+#modal-background-more {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7) linear-gradient(167deg, rgba(210, 108, 29, 0.2), rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0.2));
+}
+#modal-content {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 0 auto;
+    padding: 0 1.5rem 2rem;
+    color: #fafafa;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    box-shadow: inset 0 -1rem 1rem rgba(255, 255, 255, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0.3rem 0.2rem 3rem rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+}
+#modal Button {
+    font-family:'Montserrat', sans-serif;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 2;
+    font-size: 12px;
+    background-color : transparent;
+    border-top: 0;
+    border-bottom: 0;
+    transition: all .33s ease;
+    color: var(--main-palette-dark-meetupBlack);
+    border-right: 1px solid var(--main-palette-dark-meetupBlack);
+    border-left: 1px solid var(--main-palette-dark-meetupBlack);
+}
+#modal Button:Hover{
+    background-color: var(--main-palette-dark-meetupBlack);
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {createNewGroup} from "../../store/group";
 import {useDispatch, useSelector} from "react-redux";
 
@@ -86,7 +86,7 @@ export default function CreateNewGroupForm({setShowModal}){
                 <textarea
                     id='details'
                     type="text"
-                    value={detail}
+                    value={details}
                     onChange={(e) => setName(e.target.value)}
                     required
                 />
