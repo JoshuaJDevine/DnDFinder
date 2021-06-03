@@ -19,23 +19,27 @@ function App() {
     })();
   }, []);
 
-  useEffect(() => {
 
-    (async () => {
-      await dispatch(createNewGroup(
-          "20 Week Campaign",
-          "Experienced player LFG",
-          "Roll20",
-          "Homebrew",
-          "Saturday",
-          1,
-          3,
-          "AM",
-          1,
-          5
-          ));
-    })();
-  }, []);
+  //---------------------------------------
+  //Test block for createNewGroup Dispatch
+  // useEffect(() => {
+  //   (async () => {
+  //     await dispatch(createNewGroup(
+  //         "My Campaign",
+  //         "New players Welcome",
+  //         "DnD Beyond",
+  //         "Ebberon",
+  //         "Monday",
+  //         3,
+  //         5,
+  //         "PM",
+  //         1,
+  //         4
+  //         ));
+  //   })();
+  // }, []);
+  //---------------------------------------
+
 
   if (!loaded) {
     return null;
