@@ -4,20 +4,24 @@ import "./GroupFinder.css"
 import GroupCard from "../group card/GroupCard";
 
 
-export  default function GroupFinder({groupList}){
-    groupList = [
-        { id: 1, name: "Friendly Campaign", module: "Mines of Phandelver", day:"Monday", time: "7-12PM PDT", members:3 },
-        { id: 2, name: "Dungeon of loot", module: "Ebberon", day:"Saturday", time: "1-3PM EST ", members:3 },
-    ];
-
+export default function GroupFinder({groupList, myIdx, single}){
     return (
     <div className="DnD__GroupFinder">
         {groupList.map((group, idx) => {
-              return(
-                  <GroupCard data={group} />
-              )
-        })
-    }
+            if (idx % 2 !== 0 && myIdx+1 === idx) {
+                return(
+                    <>
+                    <GroupCard key={idx} data={groupList[idx-1]} />
+                    <GroupCard key={idx+12} data={groupList[idx]} />
+                    </>
+                )
+            }
+            else if (groupList.length % 2 !== 0 && idx+1 === groupList.length && single){
+                return(
+                    <GroupCard key={idx+200} data={groupList[idx]} />
+                )
+            }
+        })}
     </div>
     );
 }
