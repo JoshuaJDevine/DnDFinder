@@ -21,23 +21,23 @@ function App() {
   //--------------------------------------------------------------------------------------------------------------------
     //Test block for createNewGroup Dispatch
   //--------------------------------------------------------------------------------------------------------------------
-  useEffect(() => {
-    (async () => {
-      await dispatch(createNewGroup(
-          "My Campaign",
-          "New players Welcome",
-          "DnD Beyond",
-          "Ebberon",
-          "Monday",
-          3,
-          5,
-          "PM",
-          1,
-          4,
-          "PDT",
-          ));
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     await dispatch(createNewGroup(
+  //         "101112!",
+  //         "New players Welcome forever and forever ",
+  //         "DnD Beyond",
+  //         "Tomb of Loot",
+  //         "Saaturday",
+  //         1,
+  //         3,
+  //         "PM",
+  //         1,
+  //         3,
+  //         "EST",
+  //         ));
+  //   })();
+  // }, []);
 
 
   //--------------------------------------------------------------------------------------------------------------------
