@@ -14,7 +14,6 @@ function UserView() {
     (async () => {
       const response = await fetch(`/api/users/${userId}/`);
       const user = await response.json();
-      console.log(user)
       setUser(user);
     })();
   }, [userId]);

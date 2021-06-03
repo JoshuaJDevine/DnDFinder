@@ -61,7 +61,6 @@ export default function CreateNewGroupForm({setShowModal}){
             setErrors(newErrors);
         }
         if (maxPartySize < 3 || maxPartySize > 8){
-            console.log("set Errors");
             newErrors.push("Currently support for party size is between 3-8 players.")
             setErrors(newErrors);
         }
