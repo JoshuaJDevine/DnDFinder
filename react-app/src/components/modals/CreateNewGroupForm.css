@@ -1,0 +1,15 @@
+.DnD__CreateNewGroupForm{
+}
+
+.DnD__CreateNewGroupForm form  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.DnD__CreateNewGroupForm form button {
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+}

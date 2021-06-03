@@ -29,6 +29,7 @@ const updateGroup = (group) => ({
 
 const deleteGroup = (group) => ({
     type: UPDATE_GROUP,
+    payload: group
 })
 
 
@@ -80,13 +81,69 @@ export const createNewGroup = (name,
         });
         const data = await response.json();
         if (data.errors) {
-        return data;
+            console.log("Received the following errors");
+            console.log(data.errors);
+            return data.errors;
          }
-
-    dispatch(createGroup(data))
+    dispatch(getAllGroups())
     return {};
 }
 
+export const deleteMyGroup = (id) => async (dispatch) => {
+    const response = await fetch(`/api/groups/${id}/`, {
+        method: "DELETE"
+    });
+    if (response.ok) {
+        await dispatch(deleteGroup(id));
+        await dispatch(getAllGroups())
+        return response;
+    }
+    else {
+        console.log("Error deleting group" + id)
+    }
+}
+
+export const updateMyGroup =  (id,
+                               name,
+                               details,
+                               where,
+                               module,
+                               dayOfWeek,
+                               startTime,
+                               endTime,
+                               timeOfDay,
+                               groupAdmin,
+                               maxPartySize,
+                               timeZone,
+                               ) => async (dispatch)  => {
+    const response = await fetch(`/api/groups/${id}/`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            name,
+            details,
+            where,
+            module,
+            dayOfWeek,
+            startTime,
+            endTime,
+            timeOfDay,
+            groupAdmin,
+            maxPartySize,
+            timeZone
+            }),
+        });
+        const data = await response.json();
+        if (data.errors) {
+            console.log("Received the following errors");
+            console.log(data.errors);
+            return data.errors;
+         }
+    await dispatch(getAllGroups())
+    return {};
+}
 
 
 

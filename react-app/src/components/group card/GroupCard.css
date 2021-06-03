@@ -52,8 +52,46 @@
     max-width: 100px;
     margin: 0 auto;
 }
-
-
+#DnD__DeleteGroupForm--DeleteButton{
+    width: 50px;
+    height: 50px;
+    background: url("https://i.imgur.com/qNKwgWP.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    top: -10%;
+    left: 70%;
+    border: 1px solid rgba(139, 0, 0, 0);
+    border-radius: 50px;
+    box-shadow: none;
+    transition: border 0.1s ease-in-out,  box-shadow 0.1s ease-in-out;
+}
+#DnD__DeleteGroupForm--DeleteButton:hover {
+    border: 1px solid darkred;
+    border-radius: 50px;
+    box-shadow: 5px 5px 15px 5px #000000;
+}
+#DnD__DeleteGroupForm--EditButton{
+    width: 50px;
+    height: 50px;
+    background: url("https://i.imgur.com/skiZWic.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    top: -10%;
+    left: 70%;
+    border: 1px solid rgba(139, 0, 0, 0);
+    border-radius: 50px;
+    box-shadow: none;
+    transition: border 0.1s ease-in-out,  box-shadow 0.1s ease-in-out;
+}
+#DnD__DeleteGroupForm--EditButton:hover{
+    border: 1px solid darkred;
+    border-radius: 50px;
+    box-shadow: 5px 5px 15px 5px #000000;
+}
 /*To keep text in bounds*/
 @media (min-width: 900px) {
 .DnD__GroupCard h1{

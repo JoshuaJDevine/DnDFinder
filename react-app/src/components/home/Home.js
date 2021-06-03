@@ -37,7 +37,7 @@ export default function Home(){
 
             <div className="DnD__Home">
 
-                <SplashBar numberOfGroups={groups.length} />
+                <SplashBar numberOfGroups={groups?.length > 0 ? groups.length : 0} />
 
                 <SearchBar text={"Filter 1"}/>
                 <SearchBar text={"Filter 2"}/>
@@ -49,6 +49,7 @@ export default function Home(){
                 {/*   //GroupFinder does more work to determine if it is the last in an uneven pair.*/}
                 {/*   //Refactor later. No way this will ever cause unexpected behaviour.*/}
                 {/*//------------------------------------------------------------------------------------------------*/}
+                {groups?
                 <div className="GroupWrapper">
                     {groups.map((group, idx) => {
                         if (idx % 2 === 0){
@@ -58,6 +59,10 @@ export default function Home(){
                         }
                     })}
                 </div>
+                    :
+                <p>Unable to load groups</p>
+                }
+
 
                 <Footer/>
 

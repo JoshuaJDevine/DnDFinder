@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { authenticate } from "./store/session";
 import { createNewGroup, getAllGroups} from "./store/group";
 import DnD from "./components/DnD";
+import {ModalProvider} from "./components/modals/Modal";
 
 function App() {
   // const user = useSelector(state => state.session.user)
@@ -55,7 +56,9 @@ function App() {
   }
 
   return (
-    <DnD/>
+      <ModalProvider>
+        <DnD/>
+      </ModalProvider>
   );
 }
 
