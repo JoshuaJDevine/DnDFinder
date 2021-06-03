@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {createNewGroup} from "../../store/group";
 import {useDispatch, useSelector} from "react-redux";
 
@@ -27,19 +27,45 @@ export default function CreateNewGroupForm({setShowModal}){
     const handleSubmit = async (e) => {
         e.preventDefault();
         setErrors([]);
-        //Add more validation errors
-        if (name.length > 40) {
-            let newErrors = errors;
-            newErrors.push("Playlist name should be 40 characters or less.")
+        let newErrors = [];
+        if (name.length > 100) {
+            newErrors.push("Name should be 100 characters or less.")
+            setErrors(newErrors);
+        }
+        if (details.length > 500){
+            newErrors.push("Details should be 500 characters or less.")
+            setErrors(newErrors);
+        }
+        if (module.length <=0){
+            newErrors.push("Please select a module.")
+            setErrors(newErrors);
+        }
+        if (dayOfWeek.length <=0){
+            newErrors.push("Please select a day of the week.")
+            setErrors(newErrors);
+        }
+        if (startTime.length <=0){
+            newErrors.push("Please select a start time.")
+            setErrors(newErrors);
+        }
+        if (endTime.length <=0){
+            newErrors.push("Please select an end time.")
+            setErrors(newErrors);
+        }
+        if (timeOfDay.length <=0){
+            newErrors.push("Please select an time of day.")
+            setErrors(newErrors);
+        }
+        if (timeZone.length <=0){
+            newErrors.push("Please input a timezone.")
             setErrors(newErrors);
         }
         if (maxPartySize > 8 || maxPartySize < 3){
-            let newErrors = errors;
             newErrors.push("Currently support for party size is between 3-8 players.")
             setErrors(newErrors);
         }
-        else {
-            await dispatch(createNewGroup(
+
+        return await dispatch(createNewGroup(
           name,
           details,
           where,
@@ -51,17 +77,28 @@ export default function CreateNewGroupForm({setShowModal}){
           groupAdmin,
           maxPartySize,
           timeZone,
-          ));
-            setShowModal(false);
-        }
+          ))
+        .then(setShowModal(false))
+        .catch(async (res) => {
+            const data = await res;
+            if (data && data.errors){
+                setErrors(data.errors);
+            }
+        });
     }
 
     return (
         <div className='DnD__CreateNewGroupForm'>
             <form onSubmit={handleSubmit}>
-                <div className='DnD_Errors'>
-                    {errors.map((error, idx) => <p key={idx}>{error}</p>)}
-                </div>
+                {errors.length > 0 ?
+                    <div className='DnD_Errors'>
+                        {errors.map((error, idx) => <p key={idx}>{error}</p>)}
+                    </div>
+                    :
+                    <>
+                    </>
+                }
+
 
                 {/*------------------------------------------------------*/}
                 {/*NAME*/}

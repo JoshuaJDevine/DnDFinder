@@ -80,10 +80,12 @@ export const createNewGroup = (name,
         });
         const data = await response.json();
         if (data.errors) {
-        return data;
+            console.log("Received the following errors");
+            console.log(data.errors);
+            return data.errors;
          }
-
-    dispatch(createGroup(data))
+    console.log(data)
+    dispatch(getAllGroups())
     return {};
 }
 
