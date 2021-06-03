@@ -78,13 +78,13 @@ export default function CreateNewGroupForm({setShowModal}){
           maxPartySize,
           timeZone,
           ))
-        .then(setShowModal(false))
         .catch(async (res) => {
             const data = await res;
             if (data && data.errors){
                 setErrors(data.errors);
             }
         });
+
     }
 
     return (
