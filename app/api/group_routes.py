@@ -41,7 +41,8 @@ def create_group():
 
     form = CreateGroupForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    # print(form.data['name'], form.validate_on_submit())
+    print(form.data['name'], form.validate_on_submit())
+    print(form.data['timeZone'], form.validate_on_submit())
 
     if form.validate_on_submit():
         group = Group(
@@ -53,12 +54,18 @@ def create_group():
             startTime=form.data['startTime'],
             endTime=form.data['endTime'],
             timeOfDay=form.data['timeOfDay'],
-            maxPartySize=form.data['maxPartySize'],
             groupAdmin=form.data['groupAdmin'],
+            maxPartySize=form.data['maxPartySize'],
+            timeZone=form.data['timeZone']
         )
+        print(group)
+
         db.session.add(group)
         db.session.commit()
-        return group.to_dict()
+
+        new_group = []
+        new_group.append(group.to_dict())
+        return jsonify(new_group)
     # print(validation_errors_to_error_messages(form.errors))
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401

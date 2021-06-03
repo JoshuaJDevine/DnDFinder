@@ -5,16 +5,17 @@ class Group(db.Model):
     __tablename__ = 'groups'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False, unique=True)
-    details = db.Column(db.String(500), nullable=False, unique=True)
-    where = db.Column(db.String(100), nullable=False, unique=True)
-    module = db.Column(db.String(100), nullable=False, unique=True)
-    dayOfWeek = db.Column(db.String(100), nullable=False, unique=True)
-    startTime = db.Column(db.String(100), nullable=False, unique=True)
-    endTime = db.Column(db.String(100), nullable=False, unique=True)
-    timeOfDay = db.Column(db.String(100), nullable=False, unique=True)
+    name = db.Column(db.String(100), nullable=False)
+    details = db.Column(db.String(500), nullable=False)
+    where = db.Column(db.String(100), nullable=False)
+    module = db.Column(db.String(100), nullable=False)
+    dayOfWeek = db.Column(db.String(100), nullable=False)
+    startTime = db.Column(db.String(100), nullable=False)
+    endTime = db.Column(db.String(100), nullable=False)
+    timeOfDay = db.Column(db.String(100), nullable=False)
     maxPartySize = db.Column(db.Integer, nullable=False)
     groupAdmin = db.Column(db.Integer, nullable=False)
+    timeZone = db.Column(db.String(100), nullable=False)
     users = db.relationship("User", back_populates="group")
 
     def to_dict(self):
@@ -30,5 +31,6 @@ class Group(db.Model):
             "timeOfDay": self.timeOfDay,
             "maxPartySize": self.maxPartySize,
             "groupAdmin": self.groupAdmin,
+            "timeZone": self.timeZone,
             "users": self.users,
-            }
+        }

@@ -56,7 +56,9 @@ export const createNewGroup = (name,
                                endTime,
                                timeOfDay,
                                groupAdmin,
-                               maxPartySize) => async (dispatch)  => {
+                               maxPartySize,
+                               timeZone,
+                               ) => async (dispatch)  => {
     const response = await fetch("/api/groups/", {
         method: "POST",
         headers: {
@@ -72,7 +74,8 @@ export const createNewGroup = (name,
             endTime,
             timeOfDay,
             groupAdmin,
-            maxPartySize
+            maxPartySize,
+            timeZone
             }),
         });
         const data = await response.json();

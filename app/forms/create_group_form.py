@@ -8,22 +8,10 @@ class CreateGroupForm(FlaskForm):
     details = StringField('details', validators=[DataRequired()])
     where = StringField('where', validators=[DataRequired()])
     module = StringField('module', validators=[DataRequired()])
-    dayOfWeek = SelectField('dayOfWeek', validators=[DataRequired()],
-                            choices=[
-                                ('Monday', 'Monday'),
-                                ('Tuesday', 'Tuesday'),
-                                ('Wednesday', 'Wednesday'),
-                                ('Thursday', 'Thursday'),
-                                ('Friday', 'Friday'),
-                                ('Saturday', 'Saturday'),
-                                ('Sunday', 'Sunday')
-                            ])
+    dayOfWeek = StringField('dayOfWeek', validators=[DataRequired()])
     startTime = IntegerField('startTime', validators=[DataRequired()])
     endTime = IntegerField('endTime', validators=[DataRequired()])
-    timeOfDay = SelectField('timeOfDay', validators=[DataRequired()],
-                            choices=[
-                                ('AM', 'AM'),
-                                ('PM', 'PM'),
-                            ])
+    timeOfDay = StringField('timeOfDay', validators=[DataRequired()])
     groupAdmin = IntegerField('groupAdmin', validators=[DataRequired()])
-    maxPartySize = IntegerField('partySize')
+    maxPartySize = IntegerField('partySize', validators=[DataRequired()])
+    timeZone = StringField('timeZone', validators=[DataRequired()])

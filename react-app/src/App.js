@@ -21,32 +21,33 @@ function App() {
   //--------------------------------------------------------------------------------------------------------------------
     //Test block for createNewGroup Dispatch
   //--------------------------------------------------------------------------------------------------------------------
-  // useEffect(() => {
-  //   (async () => {
-  //     await dispatch(createNewGroup(
-  //         "My Campaign",
-  //         "New players Welcome",
-  //         "DnD Beyond",
-  //         "Ebberon",
-  //         "Monday",
-  //         3,
-  //         5,
-  //         "PM",
-  //         1,
-  //         4
-  //         ));
-  //   })();
-  // }, []);
+  useEffect(() => {
+    (async () => {
+      await dispatch(createNewGroup(
+          "My Campaign",
+          "New players Welcome",
+          "DnD Beyond",
+          "Ebberon",
+          "Monday",
+          3,
+          5,
+          "PM",
+          1,
+          4,
+          "PDT",
+          ));
+    })();
+  }, []);
 
 
   //--------------------------------------------------------------------------------------------------------------------
     //Test block for getAllGroups Dispatch
   //--------------------------------------------------------------------------------------------------------------------
-  useEffect(() => {
-    (async () => {
-      await dispatch(getAllGroups());
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     await dispatch(getAllGroups());
+  //   })();
+  // }, []);
 
 
   if (!loaded) {
