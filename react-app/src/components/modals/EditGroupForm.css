@@ -1,0 +1,15 @@
+.DnD__UpdateGroupForm{
+}
+
+.DnD__UpdateGroupForm form  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.DnD__UpdateGroupForm form button {
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+}

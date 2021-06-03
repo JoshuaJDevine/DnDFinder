@@ -1,6 +1,11 @@
 .DnD__DemoUserForm{
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.DnD__DemoUserForm p{
-    text-align: center;
+
+.DnD__DemoUserForm button {
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
 }

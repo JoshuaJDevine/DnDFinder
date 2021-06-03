@@ -60,12 +60,13 @@ export default function CreateNewGroupForm({setShowModal}){
             newErrors.push("Please input a timezone.")
             setErrors(newErrors);
         }
-        if (maxPartySize > 8 || maxPartySize < 3){
+        if (maxPartySize < 3 || maxPartySize > 8){
+            console.log("set Errors");
             newErrors.push("Currently support for party size is between 3-8 players.")
             setErrors(newErrors);
         }
 
-        if (errors.length <= 0) {
+        if (newErrors.length <= 0) {
             setShowModal(false)
             return await dispatch(createNewGroup(
                 name,
