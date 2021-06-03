@@ -103,7 +103,9 @@ def update_group(id):
 
         db.session.commit()
 
-        return jsonify(group_to_update)
+        updated_group = []
+        updated_group.append(group_to_update.to_dict())
+        return jsonify(updated_group)
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 

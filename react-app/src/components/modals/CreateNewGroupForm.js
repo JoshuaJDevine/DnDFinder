@@ -65,25 +65,28 @@ export default function CreateNewGroupForm({setShowModal}){
             setErrors(newErrors);
         }
 
-        return await dispatch(createNewGroup(
-          name,
-          details,
-          where,
-          module,
-          dayOfWeek,
-          startTime,
-          endTime,
-          timeOfDay,
-          groupAdmin,
-          maxPartySize,
-          timeZone,
-          ))
-        .catch(async (res) => {
-            const data = await res;
-            if (data && data.errors){
-                setErrors(data.errors);
-            }
-        });
+        if (errors.length <= 0) {
+            setShowModal(false)
+            return await dispatch(createNewGroup(
+                name,
+                details,
+                where,
+                module,
+                dayOfWeek,
+                startTime,
+                endTime,
+                timeOfDay,
+                groupAdmin,
+                maxPartySize,
+                timeZone,
+            ))
+                .catch(async (res) => {
+                    const data = await res;
+                    if (data && data.errors) {
+                        setErrors(data.errors);
+                    }
+                });
+        }
 
     }
 

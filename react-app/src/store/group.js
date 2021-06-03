@@ -95,7 +95,7 @@ export const deleteMyGroup = (id) => async (dispatch) => {
     });
     if (response.ok) {
         await dispatch(deleteGroup(id));
-        dispatch(getAllGroups())
+        await dispatch(getAllGroups())
         return response;
     }
     else {
@@ -141,7 +141,7 @@ export const updateMyGroup =  (id,
             console.log(data.errors);
             return data.errors;
          }
-    dispatch(getAllGroups())
+    await dispatch(getAllGroups())
     return {};
 }
 

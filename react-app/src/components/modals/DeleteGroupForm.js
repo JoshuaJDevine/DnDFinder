@@ -9,6 +9,7 @@ export default function DeleteGroupForm( {setShowModal, groupId} ){
         setShowModal(false);
     }
     const handleOK = async () => {
+        setShowModal(false);
         return await dispatch(deleteMyGroup(groupId))
         .catch(async (res) => {
             const data = await res;

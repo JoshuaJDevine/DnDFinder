@@ -65,27 +65,29 @@ export default function EditGroupForm( {setShowModal, group} ){
             setErrors(newErrors);
         }
 
-        return await dispatch(updateMyGroup(
-        group.id,
-          name,
-          details,
-          where,
-          module,
-          dayOfWeek,
-          startTime,
-          endTime,
-          timeOfDay,
-          groupAdmin,
-          maxPartySize,
-          timeZone,
-          ))
-        .catch(async (res) => {
-            const data = await res;
-            if (data && data.errors){
-                setErrors(data.errors);
-            }
-        });
-
+        if (errors.length <= 0) {
+            setShowModal(false)
+            return await dispatch(updateMyGroup(
+                group.id,
+                name,
+                details,
+                where,
+                module,
+                dayOfWeek,
+                startTime,
+                endTime,
+                timeOfDay,
+                groupAdmin,
+                maxPartySize,
+                timeZone,
+            ))
+                .catch(async (res) => {
+                    const data = await res;
+                    if (data && data.errors) {
+                        setErrors(data.errors);
+                    }
+                });
+        }
     }
 
     return (
