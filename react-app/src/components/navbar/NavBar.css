@@ -1,5 +1,6 @@
 .DnD__Navbar{
-    background-color: rgb(87, 87, 87);
+    background-color: rgb(92, 92, 92);
+    height: 70px;
     position: fixed;
     top: 0;
     width: 100%;
@@ -32,7 +33,11 @@
 
 }
 
-/*Inspired by codepen from Felix Rilling*/
+
+
+
+
+/*Glow animation inspired by codepen from Felix Rilling*/
 /*https://codepen.io/FelixRilling/pen/qzfoc*/
 .glow {
   text-align: center;
@@ -48,31 +53,11 @@
 }
 
 .glow button:hover {
-  -webkit-animation: neon5 1.5s ease-in-out infinite alternate;
-  -moz-animation: neon5 1.5s ease-in-out infinite alternate;
   animation: neon5 1.5s ease-in-out infinite alternate;
 }
 
 .glow a:hover {
   color: #ffffff;
-}
-
-@-webkit-keyframes neon5 {
-  from {
-    text-shadow: 0 0 10px #e7e7e7, 0 0 20px #d7d7d7, 0 0 30px #d4d4d4, 0 0 40px #FF9900, 0 0 70px #FF9900, 0 0 80px #FF9900, 0 0 100px #FF9900, 0 0 150px #FF9900;
-  }
-  to {
-    text-shadow: 0 0 5px #e7e7e7, 0 0 10px #d7d7d7, 0 0 15px #d4d4d4, 0 0 20px #FF9900, 0 0 35px #FF9900, 0 0 40px #FF9900, 0 0 50px #FF9900, 0 0 75px #FF9900;
-  }
-}
-
-@-moz-keyframes neon5 {
-  from {
-    text-shadow: 0 0 10px #e7e7e7, 0 0 20px #d7d7d7, 0 0 30px #d4d4d4, 0 0 40px #FF9900, 0 0 70px #FF9900, 0 0 80px #FF9900, 0 0 100px #FF9900, 0 0 150px #FF9900;
-  }
-  to {
-    text-shadow: 0 0 5px #e7e7e7, 0 0 10px #d7d7d7, 0 0 15px #d4d4d4, 0 0 20px #FF9900, 0 0 35px #FF9900, 0 0 40px #FF9900, 0 0 50px #FF9900, 0 0 75px #FF9900;
-  }
 }
 
 @keyframes neon5 {
