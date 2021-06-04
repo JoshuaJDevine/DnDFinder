@@ -25,8 +25,11 @@ export default function DeleteGroupForm( {setShowModal, groupId} ){
         <div className="DnD__DeleteGroupForm">
             <p>Are you sure you want to delete you group?</p>
             <p>This cannot be undone.</p>
-            <button onClick={handleCancel}>Cancel</button>
-            <button onClick={handleOK}>Delete</button>
+            <div className="DnD__DeleteGroupForm--ButtonWrapper">
+                <button onClick={handleCancel}>Cancel</button>
+                <button onClick={handleOK}>Delete</button>
+            </div>
+
         </div>
     )
 }

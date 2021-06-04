@@ -1,6 +1,6 @@
 .DnD__GroupCard{
-    /*background-color: var(--main-palette-mid-ultraRed);*/
-    background-image: url("https://i.imgur.com/8qHiKh0.png");
+    /* background-color: var(--main-palette-mid-ultraRed); */
+    background-image: url(https://i.imgur.com/RNu8Bqu.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -8,60 +8,137 @@
     flex-direction: column;
     text-align: center;
     transition: all 0.2s ease-in-out, border 0.3s ease-in-out;
-    justify-content: center;
+    justify-content: flex-start;
     overflow-wrap: break-word;
+    margin-top: 10%;
 }
 .DnD__GroupCard:hover{
     /*background: rgb(127, 31, 48);*/
-    box-shadow: 0 8px 32px 0 rgb(255, 255, 255);
-    backdrop-filter: blur( 2px );
-    -webkit-backdrop-filter: blur( 2px );
+    /*box-shadow: 0 8px 32px 0 rgba(241, 190, 190, 0.69);*/
+    /*backdrop-filter: blur( 1.5px );*/
+    /*-webkit-backdrop-filter: blur( 2px );*/
 }
 .DnD__GroupCard h1{
-    font-size: 3vw;
-    margin-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-bottom: 10px;
+    font-size: 1.6vw;
+    margin-top: 87%;
+    margin-bottom: 0;
+    padding-left: 16%;
+    padding-right: 16%;
+    /*margin-top: 20px;*/
+    /*padding-left: 20px;*/
+    /*padding-right: 20px;*/
+    /*margin-bottom: 10px;*/
 }
 .DnD__GroupCard h2{
-    margin-top: 0;
-
-    margin-bottom: 10px;
-    font-size: 2vw;
+    margin: 0;
+    padding-left: 16%;
+    padding-right: 16%;
+    /*margin-top: 0;*/
+    /*margin-bottom: 10px;*/
+    font-size: 1.6vw;
 }
 .DnD__GroupCard h3{
-    margin-top: 10px;
-
-    margin-bottom: 10px;
-    font-size: 2vw;
+    margin: 0;
+    padding-left: 16%;
+    padding-right: 16%;
+    /*margin-top: 10px;*/
+    /*margin-bottom: 10px;*/
+    font-size: 1.6vw;
 }
 .DnD__GroupCard h4{
-    margin-top: 0;
-
-    margin-bottom: 10px;
-    font-size: 1.5vw;
+    margin: 0;
+    padding-left: 16%;
+    padding-right: 16%;
+    /*margin-top: 0;*/
+    /*margin-bottom: 10px;*/
+    font-size: 1.4vw;
 }
 .DnD__GroupCard h5{
-    margin-top: 0;
-
-    margin-bottom: 10px;
-    font-size: 1.4vw;
+    margin: 0;
+    padding-left: 16%;
+    padding-right: 16%;
+    /*margin-top: 0;*/
+    /*margin-bottom: 10px;*/
+    font-size: 1.2vw;
+}
+.DnD__GroupCard--Buttons{
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    margin-right: 30%;
+    margin-left: 30%;
+    align-items: center;
+}
+@media (max-width: 1200px) {
+    .DnD__GroupCard h1{
+        font-size: 1.6vw;
+        margin-top: 37%;
+        margin-bottom: 0;
+        padding-left: 16%;
+        padding-right: 16%;
+        /*margin-top: 20px;*/
+        /*padding-left: 20px;*/
+        /*padding-right: 20px;*/
+        /*margin-bottom: 10px;*/
+    }
+    .DnD__GroupCard h2{
+        margin: 0;
+        padding-left: 16%;
+        padding-right: 16%;
+        /*margin-top: 0;*/
+        /*margin-bottom: 10px;*/
+        font-size: 1.6vw;
+    }
+    .DnD__GroupCard h3{
+        margin: 0;
+        padding-left: 16%;
+        padding-right: 16%;
+        /*margin-top: 10px;*/
+        /*margin-bottom: 10px;*/
+        font-size: 1.6vw;
+    }
+    .DnD__GroupCard h4{
+        margin: 0;
+        padding-left: 16%;
+        padding-right: 16%;
+        /*margin-top: 0;*/
+        /*margin-bottom: 10px;*/
+        font-size: 1.4vw;
+    }
+    .DnD__GroupCard h5{
+        margin: 0;
+        padding-left: 16%;
+        padding-right: 16%;
+        /*margin-top: 0;*/
+        /*margin-bottom: 10px;*/
+        font-size: 1.2vw;
+    }
+    .DnD__GroupCard--Buttons{
+        margin-top: 5%;
+        display: flex;
+        justify-content: center;
+        margin-right: 30%;
+        margin-left: 30%;
+        align-items: center;
+    }
+}
+@media (max-width: 900px) {
+    .DnD__GroupCard h1{
+        margin-top: 14%;
+    }
 }
 .DnD__GroupCard img{
     max-width: 100px;
     margin: 0 auto;
 }
 #DnD__DeleteGroupForm--DeleteButton{
-    width: 50px;
-    height: 50px;
+    width: 2.5vw;
+    height: 2.5vw;
+    margin: 10px;
     background: url("https://i.imgur.com/qNKwgWP.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    position: relative;
-    top: -10%;
-    left: 70%;
     border: 1px solid rgba(139, 0, 0, 0);
     border-radius: 50px;
     box-shadow: none;
@@ -73,15 +150,13 @@
     box-shadow: 5px 5px 15px 5px #000000;
 }
 #DnD__DeleteGroupForm--EditButton{
-    width: 50px;
-    height: 50px;
+    width: 2.3vw;
+    height: 2.3vw;
+    margin: 10px;
     background: url("https://i.imgur.com/skiZWic.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    position: relative;
-    top: -10%;
-    left: 70%;
     border: 1px solid rgba(139, 0, 0, 0);
     border-radius: 50px;
     box-shadow: none;
@@ -91,14 +166,4 @@
     border: 1px solid darkred;
     border-radius: 50px;
     box-shadow: 5px 5px 15px 5px #000000;
-}
-/*To keep text in bounds*/
-@media (min-width: 900px) {
-.DnD__GroupCard h1{
-    font-size: 3vw;
-    margin-top: 20px;
-    padding-left: 80px;
-    padding-right: 80px;
-    margin-bottom: 10px;
-}
 }

@@ -50,7 +50,7 @@ export default function Home(){
                 {/*   //Refactor later. No way this will ever cause unexpected behaviour.*/}
                 {/*//------------------------------------------------------------------------------------------------*/}
                 {groups?
-                <div className="GroupWrapper">
+                <div className="DnD_GroupWrapper">
                     {groups.map((group, idx) => {
                         if (idx % 2 === 0){
                             return(
