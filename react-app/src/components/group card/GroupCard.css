@@ -165,6 +165,10 @@
         width: 5vw !important;
         height: 5vw !important;
     }
+    #DnD__DeleteGroupForm--ViewButton{
+        width: 5vw !important;
+        height: 5vw !important;
+    }
 }
 
 
@@ -199,6 +203,23 @@
     transition: border 0.1s ease-in-out,  box-shadow 0.1s ease-in-out;
 }
 #DnD__DeleteGroupForm--EditButton:hover{
+    border: 1px solid darkred;
+    border-radius: 50px;
+    box-shadow: 5px 5px 15px 5px #000000;
+}
+#DnD__DeleteGroupForm--ViewButton{
+    width: 2.5vw;
+    height: 2.5vw;
+    background: url("https://i.imgur.com/ZC1LiDb.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 1px solid rgba(139, 0, 0, 0);
+    border-radius: 50px;
+    box-shadow: none;
+    transition: border 0.1s ease-in-out,  box-shadow 0.1s ease-in-out;
+}
+#DnD__DeleteGroupForm--ViewButton:hover {
     border: 1px solid darkred;
     border-radius: 50px;
     box-shadow: 5px 5px 15px 5px #000000;

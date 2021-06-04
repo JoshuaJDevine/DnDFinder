@@ -7,6 +7,10 @@ export default function CreateNewGroupForm({setShowModal}){
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
 
+    const handleClose = () => {
+        setShowModal(false)
+    }
+
     //------------------------------------------------------------------
     //Form controls
     //------------------------------------------------------------------
@@ -270,6 +274,7 @@ export default function CreateNewGroupForm({setShowModal}){
                 {/*SUBMIT*/}
                 {/*------------------------------------------------------*/}
                 <button type="submit">Create</button>
+                <button onClick={handleClose}>Close</button>
             </form>
         </div>
     )

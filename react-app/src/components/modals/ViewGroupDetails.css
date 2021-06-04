@@ -1,0 +1,10 @@
+.DnD__ViewGroupDetails{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 60%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}

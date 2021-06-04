@@ -23,8 +23,8 @@ export default function DemoUserForm( {setShowModal} ){
             <p>Welcome</p>
             <p>This app is a work in progress</p>
             <p>The Demo user can create groups, delete groups and edit groups</p>
-            <button onClick={handleCancel}>No way!</button>
-            <button onClick={handleOK}>Why not...</button>
+            <button onClick={handleCancel}>No!</button>
+            <button onClick={handleOK}>OK!</button>
         </div>
     )
 }
