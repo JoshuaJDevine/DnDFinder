@@ -12,7 +12,6 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
 
     group_id = db.Column(db.Integer, db.ForeignKey("groups.id"))
-
     group = db.relationship("Group", back_populates="users")
 
     @property

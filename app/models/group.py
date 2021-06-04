@@ -16,7 +16,9 @@ class Group(db.Model):
     maxPartySize = db.Column(db.Integer, nullable=False)
     groupAdmin = db.Column(db.Integer, nullable=False)
     timeZone = db.Column(db.String(100), nullable=False)
+
     users = db.relationship("User", back_populates="group")
+    events = db.relationship("Event", back_populates="group")
 
     def to_dict(self):
         return {
@@ -33,7 +35,11 @@ class Group(db.Model):
             "groupAdmin": self.groupAdmin,
             "timeZone": self.timeZone,
             "users": self.get_joined_users(),
+            "events": self.get_joined_events(),
         }
 
     def get_joined_users(self):
         return [user.to_dict() for user in self.users]
+
+    def get_joined_events(self):
+        return [event.to_dict() for event in self.events]
