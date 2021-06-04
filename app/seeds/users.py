@@ -4,10 +4,11 @@ from app.models import db, User
 # Adds a demo user, you can add other users here if you want
 def seed_users():
 
-    demo = User(username='Demo', email='demo@aa.io',
-                password='password')
-
+    demo = User(username='Demo', email='demo@aa.io', password='password')
     db.session.add(demo)
+
+    demo2 = User(username='chrisOdin', email='chrisOdinson@wotc.com', password='password')
+    db.session.add(demo2)
 
     db.session.commit()
 
@@ -18,3 +19,10 @@ def seed_users():
 def undo_users():
     db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')
     db.session.commit()
+
+
+
+
+
+
+

@@ -10,12 +10,15 @@ export default function DemoUserModal(){
 
     return (
         <>
-            <button onClick={() => setShowModal(true)}>Demo</button>
-            {showModal && (
-                <Modal onClose={() => setShowModal(false)}>
-                    <DemoUserForm setShowModal={setShowModal}/>
-                </Modal>
-            )}
+            <div className="glow">
+                <button onClick={() => setShowModal(true)}>Demo</button>
+                {showModal && (
+                    <Modal onClose={() => setShowModal(false)}>
+                        <DemoUserForm setShowModal={setShowModal}/>
+                    </Modal>
+                )}
+            </div>
+
         </>
     );
 }

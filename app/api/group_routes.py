@@ -17,7 +17,7 @@ def validation_errors_to_error_messages(validation_errors):
 
 @login_required
 @group_routes.route('/<int:id>/')
-def user(id):
+def group(id):
     group = Group.query.get(id)
     return group.to_dict()
 
@@ -37,8 +37,8 @@ def groups():
 def create_group():
     form = CreateGroupForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print(form.data['name'], form.validate_on_submit())
-    print(form.data['timeZone'], form.validate_on_submit())
+    # print(form.data['name'], form.validate_on_submit())
+    # print(form.data['timeZone'], form.validate_on_submit())
 
     if form.validate_on_submit():
         group = Group(
@@ -64,7 +64,6 @@ def create_group():
     # print(validation_errors_to_error_messages(form.errors))
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
-
 
 
 @login_required
@@ -106,7 +105,6 @@ def update_group(id):
         updated_group.append(group_to_update.to_dict())
         return jsonify(updated_group)
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
-
 
 
 @login_required

@@ -4,16 +4,16 @@
 
 .DnD_GroupWrapper{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 10px;
     margin-left: 5%;
     margin-right: 5%;
 }
-/*@media (max-width: 1200px) {*/
-/*    .DnD_GroupWrapper{*/
-/*        grid-template-columns: 1fr 1fr;*/
-/*    }*/
-/*}*/
+@media (max-width: 1200px) {
+    .DnD_GroupWrapper{
+        grid-template-columns: 1fr 1fr;
+    }
+}
 @media (max-width: 900px) {
     .DnD_GroupWrapper{
         grid-template-columns: 1fr;

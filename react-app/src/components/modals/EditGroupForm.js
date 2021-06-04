@@ -7,6 +7,10 @@ export default function EditGroupForm( {setShowModal, group} ){
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
 
+    const handleClose = () => {
+        setShowModal(false)
+    }
+
     //------------------------------------------------------------------
     //Form controls
     //------------------------------------------------------------------
@@ -269,6 +273,7 @@ export default function EditGroupForm( {setShowModal, group} ){
                 {/*SUBMIT*/}
                 {/*------------------------------------------------------*/}
                 <button type="submit">Update</button>
+                <button onClick={handleClose}>Close</button>
             </form>
         </div>
     )

@@ -11,7 +11,7 @@ export default function DemoUserForm( {setShowModal} ){
         setShowModal(false);
     }
     const handleOK = async () => {
-        const data = await dispatch(login("chrisOdinson@dnd.com", "password"));
+        const data = await dispatch(login("chrisOdinson@wotc.com", "password"));
         setShowModal(false);
         if (data.errors) {
             console.log("There were errors logging in demo user... :(")
@@ -23,8 +23,8 @@ export default function DemoUserForm( {setShowModal} ){
             <p>Welcome</p>
             <p>This app is a work in progress</p>
             <p>The Demo user can create groups, delete groups and edit groups</p>
-            <button onClick={handleCancel}>No way!</button>
-            <button onClick={handleOK}>Why not...</button>
+            <button onClick={handleCancel}>No!</button>
+            <button onClick={handleOK}>OK!</button>
         </div>
     )
 }

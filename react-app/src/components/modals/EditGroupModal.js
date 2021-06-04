@@ -9,7 +9,7 @@ export default function EditGroupModal({group}){
 
     return (
         <>
-            <button id={"DnD__DeleteGroupForm--EditButton"} onClick={() => setShowModal(true)}></button>
+            <button id="DnD__DeleteGroupForm--EditButton" onClick={() => setShowModal(true)}></button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <EditGroupForm setShowModal={setShowModal} group={group}/>

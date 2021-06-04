@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 
 import "./NavBar.css"
@@ -13,69 +13,77 @@ const NavBar = () => {
     return (
       <nav className="DnD__Navbar">
         <ul className="DnD__Navbar--ul">
-          <li>
-            {sessionUser ?
-              <NavLink to="/" exact={true} activeClassName="active">
-                Home
-              </NavLink>
-              :
-              <>
-              </>
-            }
-          </li>
-          <li>
-            {!sessionUser ?
-              <NavLink to="/login" exact={true} activeClassName="active">
-                Login
-              </NavLink>
-              :
-              <>
-              </>
-            }
-          </li>
-          <li>
-            {!sessionUser ?
-              <DemoUserModal/>
-              :
-              <>
-              </>
-            }
-          </li>
-          <li>
-            {!sessionUser ?
-              <NavLink to="/sign-up" exact={true} activeClassName="active">
-                Sign Up
-              </NavLink>
-              :
-              <>
-              </>
-            }
-          </li>
-          <li>
-            {sessionUser ?
-              <NavLink to="/users" exact={true} activeClassName="active">
-                Users
-              </NavLink>
-              :
-              <>
-              </>
-            }
-          </li>
-          <li>
-            {sessionUser ?
-              <LogoutButton />
-              :
-              <>
-              </>
-            }
-          </li>
             {sessionUser ?
               <li>
-                <CreateNewGroupModal/>
+                  <NavLink to="/" exact={true} activeClassName="active">
+                      <div className="glow">
+                          <button>Home</button>
+                      </div>
+                  </NavLink>
               </li>
               :
               <>
               </>
+            }
+            {!sessionUser ?
+                <li>
+                  <NavLink to="/login" exact={true} activeClassName="active">
+                      <div className="glow">
+                          <button>Login</button>
+                      </div>
+                  </NavLink>
+                </li>
+                :
+                <>
+                </>
+            }
+            {!sessionUser ?
+                <li>
+                    <DemoUserModal/>
+                </li>
+                :
+                <>
+                </>
+            }
+            {!sessionUser ?
+              <li>
+                  <NavLink to="/sign-up" exact={true} activeClassName="active">
+                      <div className="glow">
+                          <button>Signup</button>
+                      </div>
+                  </NavLink>
+                </li>
+              :
+              <>
+              </>
+            }
+            {sessionUser ?
+              <li>
+                  <NavLink to="/users" exact={true} activeClassName="active">
+                      <div className="glow">
+                          <button>Users</button>
+                      </div>
+                  </NavLink>
+              </li>
+              :
+              <>
+              </>
+            }
+            {sessionUser ?
+              <li>
+                  <LogoutButton />
+              </li>
+                  :
+                  <>
+                  </>
+            }
+            {sessionUser ?
+                <li>
+                    <CreateNewGroupModal/>
+                </li>
+                :
+                <>
+                </>
             }
         </ul>
       </nav>

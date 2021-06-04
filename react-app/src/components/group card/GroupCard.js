@@ -1,11 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import {useSelector} from "react-redux";
 
 import "./GroupCard.css"
 import DeleteGroupModal from "../modals/DeleteGroupModal";
 import EditGroupModal from "../modals/EditGroupModal";
+import {Modal} from "../modals/Modal";
+import ViewGroupDetails from "../modals/ViewGroupDetails";
+import ViewGroupDetailsModal from "../modals/ViewGroupDetailsModal";
 
-export default function GroupCard({data}){
+export default function GroupCard({data, setViewingGroup}){
+    const [showModal, setShowModal] = useState(false);
     const sessionUser = useSelector(state => state.session.user);
     return(
 
@@ -21,10 +25,14 @@ export default function GroupCard({data}){
                     <div className="DnD__GroupCard--Buttons">
                         <EditGroupModal group={data} />
                         <DeleteGroupModal groupId={data.id} />
+                        <ViewGroupDetailsModal group={data} setViewingGroup={setViewingGroup}/>
                     </div>
                 </>
                 :
                 <>
+                    <div className="DnD__GroupCard--Buttons">
+                        <ViewGroupDetailsModal group={data}/>
+                    </div>
                 </>
             }
         </div>
