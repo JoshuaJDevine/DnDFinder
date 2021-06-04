@@ -29,7 +29,6 @@ def groups():
     all_groups = []
     for group in [group.to_dict() for group in groups]:
         all_groups.append(group)
-    # return {"groups": [group.to_dict() for group in groups]}
     return jsonify(all_groups)
 
 

@@ -32,5 +32,8 @@ class Group(db.Model):
             "maxPartySize": self.maxPartySize,
             "groupAdmin": self.groupAdmin,
             "timeZone": self.timeZone,
-            "users": self.users,
+            "users": self.get_joined_users(),
         }
+
+    def get_joined_users(self):
+        return [user.to_dict() for user in self.users]
