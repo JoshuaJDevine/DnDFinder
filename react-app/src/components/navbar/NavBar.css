@@ -1,5 +1,5 @@
 .DnD__Navbar{
-    background-color: var(--main-palette-light-meetupBrightWhite);
+    background-color: rgb(87, 87, 87);
     position: fixed;
     top: 0;
     width: 100%;
@@ -11,8 +11,6 @@
 }
 .DnD__Navbar--ul{
     padding: 0;
-    height: 7%;
-    height: 70px;
     justify-content: center;
     align-items: center;
 }
@@ -21,3 +19,68 @@
     margin-right: 10px;
     list-style-type: none;
 }
+.DnD__Navbar button{
+    width: 160px;
+    height: 40px;
+    color: #ffffff;
+    font-size: 1.5rem;
+    background-color: rgba(255, 255, 255, 0);
+    border: rgba(255, 255, 255, 0);
+
+}
+.DnD__Navbar button:hover{
+
+}
+
+/*Inspired by codepen from Felix Rilling*/
+/*https://codepen.io/FelixRilling/pen/qzfoc*/
+.glow {
+  text-align: center;
+  margin: 20px 0 20px 0;
+}
+
+.glow button {
+  text-decoration: none;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+  font-family: Audiowide;
+}
+
+.glow button:hover {
+  -webkit-animation: neon5 1.5s ease-in-out infinite alternate;
+  -moz-animation: neon5 1.5s ease-in-out infinite alternate;
+  animation: neon5 1.5s ease-in-out infinite alternate;
+}
+
+.glow a:hover {
+  color: #ffffff;
+}
+
+@-webkit-keyframes neon5 {
+  from {
+    text-shadow: 0 0 10px #e7e7e7, 0 0 20px #d7d7d7, 0 0 30px #d4d4d4, 0 0 40px #FF9900, 0 0 70px #FF9900, 0 0 80px #FF9900, 0 0 100px #FF9900, 0 0 150px #FF9900;
+  }
+  to {
+    text-shadow: 0 0 5px #e7e7e7, 0 0 10px #d7d7d7, 0 0 15px #d4d4d4, 0 0 20px #FF9900, 0 0 35px #FF9900, 0 0 40px #FF9900, 0 0 50px #FF9900, 0 0 75px #FF9900;
+  }
+}
+
+@-moz-keyframes neon5 {
+  from {
+    text-shadow: 0 0 10px #e7e7e7, 0 0 20px #d7d7d7, 0 0 30px #d4d4d4, 0 0 40px #FF9900, 0 0 70px #FF9900, 0 0 80px #FF9900, 0 0 100px #FF9900, 0 0 150px #FF9900;
+  }
+  to {
+    text-shadow: 0 0 5px #e7e7e7, 0 0 10px #d7d7d7, 0 0 15px #d4d4d4, 0 0 20px #FF9900, 0 0 35px #FF9900, 0 0 40px #FF9900, 0 0 50px #FF9900, 0 0 75px #FF9900;
+  }
+}
+
+@keyframes neon5 {
+  from {
+    text-shadow: 0 0 10px #e7e7e7, 0 0 20px #d7d7d7, 0 0 30px #d4d4d4, 0 0 40px #FF9900, 0 0 70px #FF9900, 0 0 80px #FF9900, 0 0 100px #FF9900, 0 0 150px #FF9900;
+  }
+  to {
+    text-shadow: 0 0 5px #e7e7e7, 0 0 10px #d7d7d7, 0 0 15px #d4d4d4, 0 0 20px #FF9900, 0 0 35px #FF9900, 0 0 40px #FF9900, 0 0 50px #FF9900, 0 0 75px #FF9900;
+  }
+}
+
