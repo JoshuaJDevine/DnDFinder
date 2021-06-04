@@ -35,6 +35,7 @@ def seed_groups():
         )
         db.session.add(random_group)
 
+    db.session.commit()
 
 def undo_groups():
     db.session.execute('TRUNCATE groups RESTART IDENTITY CASCADE;')

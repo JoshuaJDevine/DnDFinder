@@ -51,6 +51,7 @@ def create_event():
             endTime=form.data['endTime'],
             timeOfDay=form.data['timeOfDay'],
             notes=form.data['notes'],
+            group_id=form.data['group_id']
         )
 
         db.session.add(event)
@@ -79,6 +80,7 @@ def update_event(id):
             endTime=form.data['endTime'],
             timeOfDay=form.data['timeOfDay'],
             notes=form.data['notes'],
+            group_id=form.data['group_id']
         )
 
         event_to_update = Event.query.get(id)

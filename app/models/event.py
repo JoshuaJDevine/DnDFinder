@@ -12,8 +12,8 @@ class Event(db.Model):
     endTime = db.Column(db.String(100), nullable=False)
     timeOfDay = db.Column(db.String(100), nullable=False)
     notes = db.Column(db.String(500))
+    group_id = db.Column(db.Integer, db.ForeignKey("groups.id"), nullable=False)
 
-    group_id = db.Column(db.Integer, db.ForeignKey("groups.id"))
     group = db.relationship("Group", back_populates="events")
 
     def to_dict(self):
