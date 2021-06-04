@@ -14,7 +14,6 @@ export default function ViewGroupDetails({setShowModal, data}){
 
     return(
         <div className="DnD__ViewGroupDetails">
-            {console.log(data)}
             <p>{data.name}</p>
             <p>{data.details}</p>
             <p>{data.where}</p>
@@ -27,7 +26,7 @@ export default function ViewGroupDetails({setShowModal, data}){
             <p>{data.groupAdmin}</p>
             <p>{data.timeZone}</p>
             <button onClick={handleClose}>Close</button>
-            <button onClick={handleViewGroup}>Close</button>
+            <button onClick={handleViewGroup}>Visit Group</button>
         </div>
     )
 }
