@@ -46,8 +46,9 @@ def undo_groups():
 
 
 def getRandomName():
-    prefix = ["Homebrew", "Epic", "Fun", "Laid back", "New", "Exciting", "Ongoing", "Serious", "Hardcore"]
-    suffix = ["Campaign", "Group", "Adventure", "Story", "World", "Game", "Quest", "Escapade"]
+    prefix = ["Homebrew", "Epic", "Fun", "Laid back", "New", "Exciting", "Ongoing", "Serious", "Hardcore", "Easygoing",
+              "Pickup", "Relaxed", "Chill", "Beginner", "Intermediate", "Advanced"]
+    suffix = ["Campaign", "Group", "Adventure", "RPG", "Story", "World", "Game", "Quest", "Escapade", "Role play"]
     return prefix[random.randint(0, len(prefix) - 1)] + " " + suffix[random.randint(0, len(suffix) - 1)]
 
 
