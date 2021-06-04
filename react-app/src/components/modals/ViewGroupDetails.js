@@ -5,8 +5,11 @@ import "./ViewGroupDetails.css"
 export default function ViewGroupDetails({setShowModal, data}){
 
     const handleClose = () => {
-        console.log("Trying CLose")
         setShowModal(false)
+    }
+    const handleViewGroup = () => {
+        setShowModal(false)
+        console.log("Dispatch Events!")
     }
 
     return(
@@ -24,6 +27,7 @@ export default function ViewGroupDetails({setShowModal, data}){
             <p>{data.groupAdmin}</p>
             <p>{data.timeZone}</p>
             <button onClick={handleClose}>Close</button>
+            <button onClick={handleViewGroup}>Close</button>
         </div>
     )
 }
