@@ -1,5 +1,6 @@
 import React from "react";
 import "./SplashBar.css"
+import {NavLink} from "react-router-dom";
 
 export default function SplashBar({numberOfGroups}){
     return(
@@ -13,6 +14,14 @@ export default function SplashBar({numberOfGroups}){
                     :
                     <p>Error, could not get groups</p>
                 }
+            </div>
+            <div className="DnD__SplashBar--Options">
+                <div className="glow-dark">
+                    <button>All groups</button>
+                </div>
+                <div className="glow-dark">
+                    <button>My groups</button>
+                </div>
             </div>
         </div>
     )

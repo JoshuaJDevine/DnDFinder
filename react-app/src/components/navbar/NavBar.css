@@ -27,10 +27,6 @@
     font-size: 1.5rem;
     background-color: rgba(255, 255, 255, 0);
     border: rgba(255, 255, 255, 0);
-
-}
-.DnD__Navbar button:hover{
-
 }
 
 
@@ -41,7 +37,6 @@
 /*https://codepen.io/FelixRilling/pen/qzfoc*/
 .glow {
   text-align: center;
-  margin: 20px 0 20px 0;
 }
 
 .glow button {
@@ -69,3 +64,34 @@
   }
 }
 
+
+
+
+.glow-dark {
+  text-align: center;
+}
+
+.glow-dark button {
+  text-decoration: none;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+  font-family: Audiowide;
+}
+
+.glow-dark button:hover {
+  animation: neon5-dark 1.5s ease-in-out infinite alternate;
+}
+
+.glow-dark a:hover {
+  color: #ffffff;
+}
+
+@keyframes neon5-dark {
+  from {
+    text-shadow: 0 0 10px #e7e7e7, 0 0 20px #d7d7d7, 0 0 30px #d4d4d4, 0 0 40px #ff3c00, 0 0 70px #ff3c00, 0 0 80px #ff3c00, 0 0 100px #ff3c00, 0 0 150px #ff3c00;
+  }
+  to {
+    text-shadow: 0 0 5px #e7e7e7, 0 0 10px #d7d7d7, 0 0 15px #d4d4d4, 0 0 20px #ff3c00, 0 0 35px #ff3c00, 0 0 40px #ff3c00, 0 0 50px #ff3c00, 0 0 75px #ff3c00;
+  }
+}

@@ -23,5 +23,21 @@
 }
 .DnD__SplashBar--subTitle p{
     font-size: 2vw;
-    margin: 5px 10px 35px;
+    margin:0;
+}
+
+.DnD__SplashBar--Options {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 3vw;
+}
+.DnD__SplashBar--Options button{
+    color: var(--main-palette-light-meetupBrightWhite);
+    text-shadow: 2px 3px 5px #bdbdbd;
+    width: 160px;
+    height: 40px;
+    font-size: 1.5rem;
+    background-color: rgba(255, 255, 255, 0);
+    border: rgba(255, 255, 255, 0);
 }
