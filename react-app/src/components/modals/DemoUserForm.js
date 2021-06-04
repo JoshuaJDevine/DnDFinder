@@ -11,7 +11,7 @@ export default function DemoUserForm( {setShowModal} ){
         setShowModal(false);
     }
     const handleOK = async () => {
-        const data = await dispatch(login("chrisOdinson@dnd.com", "password"));
+        const data = await dispatch(login("chrisOdinson@wotc.com", "password"));
         setShowModal(false);
         if (data.errors) {
             console.log("There were errors logging in demo user... :(")
