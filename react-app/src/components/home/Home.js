@@ -11,6 +11,8 @@ import {authenticate} from "../../store/session";
 import {getAllGroups} from "../../store/group";
 import GroupCard from "../group card/GroupCard";
 import GroupView from "../GroupView/GroupView";
+import {getAllEvents} from "../../store/event";
+import {getAllApplications} from "../../store/application";
 
 export default function Home(){
     const dispatch = useDispatch();
@@ -22,6 +24,8 @@ export default function Home(){
     useEffect(() => {
         (async() => {
           await dispatch(getAllGroups());
+          // await dispatch(getAllEvents());
+          // await dispatch(getAllApplications());
           setLoaded(true);
         })();
     }, []);

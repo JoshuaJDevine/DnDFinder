@@ -15,5 +15,5 @@ class Application(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
-            "text": self.id,
+            "text": self.text,
         }
