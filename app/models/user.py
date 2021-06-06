@@ -1,6 +1,7 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from .users_groups import users_groups
 
 
 class User(db.Model, UserMixin):
@@ -10,10 +11,23 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    group_id = db.Column(db.Integer, db.ForeignKey("groups.id"))
 
-    group = db.relationship("Group", back_populates="users")
+    # Changed this to be many to many
+    # A user has one group
+    # group_id = db.Column(db.Integer, db.ForeignKey("groups.id"))
+    # group = db.relationship("Group", back_populates="users")
+
+    groups = db.relationship(
+        "Group",
+        secondary=users_groups,
+        back_populates="users"
+    )
+
+    # A user has many applications
     applications = db.relationship("Application", back_populates="user")
+
+    # A user has many messages
+    messages = db.relationship("Message", back_populates="user")
 
 
     @property
@@ -33,7 +47,24 @@ class User(db.Model, UserMixin):
             "username": self.username,
             "email": self.email,
             "applications": self.get_joined_applications(),
+            "messages": self.get_joined_messages(),
+        }
+
+    def to_dict_include_groups(self):
+        return {
+            "id": self.id,
+            "username": self.username,
+            "email": self.email,
+            "applications": self.get_joined_applications(),
+            "messages": self.get_joined_messages(),
+            "groups": self.get_joined_groups()
         }
 
     def get_joined_applications(self):
         return [application.to_dict() for application in self.applications]
+
+    def get_joined_messages(self):
+        return [message.to_dict() for message in self.messages]
+
+    def get_joined_groups(self):
+        return [group.to_dict() for group in self.groups]

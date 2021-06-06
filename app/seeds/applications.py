@@ -3,7 +3,6 @@ import random
 
 def seed_applications():
     application1 = Application(
-        text="Hi, here is my test application. Perhaps add a form generator?",
         group_id=3,
         user_id=1
     )

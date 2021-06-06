@@ -1,4 +1,5 @@
 from .db import db
+from .users_groups import users_groups
 
 
 class Group(db.Model):
@@ -17,11 +18,36 @@ class Group(db.Model):
     groupAdmin = db.Column(db.Integer, nullable=False)
     timeZone = db.Column(db.String(100), nullable=False)
 
-    users = db.relationship("User", back_populates="group")
+    # A group has many users, events, applications, and messages
+    users = db.relationship(
+        "User",
+        secondary=users_groups,
+        back_populates="groups"
+    )
     events = db.relationship("Event", back_populates="group")
     applications = db.relationship("Application", back_populates="group")
+    messages = db.relationship("Message", back_populates="group")
 
     def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "details": self.details,
+            "where": self.where,
+            "module": self.module,
+            "dayOfWeek": self.dayOfWeek,
+            "startTime": self.startTime,
+            "endTime": self.endTime,
+            "timeOfDay": self.timeOfDay,
+            "maxPartySize": self.maxPartySize,
+            "groupAdmin": self.groupAdmin,
+            "timeZone": self.timeZone,
+            "events": self.get_joined_events(),
+            "applications": self.get_joined_applications(),
+            "messages": self.get_joined_messages()
+        }
+
+    def to_dict_include_users(self):
         return {
             "id": self.id,
             "name": self.name,
@@ -38,6 +64,7 @@ class Group(db.Model):
             "users": self.get_joined_users(),
             "events": self.get_joined_events(),
             "applications": self.get_joined_applications(),
+            "messages": self.get_joined_messages()
         }
 
     def get_joined_users(self):
@@ -48,3 +75,6 @@ class Group(db.Model):
 
     def get_joined_applications(self):
         return [application.to_dict() for application in self.applications]
+
+    def get_joined_messages(self):
+        return [message.to_dict() for message in self.messages]

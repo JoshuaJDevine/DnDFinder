@@ -5,15 +5,26 @@ class Application(db.Model):
     __tablename__ = "applications"
 
     id = db.Column(db.Integer, primary_key=True)
-    text = db.Column(db.String(1000), nullable=False)
-    group_id = db.Column(db.Integer, db.ForeignKey("groups.id"), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    status = db.Column(db.Boolean, default=False)
 
+    # An application has one group
+    group_id = db.Column(db.Integer, db.ForeignKey("groups.id"), nullable=False)
     group = db.relationship("Group", back_populates="applications")
+
+    # An application has one user
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     user = db.relationship("User", back_populates="applications")
+
+    # An application has many messages
+    messages = db.relationship("Message", back_populates="application")
 
     def to_dict(self):
         return {
             "id": self.id,
-            "text": self.text,
+            "status": self.status,
+            "messages": self.get_joined_messages(),
+            "userId": self.user_id,
         }
+
+    def get_joined_messages(self):
+        return [message.to_dict() for message in self.messages]

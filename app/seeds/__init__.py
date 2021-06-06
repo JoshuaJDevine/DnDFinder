@@ -3,6 +3,7 @@ from .users import seed_users, undo_users
 from .groups import seed_groups, undo_groups
 from .events import seed_events, undo_events
 from .applications import seed_applications, undo_applications
+from .messages import seed_messages, undo_messages
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -15,6 +16,7 @@ def seed():
     seed_groups()
     seed_events()
     seed_applications()
+    seed_messages()
 
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
@@ -23,3 +25,4 @@ def undo():
     undo_groups()
     undo_events()
     undo_applications()
+    undo_messages()
