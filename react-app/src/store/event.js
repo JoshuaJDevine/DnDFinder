@@ -7,7 +7,7 @@ const CREATE_EVENT = "session/CREATE_EVENT"
 const UPDATE_EVENT = "session/UPDATE_EVENT"
 const DELETE_EVENT = "session/DELETE_EVENT"
 
-const getEVENTS = (events) => ({
+const getEvents = (events) => ({
     type: GET_EVENTS,
     payload: events
 });
@@ -45,7 +45,7 @@ export const getAllEvents = () => async (dispatch)  => {
         return;
     }
 
-    dispatch(getEVENTS(data))
+    dispatch(getEvents(data))
 }
 
 
@@ -64,9 +64,9 @@ export default function reducer(state=initialState, action) {
             return {event: action.payload}
         case CREATE_EVENT:
             return {event: action.payload}
-        case  UPDATE_EVENT:
+        case UPDATE_EVENT:
             return {event: action.payload}
-        case  DELETE_EVENT:
+        case DELETE_EVENT:
             return {event: null}
         default:
             return state;
