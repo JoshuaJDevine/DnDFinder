@@ -48,6 +48,12 @@ export const getAllEvents = () => async (dispatch)  => {
     dispatch(getEvents(data))
 }
 
+export const getOneEvent = id => async (dispatch) => {
+    const res = await fetch(`/api/events/${id}`);
+    const data = await res.json();
+
+    dispatch(getEvent(data));
+}
 
 
 

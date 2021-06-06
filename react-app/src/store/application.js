@@ -40,12 +40,18 @@ export const getAllApplications = () => async (dispatch)  => {
       }
     });
     const data = await response.json();
-    console.log(data)
     if (data.errors) {
         return;
     }
 
     dispatch(getApplications(data))
+}
+
+export const getOneApplication = id => async (dispatch) => {
+    const res = await fetch(`/api/applications/${id}`);
+    const data = await res.json();
+
+    dispatch(getApplication(data));
 }
 
 

@@ -1,8 +1,18 @@
 import React from "react";
 import "./SplashBar.css"
-import {NavLink} from "react-router-dom";
 
-export default function SplashBar({numberOfGroups}){
+export default function SplashBar({numberOfGroups, setViewingGroup}){
+
+
+    const handleAllGroupsButton =async () => {
+//----------------------------------------------------------------------------------------------------------------------
+        // Home.js handles dispatching all groups
+        // Choosing "all groups" simply resets the viewingGroup to 0
+        // so home can rerender all groups
+//----------------------------------------------------------------------------------------------------------------------
+        setViewingGroup(0)
+    }
+
     return(
         <div className="DnD__SplashBar--Splash">
             <div className="DnD__SplashBar--Title">
@@ -17,7 +27,7 @@ export default function SplashBar({numberOfGroups}){
             </div>
             <div className="DnD__SplashBar--Options">
                 <div className="glow-dark">
-                    <button>All groups</button>
+                    <button onClick={handleAllGroupsButton}>All groups</button>
                 </div>
                 <div className="glow-dark">
                     <button>My groups</button>
