@@ -14,6 +14,7 @@ class User(db.Model, UserMixin):
 
     group = db.relationship("Group", back_populates="users")
     applications = db.relationship("Application", back_populates="user")
+    messages = db.relationship("Message", back_populate="group")
 
 
     @property
@@ -33,7 +34,12 @@ class User(db.Model, UserMixin):
             "username": self.username,
             "email": self.email,
             "applications": self.get_joined_applications(),
+            "messages": self.get_joined_messages()
         }
 
     def get_joined_applications(self):
         return [application.to_dict() for application in self.applications]
+
+    def get_joined_messages(self):
+        return [message.to_dict() for message in self.messages]
+
