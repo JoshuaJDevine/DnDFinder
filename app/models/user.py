@@ -12,17 +12,16 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
+    # Changed this to be many to many
     # A user has one group
     # group_id = db.Column(db.Integer, db.ForeignKey("groups.id"))
     # group = db.relationship("Group", back_populates="users")
-
 
     groups = db.relationship(
         "Group",
         secondary=users_groups,
         back_populates="users"
     )
-
 
     # A user has many applications
     applications = db.relationship("Application", back_populates="user")
