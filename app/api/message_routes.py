@@ -36,7 +36,7 @@ def messages():
 
 # Create new message
 @login_required
-@memoryview.route('/', methods=['POST'])
+@message_routes.route('/', methods=['POST'])
 def create_message():
     form = CreateMessageForm()
     form['csrf_token'].data = request.cookies['csrf_token']

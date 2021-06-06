@@ -18,7 +18,7 @@ class Event(db.Model):
     group = db.relationship("Group", back_populates="events")
 
     #  An event has many messages
-    messages = db.relationship("Message", back_populate="event")
+    messages = db.relationship("Message", back_populates="event")
 
 
     def to_dict(self):

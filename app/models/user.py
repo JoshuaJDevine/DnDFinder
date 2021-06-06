@@ -11,19 +11,15 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    # A user has three groups
-    group_id_one = db.Column(db.Integer, db.ForeignKey("groups.id"))
-    group_one = db.relationship("Group", back_populates="users")
-    group_id_two = db.Column(db.Integer, db.ForeignKey("groups.id"))
-    group_two = db.relationship("Group", back_populates="users")
-    group_id_three = db.Column(db.Integer, db.ForeignKey("groups.id"))
-    group_three = db.relationship("Group", back_populates="users")
+    # A user has one group
+    group_id = db.Column(db.Integer, db.ForeignKey("groups.id"))
+    group = db.relationship("Group", back_populates="users")
 
     # A user has many applications
     applications = db.relationship("Application", back_populates="user")
 
     # A user has many messages
-    messages = db.relationship("Message", back_populate="user")
+    messages = db.relationship("Message", back_populates="user")
 
 
     @property

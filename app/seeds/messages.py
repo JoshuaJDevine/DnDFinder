@@ -24,7 +24,7 @@ def seed_messages():
     message4 = Message(
         text="Test message from user 1 to application 1",
         sender_id=1,
-        application=1
+        application_id=1
     )
     db.session.add(message4)
 

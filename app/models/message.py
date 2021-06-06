@@ -6,7 +6,7 @@ class Message(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(1000), nullable=False)
-    sender_id = db.Column(db.Integer, primary_key=True)
+    sender_id = db.Column(db.Integer, nullable=False)
 
     # Messages has one application
     application_id = db.Column(db.Integer, db.ForeignKey("applications.id"))

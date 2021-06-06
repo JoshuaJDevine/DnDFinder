@@ -16,12 +16,15 @@ class Application(db.Model):
     user = db.relationship("User", back_populates="applications")
 
     # An application has many messages
-    messages = db.relationship("Message", back_populate="application")
+    messages = db.relationship("Message", back_populates="application")
 
     def to_dict(self):
         return {
             "id": self.id,
             "status": self.status,
-            "messages": self.messages(),
+            "messages": self.get_joined_messages(),
             "userId": self.user_id,
         }
+
+    def get_joined_messages(self):
+        return [message.to_dict() for message in self.messages]

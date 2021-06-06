@@ -21,7 +21,7 @@ class Group(db.Model):
     users = db.relationship("User", back_populates="group")
     events = db.relationship("Event", back_populates="group")
     applications = db.relationship("Application", back_populates="group")
-    messages = db.relationship("Message", back_populate="group")
+    messages = db.relationship("Message", back_populates="group")
 
     def to_dict(self):
         return {
