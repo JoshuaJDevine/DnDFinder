@@ -5,13 +5,17 @@ class Application(db.Model):
     __tablename__ = "applications"
 
     id = db.Column(db.Integer, primary_key=True)
-    messages = db.relationship("Message", back_populate="group")
 
+    # An application has one group
     group_id = db.Column(db.Integer, db.ForeignKey("groups.id"), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-
     group = db.relationship("Group", back_populates="applications")
+
+    # An application has one user
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     user = db.relationship("User", back_populates="applications")
+
+    # An application has many messages
+    messages = db.relationship("Message", back_populate="application")
 
     def to_dict(self):
         return {

@@ -17,6 +17,7 @@ class Group(db.Model):
     groupAdmin = db.Column(db.Integer, nullable=False)
     timeZone = db.Column(db.String(100), nullable=False)
 
+    # A group has many users, events, applications, and messages
     users = db.relationship("User", back_populates="group")
     events = db.relationship("Event", back_populates="group")
     applications = db.relationship("Application", back_populates="group")
