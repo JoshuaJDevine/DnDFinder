@@ -1,6 +1,7 @@
 from app.models import db, Event
 import random
 
+
 def seed_events():
     event1 = Event(
         name="Session 1",
@@ -23,7 +24,7 @@ def seed_events():
             startTime=getRandomTime(),
             endTime=getRandomTime(),
             timeOfDay=getRandomTimeOfDay(),
-            group_id=x+1
+            group_id=x + 1
         )
         db.session.add(random_event)
 
@@ -35,7 +36,7 @@ def undo_events():
     db.session.commit()
 
 
-
+# Random Info Generators
 def getRandomName():
     prefix = ["Homebrew", "Epic", "Fun", "Laid back", "New", "Exciting", "Ongoing", "Serious", "Hardcore"]
     suffix = ["Campaign", "Group", "Adventure", "Story", "World", "Game", "Quest", "Escapade"]
@@ -87,9 +88,11 @@ def getRandomTime():
     times = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     return times[random.randint(0, len(times) - 1)]
 
+
 def getRandomTimeOfDay():
     times = ["PM", "AM"]
     return times[random.randint(0, len(times) - 1)]
+
 
 def getRandomTimeZone():
     zones = ["AST", "EST", "PDT", "PST", "GMT", "CET", "EET", "CCT"]

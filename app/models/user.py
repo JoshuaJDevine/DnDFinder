@@ -13,6 +13,8 @@ class User(db.Model, UserMixin):
     group_id = db.Column(db.Integer, db.ForeignKey("groups.id"))
 
     group = db.relationship("Group", back_populates="users")
+    applications = db.relationship("Application", back_populates="user")
+
 
     @property
     def password(self):
@@ -29,5 +31,9 @@ class User(db.Model, UserMixin):
         return {
             "id": self.id,
             "username": self.username,
-            "email": self.email
+            "email": self.email,
+            "applications": self.get_joined_applications(),
         }
+
+    def get_joined_applications(self):
+        return [application.to_dict() for application in self.applications]

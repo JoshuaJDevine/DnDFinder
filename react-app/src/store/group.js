@@ -48,6 +48,13 @@ export const getAllGroups = () => async (dispatch)  => {
     dispatch(getGroups(data))
 }
 
+export const getOneGroup = id => async (dispatch) => {
+    const res = await fetch(`/api/groups/${id}`);
+    const data = await res.json();
+
+    dispatch(getGroup(data));
+}
+
 export const createNewGroup = (name,
                                details,
                                where,

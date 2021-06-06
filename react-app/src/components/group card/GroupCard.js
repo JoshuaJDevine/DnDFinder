@@ -31,7 +31,7 @@ export default function GroupCard({data, setViewingGroup}){
                 :
                 <>
                     <div className="DnD__GroupCard--Buttons">
-                        <ViewGroupDetailsModal group={data}/>
+                        <ViewGroupDetailsModal group={data} setViewingGroup={setViewingGroup}/>
                     </div>
                 </>
             }

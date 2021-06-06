@@ -3,10 +3,12 @@ import thunk from "redux-thunk";
 import session from "./session"
 import groupData from "./group"
 import eventData from "./event"
+import applicationData from "./application"
 const rootReducer = combineReducers({
     session,
     groupData,
-    eventData
+    eventData,
+    applicationData
 });
 
 
