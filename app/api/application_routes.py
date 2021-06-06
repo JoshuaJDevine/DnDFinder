@@ -44,6 +44,8 @@ def create_application():
     if form.validate_on_submit():
         application = Application(
             text=form.data['text'],
+            group_id=form.data['group_id'],
+            user_id=form.data['user_id'],
         )
 
         db.session.add(application)
@@ -65,6 +67,8 @@ def update_application(id):
     if form.validate_on_submit():
         application = Application(
             text=form.data['text'],
+            group_id=form.data['group_id'],
+            user_id=form.data['user_id'],
         )
 
         application_to_update = Application.query.get(id)
