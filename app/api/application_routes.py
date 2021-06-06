@@ -43,7 +43,6 @@ def create_application():
 
     if form.validate_on_submit():
         application = Application(
-            text=form.data['text'],
             group_id=form.data['group_id'],
             user_id=form.data['user_id'],
         )
