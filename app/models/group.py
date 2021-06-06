@@ -19,6 +19,7 @@ class Group(db.Model):
 
     users = db.relationship("User", back_populates="group")
     events = db.relationship("Event", back_populates="group")
+    applications = db.relationship("Application", back_populates="group")
 
     def to_dict(self):
         return {
@@ -36,6 +37,7 @@ class Group(db.Model):
             "timeZone": self.timeZone,
             "users": self.get_joined_users(),
             "events": self.get_joined_events(),
+            "applications": self.get_joined_applications(),
         }
 
     def get_joined_users(self):
@@ -43,3 +45,6 @@ class Group(db.Model):
 
     def get_joined_events(self):
         return [event.to_dict() for event in self.events]
+
+    def get_joined_applications(self):
+        return [application.to_dict() for application in self.applications]
