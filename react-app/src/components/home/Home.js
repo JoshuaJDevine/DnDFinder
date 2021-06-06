@@ -13,6 +13,7 @@ import GroupCard from "../group card/GroupCard";
 import GroupView from "../GroupView/GroupView";
 import {getAllEvents} from "../../store/event";
 import {getAllApplications, getOneApplication} from "../../store/application";
+import {getAllMessages} from "../../store/message";
 
 export default function Home(){
     const dispatch = useDispatch();
@@ -34,6 +35,8 @@ export default function Home(){
 //----------------------------------------------------------------------------------------------------------------------
             //Test block for thunks
 //----------------------------------------------------------------------------------------------------------------------
+            // await dispatch(getAllMessages()).catch((err)=>{console.log(err)})
+
             // == GET ONE GROUP ===
             // await dispatch(getOneGroup(4));
 

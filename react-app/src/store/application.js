@@ -7,29 +7,29 @@ const CREATE_APPLICATION = "session/CREATE_APPLICATION"
 const UPDATE_APPLICATION = "session/UPDATE_APPLICATION"
 const DELETE_APPLICATION = "session/DELETE_APPLICATION"
 
-const getApplications = (events) => ({
+const getApplications = (applications) => ({
     type: GET_APPLICATIONS,
-    payload: events
+    payload: applications
 });
 
-const getApplication = (event) => ({
+const getApplication = (application) => ({
     type: GET_APPLICATION,
-    payload: event
+    payload: application
 });
 
-const createApplication = (event) => ({
+const createApplication = (application) => ({
     type: CREATE_APPLICATION,
-    payload: event
+    payload: application
 });
 
-const updateApplication = (event) => ({
+const updateApplication = (application) => ({
     type: UPDATE_APPLICATION,
-    payload: event
+    payload: application
 })
 
-const deleteApplication = (event) => ({
+const deleteApplication = (application) => ({
     type: DELETE_APPLICATION,
-    payload: event
+    payload: application
 })
 
 export const getAllApplications = () => async (dispatch)  => {
@@ -58,7 +58,7 @@ export const getOneApplication = id => async (dispatch) => {
 //=========================================================
 //REDUCER
 //=========================================================
-const initialState = { events: null };
+const initialState = { applicationData: null };
 
 export default function reducer(state=initialState, action) {
     switch (action.type) {
