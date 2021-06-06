@@ -5,7 +5,8 @@ class Application(db.Model):
     __tablename__ = "applications"
 
     id = db.Column(db.Integer, primary_key=True)
-    text = db.Column(db.String(1000), nullable=False)
+    messages = db.relationship("Message", back_populates="application")
+
     group_id = db.Column(db.Integer, db.ForeignKey("groups.id"), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
@@ -15,5 +16,8 @@ class Application(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
-            "text": self.text,
+            "messages": self.get_joined_users(),
         }
+
+    def get_joined_messages(self):
+        return [message.to_dict() for user in self.users]
