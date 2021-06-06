@@ -8,7 +8,7 @@ import {useSelector, useDispatch} from "react-redux";
 
 import "./Home.css"
 import {authenticate} from "../../store/session";
-import {getAllGroups, getOneGroup} from "../../store/group";
+import {getAllGroups, getAllGroupsWithUsers, getOneGroup} from "../../store/group";
 import GroupCard from "../group card/GroupCard";
 import GroupView from "../GroupView/GroupView";
 import {getAllEvents} from "../../store/event";
@@ -29,8 +29,8 @@ export default function Home(){
 
     useEffect(() => {
         (async() => {
-            await dispatch(getAllGroups());
-
+            // await dispatch(getAllGroups());
+            await dispatch(getAllGroupsWithUsers())
 //----------------------------------------------------------------------------------------------------------------------
             //Test block for thunks
 //----------------------------------------------------------------------------------------------------------------------

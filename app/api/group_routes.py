@@ -33,6 +33,15 @@ def groups():
 
 
 @login_required
+@group_routes.route('/includeUsers/')
+def groupsWithUsers():
+    groups = Group.query.all()
+    all_groups = []
+    for group in [group.to_dict_include_users() for group in groups]:
+        all_groups.append(group)
+    return jsonify(all_groups)
+
+@login_required
 @group_routes.route('/', methods=['POST'])
 def create_group():
     form = CreateGroupForm()

@@ -2,6 +2,7 @@
 //CONSTANTS
 //=========================================================
 const GET_GROUPS = "session/GET_GROUPS"
+const GET_GROUPSWITHUSERS = "session/GET_GROUPSWITHUSERS"
 const GET_GROUP = "session/GET_GROUP"
 const CREATE_GROUP = "session/CREATE_GROUP"
 const UPDATE_GROUP = "session/UPDATE_GROUP"
@@ -9,6 +10,11 @@ const DELETE_GROUP = "session/DELETE_GROUP"
 
 const getGroups = (groups) => ({
     type: GET_GROUPS,
+    payload: groups
+});
+
+const getGRoupsWithUsers = (groups) => ({
+    type: GET_GROUPSWITHUSERS,
     payload: groups
 });
 
@@ -35,6 +41,21 @@ const deleteGroup = (group) => ({
 
 export const getAllGroups = () => async (dispatch)  => {
     const response = await fetch('/api/groups/',{
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    const data = await response.json();
+    if (data.errors) {
+        return;
+    }
+
+    dispatch(getGroups(data))
+}
+
+export const getAllGroupsWithUsers = () => async (dispatch)  => {
+    const response = await fetch('/api/groups/includeUsers/',{
       method: "GET",
       headers: {
         'Content-Type': 'application/json'
