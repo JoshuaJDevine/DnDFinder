@@ -5,7 +5,7 @@ def seed_applications():
     application1 = Application(
         text="Hi, here is my test application. Perhaps add a form generator?",
         group_id=3,
-        user_id=4
+        user_id=1
     )
     db.session.add(application1)
     db.session.commit()
