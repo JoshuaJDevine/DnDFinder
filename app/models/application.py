@@ -5,6 +5,7 @@ class Application(db.Model):
     __tablename__ = "applications"
 
     id = db.Column(db.Integer, primary_key=True)
+    status = db.Column(db.Boolean, default=False)
 
     # An application has one group
     group_id = db.Column(db.Integer, db.ForeignKey("groups.id"), nullable=False)
@@ -20,6 +21,7 @@ class Application(db.Model):
     def to_dict(self):
         return {
             "id": self.id,
+            "status": self.status,
             "messages": self.messages(),
             "userId": self.user_id,
         }
