@@ -1,0 +1,43 @@
+import React, {useEffect, useState} from "react";
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+
+import "./GroupViewHeader.css"
+import {useDispatch, useSelector} from "react-redux";
+import {authenticate} from "../../store/session";
+export default function GroupViewHeader({groupData}){
+    const [loaded, setLoaded] = useState(false);
+
+    const deviantArtImages = useSelector(state => state.imageData.images);
+    const [myImgNum, setMyImgNum] = useState(getRandomInt(9))
+    return(
+        <div className="DnD__GroupViewHeader">
+            <img src={deviantArtImages.results[myImgNum].thumbs[1].src}  />
+            <div className="DnD__GroupViewHeader--right">
+                <h1>{groupData.name}</h1>
+                <div>
+                    <FontAwesomeIcon icon="user-friends" />
+                    Party Size:{groupData.maxPartySize}
+                </div>
+                <div>
+                    <FontAwesomeIcon icon="location-arrow" />
+                    Module:{groupData.module}
+                </div>
+                <div>
+                    <FontAwesomeIcon icon="calendar-times" />
+                    Platform:{groupData.where}
+                </div>
+                <div>
+                    <FontAwesomeIcon icon="hat-wizard" />
+                    DM:{groupData.groupAdmin}
+                </div>
+            </div>
+
+        </div>
+    )
+}
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}

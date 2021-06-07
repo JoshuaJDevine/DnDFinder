@@ -1,5 +1,6 @@
 .DnD__GroupView{
-
+    display: flex;
+    justify-content: center;
 }
 .DnD__GroupView img{
     max-height: 200px;
