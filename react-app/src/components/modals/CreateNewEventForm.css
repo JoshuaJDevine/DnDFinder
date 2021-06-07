@@ -1,0 +1,15 @@
+.DnD__CreateNewEventForm{
+}
+
+.DnD__CreateNewEventForm form  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.DnD__CreateNewEventForm form button {
+    width: 140px;
+    height: 60px;
+    margin-top: 10px;
+}
