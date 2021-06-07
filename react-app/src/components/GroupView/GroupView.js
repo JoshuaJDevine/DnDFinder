@@ -13,6 +13,7 @@ export default function GroupView({groupData}){
 
     useEffect(() => {
         setIsGroupAdmin(groupData.groupAdmin === sessionUser.id)
+        window.scrollTo(0, 0)
     })
 
     return(
