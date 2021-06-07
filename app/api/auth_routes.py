@@ -84,7 +84,7 @@ def unauthorized():
     """
     return {'errors': ['Unauthorized']}, 401
 
-@auth_routes.route('/devAuth')
+@auth_routes.route('/devAuth/')
 def get_token():
     conn = http.client.HTTPSConnection("www.deviantart.com")
     payload = ''

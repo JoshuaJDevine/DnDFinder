@@ -13,7 +13,7 @@ export default function GroupViewHeader({groupData}){
     const [myImgNum, setMyImgNum] = useState(getRandomInt(9))
     return(
         <div className="DnD__GroupViewHeader">
-            <img src={deviantArtImages.results[myImgNum].thumbs[1].src}  />
+            {deviantArtImages? <img src={deviantArtImages.results[myImgNum].thumbs[1].src}/> : <p>Failed to fetch imgs</p> }
             <div className="DnD__GroupViewHeader--right">
                 <h1>{groupData.name}</h1>
                 <div>

@@ -6,7 +6,7 @@ const getImages = (images) => ({
 });
 
 export const getDeviantArtImages = () => async (dispatch)  => {
-    const response = await fetch('/api/auth/devAuth',{
+    const response = await fetch('/api/auth/devAuth/',{
       method: "GET",
       headers: {
         'Content-Type': 'application/json'
@@ -15,7 +15,7 @@ export const getDeviantArtImages = () => async (dispatch)  => {
     const data = await response.json();
     const token = data.access_token
 
-    const images = await fetch(`/api/images/${data.access_token}`,{
+    const images = await fetch(`/api/images/${data.access_token}/`,{
       method: "GET",
       headers: {
         'Content-Type': 'application/json'
