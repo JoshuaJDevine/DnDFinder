@@ -55,6 +55,74 @@ export const getOneMessage = id => async (dispatch) => {
     dispatch(getMessage(data));
 }
 
+export const createNewMessage = (text,
+                               sender_id,
+                               ) => async (dispatch)  => {
+    const response = await fetch("/api/messages/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            text,
+            sender_id,
+            }),
+        });
+        const data = await response.json();
+        if (data.errors) {
+            console.log("==================================================")
+            console.log("==================================================")
+            console.log("==================================================")
+            console.log("==================================================")
+            console.log("//TODO Handle with UI")
+            console.log("Received the following errors");
+            console.log(data.errors);
+            return data.errors;
+         }
+    dispatch(getAllMessages())
+    return {};
+}
+
+
+export const deleteMyMessage = (id) => async (dispatch) => {
+    const response = await fetch(`/api/messages/${id}/`, {
+        method: "DELETE"
+    });
+    if (response.ok) {
+        await dispatch(deleteMessage(id));
+        await dispatch(getAllMessages())
+        return response;
+    }
+    else {
+        console.log("Error deleting message" + id)
+    }
+}
+
+
+export const updateMyMessage =  (id,
+                                text,
+                                sender_id,
+                               ) => async (dispatch)  => {
+    const response = await fetch(`/api/groups/${id}/`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            id,
+            text,
+            sender_id,
+            }),
+        });
+        const data = await response.json();
+        if (data.errors) {
+            console.log("Received the following errors");
+            console.log(data.errors);
+            return data.errors;
+         }
+    await dispatch(getAllMessages())
+    return {};
+}
 
 //=========================================================
 //REDUCER

@@ -95,7 +95,7 @@ export const deleteMyApplication = (id) => async (dispatch) => {
         return response;
     }
     else {
-        console.log("Error deleting group" + id)
+        console.log("Error deleting application" + id)
     }
 }
 
