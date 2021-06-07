@@ -10,7 +10,7 @@ import "./Home.css"
 import {authenticate} from "../../store/session";
 import {getAllGroups, getAllGroupsWithUsers, getOneGroup} from "../../store/group";
 import GroupCard from "../group card/GroupCard";
-import GroupView from "../GroupView/GroupView";
+import GroupView from "../groupview/GroupView";
 import {getAllEvents} from "../../store/event";
 import {getAllApplications, getOneApplication} from "../../store/application";
 import {getAllMessages} from "../../store/message";
