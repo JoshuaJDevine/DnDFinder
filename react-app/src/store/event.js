@@ -1,6 +1,8 @@
 //=========================================================
 //CONSTANTS
 //=========================================================
+import {getAllApplications} from "./application";
+
 const GET_EVENTS = "session/GET_EVENTS"
 const GET_EVENT = "session/GET_EVENT"
 const CREATE_EVENT = "session/CREATE_EVENT"
@@ -54,6 +56,103 @@ export const getOneEvent = id => async (dispatch) => {
 
     dispatch(getEvent(data));
 }
+
+
+
+
+export const createNewEvent = (name,
+                               location,
+                               dayOfWeek,
+                               startTime,
+                               endTime,
+                               timeOfDay,
+                               details,
+                               group_id
+                               ) => async (dispatch)  => {
+    const response = await fetch("/api/events/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+                name,
+               location,
+               dayOfWeek,
+               startTime,
+               endTime,
+               timeOfDay,
+               details,
+               group_id
+            }),
+        });
+        const data = await response.json();
+        if (data.errors) {
+            console.log("==================================================")
+            console.log("==================================================")
+            console.log("==================================================")
+            console.log("==================================================")
+            console.log("//TODO Handle with UI")
+            console.log("Received the following errors");
+            console.log(data.errors);
+            return data.errors;
+         }
+    dispatch(getAllEvents())
+    return {};
+}
+
+
+
+export const deleteMyEvent = (id) => async (dispatch) => {
+    const response = await fetch(`/api/events/${id}/`, {
+        method: "DELETE"
+    });
+    if (response.ok) {
+        await dispatch(deleteEvent(id));
+        await dispatch(getAllEvents())
+        return response;
+    }
+    else {
+        console.log("Error deleting application" + id)
+    }
+}
+
+
+export const updateMyEvent =  (id,
+                               name,
+                               location,
+                               dayOfWeek,
+                               startTime,
+                               endTime,
+                               timeOfDay,
+                               details,
+                               group_id
+                               ) => async (dispatch)  => {
+    const response = await fetch(`/api/events/${id}/`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+                               name,
+                               location,
+                               dayOfWeek,
+                               startTime,
+                               endTime,
+                               timeOfDay,
+                               details,
+                               group_id
+            }),
+        });
+        const data = await response.json();
+        if (data.errors) {
+            console.log("Received the following errors");
+            console.log(data.errors);
+            return data.errors;
+         }
+    await dispatch(getAllEvents())
+    return {};
+}
+
 
 
 
