@@ -18,19 +18,23 @@ export default function GroupViewHeader({groupData}){
                 <h1>{groupData.name}</h1>
                 <div>
                     <FontAwesomeIcon icon="user-friends" />
-                    Party Size:{groupData.maxPartySize}
+                    Party Size: {groupData.maxPartySize}
                 </div>
                 <div>
                     <FontAwesomeIcon icon="location-arrow" />
-                    Module:{groupData.module}
+                    Module: {groupData.module}
                 </div>
                 <div>
                     <FontAwesomeIcon icon="calendar-times" />
-                    Platform:{groupData.where}
+                    Platform: {groupData.where}
                 </div>
                 <div>
                     <FontAwesomeIcon icon="hat-wizard" />
-                    DM:{groupData.groupAdmin}
+                    DM: user: {groupData.groupAdmin} [WIP]
+                </div>
+                <div>
+                    <FontAwesomeIcon icon="image" />
+                    <a href={deviantArtImages.results[myImgNum].url} target="_blank">Image by: {deviantArtImages.results[myImgNum].author.username} </a>
                 </div>
             </div>
 
