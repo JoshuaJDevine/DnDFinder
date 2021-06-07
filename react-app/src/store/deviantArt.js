@@ -13,18 +13,21 @@ export const getDeviantArtImages = () => async (dispatch)  => {
       }
     });
     const data = await response.json();
-    const token = data.token
+    console.log(data.access_token)
+    const token = data.access_token
 
-    const images = await fetch(`/api/images/${token}`,{
+    const images = await fetch(`/api/images/${data.access_token}`,{
       method: "GET",
       headers: {
         'Content-Type': 'application/json'
       }
     });
+    const imageDate = await images.json();
 
-    console.log(images)
 
-    dispatch(getImages(images))
+    console.log(imageDate)
+
+    dispatch(getImages(imageDate))
 }
 
 //=========================================================
