@@ -21,7 +21,7 @@ export default function CreateNewEventForm({setShowModal}){
     const [startTime, setStartTime] = useState(7);
     const [endTime, setEndTime] = useState(10);
     const [timeOfDay, setTimeOfDay] = useState('');
-    const [details, setDetails] = useState(sessionUser.id);
+    const [notes, setNotes] = useState(sessionUser.id);
     const [group_id, setGroup_id] = useState(1);
     const [timeZone, setTimeZone] = useState('');
 
@@ -61,7 +61,7 @@ export default function CreateNewEventForm({setShowModal}){
                 startTime,
                 endTime,
                 timeOfDay,
-                details,
+                notes,
                 group_id
             ))
                 .catch(async (res) => {
@@ -104,11 +104,11 @@ return (
                 {/*------------------------------------------------------*/}
                 {/*LOCATION*/}
                 {/*------------------------------------------------------*/}
-                <label htmlFor='details'>
+                <label htmlFor='notes'>
                     location
                 </label>
                 <textarea
-                    id='details'
+                    id='notes'
                     type="text"
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
@@ -207,9 +207,9 @@ return (
                 </label>
                 <input
                     id='maxPartySize'
-                    type="number"
-                    value={details}
-                    onChange={(e) => setDetails(e.target.value)}
+                    type="text"
+                    value={notes}
+                    onChange={(e) => setNotes(e.target.value)}
                     required
                 />
 

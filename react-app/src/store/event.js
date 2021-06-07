@@ -66,7 +66,7 @@ export const createNewEvent = (name,
                                startTime,
                                endTime,
                                timeOfDay,
-                               details,
+                               notes,
                                group_id
                                ) => async (dispatch)  => {
     const response = await fetch("/api/events/", {
@@ -81,7 +81,7 @@ export const createNewEvent = (name,
                startTime,
                endTime,
                timeOfDay,
-               details,
+               notes,
                group_id
             }),
         });
@@ -124,7 +124,7 @@ export const updateMyEvent =  (id,
                                startTime,
                                endTime,
                                timeOfDay,
-                               details,
+                               notes,
                                group_id
                                ) => async (dispatch)  => {
     const response = await fetch(`/api/events/${id}/`, {
@@ -139,7 +139,7 @@ export const updateMyEvent =  (id,
                                startTime,
                                endTime,
                                timeOfDay,
-                               details,
+                               notes,
                                group_id
             }),
         });

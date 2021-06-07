@@ -10,5 +10,5 @@ class CreateEventForm(FlaskForm):
     startTime = IntegerField('startTime', validators=[DataRequired()])
     endTime = IntegerField('endTime', validators=[DataRequired()])
     timeOfDay = StringField('timeOfDay', validators=[DataRequired()])
-    details = StringField('details')
+    notes = StringField('notes')
     group_id = IntegerField('group_id', validators=[DataRequired()])
