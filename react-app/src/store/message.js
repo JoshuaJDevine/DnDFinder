@@ -103,7 +103,7 @@ export const updateMyMessage =  (id,
                                 text,
                                 sender_id,
                                ) => async (dispatch)  => {
-    const response = await fetch(`/api/groups/${id}/`, {
+    const response = await fetch(`/api/messages/${id}/`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",

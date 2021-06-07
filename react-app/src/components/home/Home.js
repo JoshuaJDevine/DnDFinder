@@ -14,6 +14,7 @@ import GroupView from "../GroupView/GroupView";
 import {getAllEvents} from "../../store/event";
 import {getAllApplications, getOneApplication} from "../../store/application";
 import {getAllMessages} from "../../store/message";
+import {getDeviantArtImages} from "../../store/deviantArt";
 
 export default function Home(){
     const dispatch = useDispatch();
@@ -32,6 +33,7 @@ export default function Home(){
         (async() => {
             // await dispatch(getAllGroups());
             await dispatch(getAllGroupsWithUsers())
+            await dispatch(getDeviantArtImages()).catch((err) => {console.log(err)})
 //----------------------------------------------------------------------------------------------------------------------
             //Test block for thunks
 //----------------------------------------------------------------------------------------------------------------------

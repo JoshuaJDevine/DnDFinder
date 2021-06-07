@@ -6,6 +6,8 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "damn": "^0.2.0",
+    "fetch-mw-oauth2": "^0.7.7",
     "font-awesome": "^4.7.0",
     "http-proxy-middleware": "^1.0.5",
     "moment": "^2.29.1",
