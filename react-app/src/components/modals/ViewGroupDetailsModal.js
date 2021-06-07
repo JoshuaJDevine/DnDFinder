@@ -5,7 +5,7 @@ import {Modal} from "./Modal";
 import ViewGroupDetails from "./ViewGroupDetails";
 
 export default function ViewGroupDetailsModal({group, setViewingGroup}){
-        const [showModal, setShowModal] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     return (
         <>

@@ -74,8 +74,16 @@ export default function Home(){
                 <SplashBar numberOfGroups={groups?.length > 0 ? groups.length : 0} setViewingGroup={setViewingGroup}/>
 
                 {/*[WIP] Render filter and search option*/}
-                <SearchBar text={"Filter 1"}/>
-                <SearchBar text={"Filter 2"}/>
+                {groups && viewingGroup <= 0 && groups.length > 1 ?
+                    <>
+                        <SearchBar text={"Filter 1"}/>
+                        <SearchBar text={"Filter 2"}/>
+                    </>
+                    :
+                    <>
+                    </>
+                }
+
 
 
 

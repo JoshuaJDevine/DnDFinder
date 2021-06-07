@@ -11,9 +11,14 @@ import ViewGroupDetailsModal from "../modals/ViewGroupDetailsModal";
 export default function GroupCard({data, setViewingGroup}){
     const [showModal, setShowModal] = useState(false);
     const sessionUser = useSelector(state => state.session.user);
+
+    const handleDoubleClick = function (data, setViewingGroup) {
+        setViewingGroup(data.id)
+    }
+
     return(
 
-        <div className="DnD__GroupCard">
+        <div className="DnD__GroupCard" onDoubleClick={(e) => {handleDoubleClick(data, setViewingGroup)}}>
             <h1>{data.module}</h1>
             <h2>{data.name}</h2>
             <img src="https://i.imgur.com/THuQZ8L.png"/>
