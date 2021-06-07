@@ -1,6 +1,7 @@
 .DnD__GroupViewHeader{
     margin-left: 20px;
     display: flex;
+    align-items: center;
 }
 .DnD__GroupViewHeader--right{
     margin-left: 20px;
@@ -8,9 +9,15 @@
     flex-direction: column;
 }
 .DnD__GroupViewHeader--right h1{
-    font-size: 2rem;
+    margin-top: 0;
+    font-size: 5vw;
     text-decoration: underline;
 }
 .DnD__GroupViewHeader--right svg {
+    font-size: 2vw;
     margin-right: 15px;
+}
+.DnD__GroupViewHeader--right p {
+        font-size: 2vw;
+
 }
