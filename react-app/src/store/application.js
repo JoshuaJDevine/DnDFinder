@@ -54,6 +54,80 @@ export const getOneApplication = id => async (dispatch) => {
     dispatch(getApplication(data));
 }
 
+export const createNewApplication = (text,
+                               group_id,
+                               user_id,
+                               ) => async (dispatch)  => {
+    const response = await fetch("/api/applications/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            text,
+            group_id,
+            user_id,
+            }),
+        });
+        const data = await response.json();
+        if (data.errors) {
+            console.log("==================================================")
+            console.log("==================================================")
+            console.log("==================================================")
+            console.log("==================================================")
+            console.log("//TODO Handle with UI")
+            console.log("Received the following errors");
+            console.log(data.errors);
+            return data.errors;
+         }
+    dispatch(getAllApplications())
+    return {};
+}
+
+
+export const deleteMyApplication = (id) => async (dispatch) => {
+    const response = await fetch(`/api/applications/${id}/`, {
+        method: "DELETE"
+    });
+    if (response.ok) {
+        await dispatch(deleteApplication(id));
+        await dispatch(getAllApplications())
+        return response;
+    }
+    else {
+        console.log("Error deleting group" + id)
+    }
+}
+
+
+
+export const updateMyApplication =  (id,
+                                     text,
+                                     group_id,
+                                     user_id,
+                               ) => async (dispatch)  => {
+    const response = await fetch(`/api/applications/${id}/`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+                text,
+                group_id,
+                user_id,
+            }),
+        });
+        const data = await response.json();
+        if (data.errors) {
+            console.log("Received the following errors");
+            console.log(data.errors);
+            return data.errors;
+         }
+    await dispatch(getAllApplications())
+    return {};
+}
+
+
 
 //=========================================================
 //REDUCER
