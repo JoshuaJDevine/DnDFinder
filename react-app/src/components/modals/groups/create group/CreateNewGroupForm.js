@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
-import {createNewGroup, updateMyGroup} from "../../store/group";
+import {createNewGroup} from "../../../../store/group";
 import {useDispatch, useSelector} from "react-redux";
 
-import "./EditGroupForm.css"
-export default function EditGroupForm( {setShowModal, group} ){
+import "./CreateNewGroupForm.css"
+export default function CreateNewGroupForm({setShowModal}){
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
 
@@ -14,17 +14,17 @@ export default function EditGroupForm( {setShowModal, group} ){
     //------------------------------------------------------------------
     //Form controls
     //------------------------------------------------------------------
-    const [name, setName] = useState(group.name);
-    const [details, setDetails] = useState(group.details);
-    const [where, setWhere] = useState(group.where);
-    const [module, setModule] = useState(group.module);
-    const [dayOfWeek, setDayOfWeek] = useState(group.dayOfWeek);
-    const [startTime, setStartTime] = useState(group.startTime);
-    const [endTime, setEndTime] = useState(group.endTime);
-    const [timeOfDay, setTimeOfDay] = useState(group.timeOfDay);
+    const [name, setName] = useState('');
+    const [details, setDetails] = useState("");
+    const [where, setWhere] = useState('Discord');
+    const [module, setModule] = useState('');
+    const [dayOfWeek, setDayOfWeek] = useState('');
+    const [startTime, setStartTime] = useState(7);
+    const [endTime, setEndTime] = useState(10);
+    const [timeOfDay, setTimeOfDay] = useState('');
     const [groupAdmin, setGroupAdmin] = useState(sessionUser.id);
-    const [maxPartySize, setMaxPartySize] = useState(group.maxPartySize);
-    const [timeZone, setTimeZone] = useState(group.timeZone);
+    const [maxPartySize, setMaxPartySize] = useState(1);
+    const [timeZone, setTimeZone] = useState('');
 
     const [errors, setErrors] = useState([]);
 
@@ -68,10 +68,10 @@ export default function EditGroupForm( {setShowModal, group} ){
             newErrors.push("Currently support for party size is between 3-8 players.")
             setErrors(newErrors);
         }
+
         if (newErrors.length <= 0) {
             setShowModal(false)
-            return await dispatch(updateMyGroup(
-                group.id,
+            return await dispatch(createNewGroup(
                 name,
                 details,
                 where,
@@ -91,10 +91,11 @@ export default function EditGroupForm( {setShowModal, group} ){
                     }
                 });
         }
+
     }
 
     return (
-        <div className='DnD__UpdateGroupForm'>
+        <div className='DnD__CreateNewGroupForm'>
             <form onSubmit={handleSubmit}>
                 {errors.length > 0 ?
                     <div className='DnD_Errors'>
@@ -140,7 +141,7 @@ export default function EditGroupForm( {setShowModal, group} ){
                 <label htmlFor='where'>
                     Primary Platform
                 </label>
-                <select required value={where} defaultValue={group.where} onChange={(e) => setWhere(e.target.value)}>
+                <select required value={where} onChange={(e) => setWhere(e.target.value)}>
                     <option value="Discord">Discord</option>
                     <option value="Roll 20">Roll 20</option>
                     <option value="DnD Beyond">DnD Beyond</option>
@@ -159,7 +160,7 @@ export default function EditGroupForm( {setShowModal, group} ){
                 <label htmlFor='module'>
                     Module
                 </label>
-                <select required value={module} defaultValue={group.module} onChange={(e) => setModule(e.target.value)}>
+                <select required value={module} onChange={(e) => setModule(e.target.value)}>
                     <option value="Curse of Strahd">Curse of Strahd</option>
                     <option value="Out of the Abyss">Out of the Abyss</option>
                     <option value="Descent into Avernus">Descent into Avernus</option>
@@ -178,7 +179,7 @@ export default function EditGroupForm( {setShowModal, group} ){
                 <label htmlFor='dayOfWeek'>
                     Day
                 </label>
-                <select required value={dayOfWeek} defaultValue={group.dayOfWeek} onChange={(e) => setDayOfWeek(e.target.value)}>
+                <select required value={dayOfWeek} onChange={(e) => setDayOfWeek(e.target.value)}>
                     <option value="Monday">Monday</option>
                     <option value="Tuesday">Tuesday</option>
                     <option value="Wednesday">Wednesday</option>
@@ -194,7 +195,7 @@ export default function EditGroupForm( {setShowModal, group} ){
                 <label htmlFor='startTime'>
                     Start time
                 </label>
-                <select required value={startTime} defaultValue={group.startTime} onChange={(e) => setStartTime(e.target.value)}>
+                <select required value={startTime} onChange={(e) => setStartTime(e.target.value)}>
                     <option value={1}>1</option>
                     <option value={2}>2</option>
                     <option value={3}>3</option>
@@ -215,7 +216,7 @@ export default function EditGroupForm( {setShowModal, group} ){
                 <label htmlFor='endTime'>
                     End time
                 </label>
-                <select required value={endTime} defaultValue={group.endTime} onChange={(e) => setEndTime(e.target.value)}>
+                <select required value={endTime} onChange={(e) => setEndTime(e.target.value)}>
                     <option value={1}>1</option>
                     <option value={2}>2</option>
                     <option value={3}>3</option>
@@ -236,7 +237,7 @@ export default function EditGroupForm( {setShowModal, group} ){
                 <label htmlFor='timeOfDay'>
                     Time Of Day
                 </label>
-                <select required value={timeOfDay} defaultValue={group.timeOfDay} onChange={(e) => setTimeOfDay(e.target.value)}>
+                <select required value={timeOfDay} onChange={(e) => setTimeOfDay(e.target.value)}>
                     <option value="PM">PM</option>
                     <option value="AM">AM</option>
                 </select>
@@ -272,7 +273,7 @@ export default function EditGroupForm( {setShowModal, group} ){
                 {/*------------------------------------------------------*/}
                 {/*SUBMIT*/}
                 {/*------------------------------------------------------*/}
-                <button type="submit">Update</button>
+                <button type="submit">Create</button>
                 <button onClick={handleClose}>Close</button>
             </form>
         </div>

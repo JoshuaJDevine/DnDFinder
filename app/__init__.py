@@ -12,6 +12,7 @@ from .api.group_routes import group_routes
 from .api.event_routes import event_routes
 from .api.application_routes import application_routes
 from .api.message_routes import message_routes
+from .api.image_routes import image_routes
 
 from .seeds import seed_commands
 
@@ -39,6 +40,7 @@ app.register_blueprint(group_routes, url_prefix='/api/groups/')
 app.register_blueprint(event_routes, url_prefix='/api/events/')
 app.register_blueprint(application_routes, url_prefix='/api/applications/')
 app.register_blueprint(message_routes, url_prefix='/api/messages/')
+app.register_blueprint(image_routes, url_prefix='/api/images/')
 db.init_app(app)
 Migrate(app, db)
 

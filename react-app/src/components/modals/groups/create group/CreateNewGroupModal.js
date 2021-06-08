@@ -1,20 +1,19 @@
 import React, {useState} from "react";
 
 import "./CreateNewGroupForm.css"
-import {Modal} from "./Modal";
-import DemoUserForm from "./DemoUserForm";
+import {Modal} from "../../Modal";
+import CreateNewGroupForm from "./CreateNewGroupForm";
 
-import "./DeleteGroupModal.css"
-export default function DemoUserModal(){
+export default function CreateNewGroupModal(){
     const [showModal, setShowModal] = useState(false);
 
     return (
         <>
             <div className="glow">
-                <button onClick={() => setShowModal(true)}>Demo</button>
+                <button onClick={() => setShowModal(true)}>New Group</button>
                 {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
-                        <DemoUserForm setShowModal={setShowModal}/>
+                        <CreateNewGroupForm setShowModal={setShowModal}/>
                     </Modal>
                 )}
             </div>

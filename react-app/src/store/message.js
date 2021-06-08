@@ -1,6 +1,8 @@
 //=========================================================
 //CONSTANTS
 //=========================================================
+import {setGroupEvents} from "./event";
+
 const GET_MESSAGES = "session/GET_MESSAGES"
 const GET_MESSAGE = "session/GET_MESSAGE"
 const CREATE_MESSAGE = "session/CREATE_MESSAGE"
@@ -55,6 +57,105 @@ export const getOneMessage = id => async (dispatch) => {
     dispatch(getMessage(data));
 }
 
+export const getGroupMessages = groupId => async (dispatch) => {
+    let res = await fetch(`/api/groups/${groupId}`);
+    let data = await res.json();
+    console.log(data)
+    for (let key in data){
+        if (key === "messages"){
+            dispatch(setGroupMessages(data[key]))
+        }
+    }
+}
+export const setGroupMessages = messages => async (dispatch) => {
+     dispatch(getMessage(messages));
+}
+
+export const createNewMessage = (text,
+                                sender_id,
+                                group_id,
+                                event_id,
+                                user_id,
+                                application_id,
+                               ) => async (dispatch)  => {
+    const response = await fetch("/api/messages/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            text,
+            sender_id,
+            group_id,
+            event_id,
+            user_id,
+            application_id,
+            }),
+        });
+        const data = await response.json();
+        if (data.errors) {
+            console.log("==================================================")
+            console.log("==================================================")
+            console.log("==================================================")
+            console.log("==================================================")
+            console.log("//TODO Handle with UI")
+            console.log("Received the following errors");
+            console.log(data.errors);
+            return data.errors;
+         }
+    await dispatch(getGroupMessages(group_id))
+    return {};
+}
+
+
+export const deleteMyMessage = (id, group_id) => async (dispatch) => {
+    const response = await fetch(`/api/messages/${id}/`, {
+        method: "DELETE"
+    });
+    if (response.ok) {
+        await dispatch(deleteMessage(id));
+        // await dispatch(getAllMessages())
+        await dispatch(getGroupMessages(group_id))
+        return response;
+    }
+    else {
+        console.log("Error deleting message" + id)
+    }
+}
+
+
+export const updateMyMessage =  (id,
+                                text,
+                                sender_id,
+                                group_id,
+                                event_id,
+                                user_id,
+                                application_id,
+                               ) => async (dispatch)  => {
+    const response = await fetch(`/api/messages/${id}/`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            text,
+            sender_id,
+            group_id,
+            event_id,
+            user_id,
+            application_id,
+            }),
+        });
+        const data = await response.json();
+        if (data.errors) {
+            console.log("Received the following errors");
+            console.log(data.errors);
+            return data.errors;
+         }
+    // await dispatch(getAllMessages())
+    await dispatch(getGroupMessages(group_id))
+    return {};
+}
 
 //=========================================================
 //REDUCER

@@ -1,0 +1,22 @@
+.DnD__Message{
+    display: flex;
+    flex-direction: column;
+    background-image: url(https://i.imgur.com/SqrUFSn.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    margin-bottom: 10px;
+    padding: 10px;
+    max-width: 30vw;
+}
+.DnD__Message p {
+    word-wrap: break-word;
+}
+
+.DnD__Message--buttonWrapper{
+    display: flex;
+    flex-direction: row;
+}

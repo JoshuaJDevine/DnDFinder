@@ -1,0 +1,15 @@
+.DnD__CreateNewMessageForm{
+}
+
+.DnD__CreateNewMessageForm form  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.DnD__CreateNewMessageForm form button {
+    width: 140px;
+    height: 60px;
+    margin-top: 10px;
+}

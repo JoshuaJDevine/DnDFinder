@@ -4,8 +4,12 @@ import { authenticate } from "./store/session";
 import { createNewGroup, getAllGroups} from "./store/group";
 import DnD from "./components/DnD";
 import {ModalProvider} from "./components/modals/Modal";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faUserFriends, faLocationArrow, faCalendarTimes, faHatWizard, faImage } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
+  library.add( faUserFriends, faLocationArrow, faCalendarTimes, faHatWizard, faImage);
+
   // const user = useSelector(state => state.session.user)
   // const groups = useSelector(state => state.groupData.groups)
   const [loaded, setLoaded] = useState(false);

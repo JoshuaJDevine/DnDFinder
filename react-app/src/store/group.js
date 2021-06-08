@@ -13,7 +13,7 @@ const getGroups = (groups) => ({
     payload: groups
 });
 
-const getGRoupsWithUsers = (groups) => ({
+const getGroupsWithUsers = (groups) => ({
     type: GET_GROUPSWITHUSERS,
     payload: groups
 });
@@ -109,6 +109,11 @@ export const createNewGroup = (name,
         });
         const data = await response.json();
         if (data.errors) {
+            console.log("==================================================")
+            console.log("==================================================")
+            console.log("==================================================")
+            console.log("==================================================")
+            console.log("//TODO Handle with UI")
             console.log("Received the following errors");
             console.log(data.errors);
             return data.errors;

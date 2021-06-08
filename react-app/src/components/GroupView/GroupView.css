@@ -1,0 +1,16 @@
+.DnD__GroupView{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.DnD__GroupView img{
+    height: auto;
+    width: auto;
+    border-radius: 8px;
+}
+
+.Dnd__GroupViewContent{
+    display: flex;
+    justify-content: center;
+}

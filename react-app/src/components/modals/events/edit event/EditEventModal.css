@@ -1,0 +1,15 @@
+.DnD__EditEventForm{
+}
+
+.DnD__EditEventForm form  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.DnD__EditEventForm--EditButton {
+    width: 140px;
+    height: 60px;
+    margin-bot: 10px;
+}

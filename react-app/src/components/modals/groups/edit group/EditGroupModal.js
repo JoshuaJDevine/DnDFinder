@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 import "./EditGroupModal.css"
-import {Modal} from "./Modal";
+import {Modal} from "../../Modal";
 import EditGroupForm from "./EditGroupForm";
 
 export default function EditGroupModal({group}){

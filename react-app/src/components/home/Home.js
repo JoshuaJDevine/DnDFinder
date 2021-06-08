@@ -10,10 +10,11 @@ import "./Home.css"
 import {authenticate} from "../../store/session";
 import {getAllGroups, getAllGroupsWithUsers, getOneGroup} from "../../store/group";
 import GroupCard from "../group card/GroupCard";
-import GroupView from "../GroupView/GroupView";
+import GroupView from "../groupview/GroupView";
 import {getAllEvents} from "../../store/event";
 import {getAllApplications, getOneApplication} from "../../store/application";
 import {getAllMessages} from "../../store/message";
+import {getDeviantArtImages} from "../../store/deviantArt";
 
 export default function Home(){
     const dispatch = useDispatch();
@@ -32,6 +33,7 @@ export default function Home(){
         (async() => {
             // await dispatch(getAllGroups());
             await dispatch(getAllGroupsWithUsers())
+            await dispatch(getDeviantArtImages()).catch((err) => {console.log(err)})
 //----------------------------------------------------------------------------------------------------------------------
             //Test block for thunks
 //----------------------------------------------------------------------------------------------------------------------
@@ -72,8 +74,16 @@ export default function Home(){
                 <SplashBar numberOfGroups={groups?.length > 0 ? groups.length : 0} setViewingGroup={setViewingGroup}/>
 
                 {/*[WIP] Render filter and search option*/}
-                <SearchBar text={"Filter 1"}/>
-                <SearchBar text={"Filter 2"}/>
+                {groups && viewingGroup <= 0 && groups.length > 1 ?
+                    <>
+                        <SearchBar text={"Filter 1"}/>
+                        <SearchBar text={"Filter 2"}/>
+                    </>
+                    :
+                    <>
+                    </>
+                }
+
 
 
 

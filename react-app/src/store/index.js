@@ -5,12 +5,14 @@ import groupData from "./group"
 import eventData from "./event"
 import messageData from "./message"
 import applicationData from "./application"
+import imageData from "./deviantArt"
 const rootReducer = combineReducers({
     session,
     groupData,
     eventData,
     applicationData,
-    messageData
+    messageData,
+    imageData
 });
 
 

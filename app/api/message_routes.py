@@ -44,6 +44,7 @@ def create_message():
     if form.validate_on_submit():
         message = Message(
             text=form.data['text'],
+            sender_id=form.data['sender_id'],
             group_id=form.data['group_id'],
             user_id=form.data['user_id'],
             event_id=form.data['event_id'],

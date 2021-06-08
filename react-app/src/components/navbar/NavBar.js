@@ -3,9 +3,9 @@ import {Link, NavLink} from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 
 import "./NavBar.css"
-import CreateNewGroupModal from "../modals/CreateNewGroupModal";
+import CreateNewGroupModal from "../modals/groups/create group/CreateNewGroupModal";
 import {useSelector} from "react-redux";
-import DemoUserModal from "../modals/DemoUserModal";
+import DemoUserModal from "../modals/users/demo user/DemoUserModal";
 
 const NavBar = () => {
     const sessionUser = useSelector(state => state.session.user);

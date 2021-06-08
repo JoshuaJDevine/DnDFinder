@@ -2,8 +2,8 @@ import React from "react";
 
 import "./DemoUserForm.css"
 import {useDispatch} from "react-redux";
-import {deleteMyGroup} from "../../store/group";
-import {login} from "../../store/session";
+import {deleteMyGroup} from "../../../../store/group";
+import {login} from "../../../../store/session";
 
 export default function DemoUserForm( {setShowModal} ){
     const dispatch = useDispatch();
