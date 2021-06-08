@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, session, request
 from flask_login import login_required
 
-from app.models import Application, db
+from app.models import Application, Message, db
 from app.forms import ApplicationForm
 
 application_routes = Blueprint('applications', __name__)
@@ -38,6 +38,12 @@ def applications():
 @login_required
 @application_routes.route('/', methods=['POST'])
 def create_application():
+    print("==================================================")
+    print("==================================================")
+    print("==================================================")
+    print("==================================================")
+    print("==================================================")
+    print("APPLICATION")
     form = ApplicationForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
@@ -46,8 +52,16 @@ def create_application():
             group_id=form.data['group_id'],
             user_id=form.data['user_id'],
         )
-
         db.session.add(application)
+        db.session.commit()
+
+        message = Message(
+            text=form.data['text'],
+            sender_id=form.data['user_id'],
+            application_id=application.id,
+        )
+
+        db.session.add(message)
         db.session.commit()
 
         new_application = []

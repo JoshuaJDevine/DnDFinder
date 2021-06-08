@@ -14,7 +14,7 @@ export default function GroupCard({data, setViewingGroup}){
     const sessionUser = useSelector(state => state.session.user);
 
     const handleDoubleClick = function (data, setViewingGroup) {
-        setViewingGroup(data.id)
+            setViewingGroup(data.id)
     }
 
     return(
@@ -38,7 +38,12 @@ export default function GroupCard({data, setViewingGroup}){
                 <>
                     <div className="DnD__GroupCard--Buttons">
                         <ViewGroupDetailsModal group={data} setViewingGroup={setViewingGroup}/>
-                        <CreateNewApplicationModal groupId={data.id} />
+                        {sessionUser.id === data.groupAdmin ?
+                            <>
+                            </>
+                            :
+                            <CreateNewApplicationModal groupId={data.id} />
+                        }
                     </div>
                 </>
             }
