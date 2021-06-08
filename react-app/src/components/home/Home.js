@@ -18,6 +18,7 @@ import {getDeviantArtImages} from "../../store/deviantArt";
 
 export default function Home(){
     const dispatch = useDispatch();
+    const sessionUser = useSelector(state => state.session.user);
 
     const [loaded, setLoaded] = useState(false);
     const groups = useSelector(state => state.groupData.groups)
@@ -28,6 +29,17 @@ export default function Home(){
     // Otherwise we will render the filtered groups
     //===========================================================
     const [viewingGroup, setViewingGroup] = useState(0)
+    const [userIsMember, setUserIsMember] = useState(false)
+
+    useEffect(() => {
+        if (viewingGroup > 0) {
+            groups[viewingGroup-1].users.map((user, idx) => {
+            if (sessionUser.id === user.id){
+                setUserIsMember(true)
+            }
+        })
+    }
+    }, [viewingGroup])
 
     useEffect(() => {
         (async() => {
@@ -116,7 +128,7 @@ export default function Home(){
                 {/*Render one group*/}
                 {groups && viewingGroup >= 1 ?
                     <>
-                        <GroupView groupData={groups[viewingGroup-1]} />
+                        <GroupView groupData={groups[viewingGroup-1]} userIsMember={userIsMember} />
                     </>
                     :
                     <>

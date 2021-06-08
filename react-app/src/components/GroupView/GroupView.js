@@ -8,7 +8,8 @@ import GroupViewAdminPanel from "./GroupViewAdminPanel";
 import GroupViewContentEvents from "./GroupViewContentEvents";
 import GroupViewContentMessages from "./GroupViewContentMessages";
 import {setGroupEvents} from "../../store/event";
-export default function GroupView({groupData}){
+import GroupViewMembers from "./GroupViewMembers";
+export default function GroupView({groupData, userIsMember}){
     const sessionUser = useSelector(state => state.session.user);
     const [isGroupAdmin, setIsGroupAdmin] = useState(false)
     useEffect(async () => {
@@ -21,13 +22,20 @@ export default function GroupView({groupData}){
         <div className="DnD__GroupView">
             <GroupViewHeader groupData={groupData} />
             <GroupViewDetails groupData={groupData} />
+            {}
             {isGroupAdmin ? <GroupViewAdminPanel groupId={groupData.id} applications={groupData.applications} /> : <> </>}
+            {groupData.users.length > 0 ? <GroupViewMembers groupMembers={groupData.users} /> : <> </>}
+        </div>
 
-        </div>
-        <div className="Dnd__GroupViewContent">
-            <GroupViewContentEvents groupData={groupData} isGroupAdmin={isGroupAdmin} />
-            <GroupViewContentMessages groupData={groupData}/>
-        </div>
+        {userIsMember ?
+            <div className="Dnd__GroupViewContent">
+                <GroupViewContentEvents groupData={groupData} isGroupAdmin={isGroupAdmin} />
+                <GroupViewContentMessages groupData={groupData}/>
+            </div>
+            :
+            <>
+            </>
+            }
         </>
     )
 }

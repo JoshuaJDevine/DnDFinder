@@ -12,7 +12,6 @@ import CreateNewApplicationModal from "../modals/applications/create application
 export default function GroupCard({data, setViewingGroup}){
     const [showModal, setShowModal] = useState(false);
     const [userHasApplied, setUserHasApplied] = useState(false)
-    const [userIsMember, setUserIsMember] = useState(false)
     const sessionUser = useSelector(state => state.session.user);
 
     useEffect(() => {
