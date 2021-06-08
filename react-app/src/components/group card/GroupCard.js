@@ -15,7 +15,13 @@ export default function GroupCard({data, setViewingGroup}){
     const [userIsMember, setUserIsMember] = useState(false)
     const sessionUser = useSelector(state => state.session.user);
 
-
+    useEffect(() => {
+        data.applications.map((application, idx) => {
+            if (application.userId === sessionUser.id){
+                setUserHasApplied(true)
+            }
+        })
+    }, [])
 
     const handleDoubleClick = function (data, setViewingGroup) {
             setViewingGroup(data.id)
@@ -46,7 +52,7 @@ export default function GroupCard({data, setViewingGroup}){
                     <div className="DnD__GroupCard--Buttons">
                         <ViewGroupDetailsModal group={data} setViewingGroup={setViewingGroup}/>
                         {sessionUser.id !== data.groupAdmin && userHasApplied !== true ?
-                            <CreateNewApplicationModal groupId={data.id} />
+                            <CreateNewApplicationModal groupId={data.id} setUserHasApplied={setUserHasApplied} />
                             :
                             <>
                             </>

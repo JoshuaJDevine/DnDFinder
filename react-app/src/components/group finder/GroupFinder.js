@@ -1,10 +1,15 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 import "./GroupFinder.css"
 import GroupCard from "../group card/GroupCard";
+import {useDispatch, useSelector} from "react-redux";
+import {getAllApplications} from "../../store/application";
 
 
 export default function GroupFinder({groupList, myIdx, single, setViewingGroup}){
+    const [loaded, setLoaded] = useState(false);
+
+
     return (
     <div className="DnD__GroupFinder">
         {groupList.map((group, idx) => {
@@ -18,7 +23,7 @@ export default function GroupFinder({groupList, myIdx, single, setViewingGroup})
             }
             else if (groupList.length % 2 !== 0 && idx+1 === groupList.length && single){
                 return(
-                    <GroupCard key={idx+200} data={groupList[idx]} setViewingGroup={setViewingGroup} />
+                    <GroupCard key={idx+200} data={groupList[idx]} setViewingGroup={setViewingGroup}/>
                 )
             }
         })}

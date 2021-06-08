@@ -34,6 +34,7 @@ export default function Home(){
             // await dispatch(getAllGroups());
             await dispatch(getAllGroupsWithUsers())
             await dispatch(getDeviantArtImages()).catch((err) => {console.log(err)})
+            await dispatch(getAllApplications()).catch((err) => {console.log(err)})
 //----------------------------------------------------------------------------------------------------------------------
             //Test block for thunks
 //----------------------------------------------------------------------------------------------------------------------

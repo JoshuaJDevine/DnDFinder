@@ -127,7 +127,18 @@ export const updateMyApplication =  (id,
     return {};
 }
 
-
+export const manageMyApplication = (decision, applicationId) => async (dispatch) => {
+    const response = await fetch(`/api/applications/manage/${decision}/${applicationId}/`, {
+        method: "POST"
+    });
+    if (response.ok) {
+        console.log("Managed application res === OK")
+        return response;
+    }
+    else {
+        console.log("Error managing application")
+    }
+}
 
 //=========================================================
 //REDUCER

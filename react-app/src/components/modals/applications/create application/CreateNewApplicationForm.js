@@ -3,7 +3,7 @@ import {createNewApplication} from "../../../../store/application";
 import {useDispatch, useSelector} from "react-redux";
 
 import  "./CreateNewApplicationForm.css"
-export default function CreateNewApplicationForm( {setShowModal, groupId} ){
+export default function CreateNewApplicationForm( {setShowModal, groupId, setUserHasApplied} ){
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
 
@@ -31,6 +31,7 @@ export default function CreateNewApplicationForm( {setShowModal, groupId} ){
 
         if (newErrors.length <= 0) {
             setShowModal(false)
+            setUserHasApplied(true)
             return await dispatch(createNewApplication(
                 text,
                 groupApplicationId,
