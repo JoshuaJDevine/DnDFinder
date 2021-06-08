@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import {createNewMessage} from "../../../store/message";
+import {createNewMessage} from "../../../../store/message";
 import {useDispatch, useSelector} from "react-redux";
 
 import "./CreateNewMessageForm.css"
-import {createNewEvent} from "../../../store/event";
+import {createNewEvent} from "../../../../store/event";
 export default function CreateNewMessageForm({setShowModal, groupId}){
 
     const dispatch = useDispatch();

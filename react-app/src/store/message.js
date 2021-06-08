@@ -108,13 +108,14 @@ export const createNewMessage = (text,
 }
 
 
-export const deleteMyMessage = (id) => async (dispatch) => {
+export const deleteMyMessage = (id, group_id) => async (dispatch) => {
     const response = await fetch(`/api/messages/${id}/`, {
         method: "DELETE"
     });
     if (response.ok) {
         await dispatch(deleteMessage(id));
-        await dispatch(getAllMessages())
+        // await dispatch(getAllMessages())
+        await dispatch(getGroupMessages(group_id))
         return response;
     }
     else {
@@ -151,7 +152,9 @@ export const updateMyMessage =  (id,
             console.log(data.errors);
             return data.errors;
          }
-    await dispatch(getAllMessages())
+    // await dispatch(getAllMessages())
+    await dispatch(getGroupMessages(group_id))
+
     return {};
 }
 
