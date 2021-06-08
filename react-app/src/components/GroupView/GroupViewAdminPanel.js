@@ -10,11 +10,15 @@ export default function GroupViewAdminPanel({groupId, applications}){
             <p>ADMIN PANEL</p>
             <CreateNewEventModal groupId={groupId} />
             {applications.map((application, idx) => {
-                return(
-                    <>
-                        <Application applicationData={application} />
-                    </>
-                )
+                console.log(application.status);
+                if (application.status === false){
+                    return(
+                        <>
+                            <Application applicationData={application} />
+                        </>
+                    )
+                }
+
             })}
         </div>
     )
