@@ -51,16 +51,15 @@ export const getAllMessages = () => async (dispatch)  => {
 }
 
 export const getOneMessage = id => async (dispatch) => {
-    const res = await fetch(`/api/messages/${id}`);
+    const res = await fetch(`/api/messages/${id}/`);
     const data = await res.json();
 
     dispatch(getMessage(data));
 }
 
 export const getGroupMessages = groupId => async (dispatch) => {
-    let res = await fetch(`/api/groups/${groupId}`);
+    let res = await fetch(`/api/groups/${groupId}/`);
     let data = await res.json();
-    console.log(data)
     for (let key in data){
         if (key === "messages"){
             dispatch(setGroupMessages(data[key]))

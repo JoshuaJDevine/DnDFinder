@@ -52,19 +52,18 @@ export const getAllEvents = () => async (dispatch)  => {
 }
 
 export const getOneEvent = id => async (dispatch) => {
-    const res = await fetch(`/api/events/${id}`);
+    const res = await fetch(`/api/events/${id}/`);
     const data = await res.json();
 
     dispatch(getEvent(data));
 }
 
 export const setGroupEventsById = id => async (dispatch) => {
-        let res = await fetch(`/api/groups/${id}`);
+        let res = await fetch(`/api/groups/${id}/`);
         let data = await res.json();
 
         for (let key in data){
             if (key === "events"){
-                console.log("Test")
                 dispatch(setGroupEvents(data[key]))
             }
         }
