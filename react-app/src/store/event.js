@@ -147,7 +147,6 @@ export const updateMyEvent =  (id,
                                notes,
                                group_id
                                ) => async (dispatch)  => {
-    console.log(group_id)
     const response = await fetch(`/api/events/${id}/`, {
         method: "PUT",
         headers: {

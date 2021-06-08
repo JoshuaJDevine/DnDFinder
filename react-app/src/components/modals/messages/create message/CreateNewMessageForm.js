@@ -3,9 +3,7 @@ import {createNewMessage} from "../../../../store/message";
 import {useDispatch, useSelector} from "react-redux";
 
 import "./CreateNewMessageForm.css"
-import {createNewEvent} from "../../../../store/event";
 export default function CreateNewMessageForm({setShowModal, groupId}){
-
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
 
@@ -47,8 +45,8 @@ export default function CreateNewMessageForm({setShowModal, groupId}){
         }
 
     }
-return (
-        <div className='DnD__CreateNewEventForm'>
+    return (
+        <div className='DnD__CreateNewMessageForm'>
             <form onSubmit={handleSubmit}>
                 {errors.length > 0 ?
                     <div className='DnD_Errors'>

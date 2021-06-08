@@ -154,7 +154,6 @@ export const updateMyMessage =  (id,
          }
     // await dispatch(getAllMessages())
     await dispatch(getGroupMessages(group_id))
-
     return {};
 }
 
