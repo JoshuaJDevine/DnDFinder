@@ -14,6 +14,9 @@ export default function GroupView({groupData, userIsMember}){
     const [isGroupAdmin, setIsGroupAdmin] = useState(false)
     useEffect(async () => {
         setIsGroupAdmin(groupData.groupAdmin === sessionUser.id)
+        if (isGroupAdmin){
+            userIsMember = true;
+        }
         window.scrollTo(0, 0)
     })
 
