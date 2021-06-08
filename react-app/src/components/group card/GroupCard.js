@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 
 import "./GroupCard.css"
@@ -11,11 +11,18 @@ import CreateNewApplicationModal from "../modals/applications/create application
 
 export default function GroupCard({data, setViewingGroup}){
     const [showModal, setShowModal] = useState(false);
+    const [userHasApplied, setUserHasApplied] = useState(false)
+    const [userIsMember, setUserIsMember] = useState(false)
     const sessionUser = useSelector(state => state.session.user);
+
+
 
     const handleDoubleClick = function (data, setViewingGroup) {
             setViewingGroup(data.id)
     }
+
+
+
 
     return(
 
@@ -38,11 +45,11 @@ export default function GroupCard({data, setViewingGroup}){
                 <>
                     <div className="DnD__GroupCard--Buttons">
                         <ViewGroupDetailsModal group={data} setViewingGroup={setViewingGroup}/>
-                        {sessionUser.id === data.groupAdmin ?
+                        {sessionUser.id !== data.groupAdmin && userHasApplied !== true ?
+                            <CreateNewApplicationModal groupId={data.id} />
+                            :
                             <>
                             </>
-                            :
-                            <CreateNewApplicationModal groupId={data.id} />
                         }
                     </div>
                 </>
