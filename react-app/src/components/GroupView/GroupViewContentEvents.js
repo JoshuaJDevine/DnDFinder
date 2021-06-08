@@ -11,10 +11,13 @@ export default function GroupViewContentEvents({groupData, isGroupAdmin}){
     const [loaded, setLoaded] = useState(false);
     const eventData = useSelector(state => state.eventData.event);
 
-    useEffect(() => {
-        dispatch(setGroupEventsById(groupData.id))
+
+    useEffect(async () => {
+        await dispatch(setGroupEventsById(groupData.id))
         setLoaded(true);
-    }, [eventData])
+    }, [])
+
+
 
     if (!loaded) {
         return (
@@ -36,7 +39,7 @@ export default function GroupViewContentEvents({groupData, isGroupAdmin}){
                     })}
             </div>
             :
-            <p>Fetching your events...</p>
+            <p>No events...</p>
             }
         </div>
     )

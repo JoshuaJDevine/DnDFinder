@@ -3,7 +3,7 @@ import {Modal} from "../Modal";
 
 import "./CreateNewMessageModal.css"
 import CreateNewMessageForm from "./CreateNewMessageForm";
-export default function CreateNewMessageModal(){
+export default function CreateNewMessageModal( {groupId}){
     const [showModal, setShowModal] = useState(false);
 
     return(
@@ -12,7 +12,7 @@ export default function CreateNewMessageModal(){
                 <button onClick={() => setShowModal(true)}>New Message</button>
                 {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
-                        <CreateNewMessageForm setShowModal={setShowModal}/>
+                        <CreateNewMessageForm setShowModal={setShowModal} groupId={groupId}/>
                     </Modal>
                 )}
             </div>

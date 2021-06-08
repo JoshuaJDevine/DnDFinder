@@ -22,7 +22,7 @@ export default function GroupView({groupData}){
         <div className="DnD__GroupView">
             <GroupViewHeader groupData={groupData} />
             <GroupViewDetails groupData={groupData} />
-            {isGroupAdmin ? <GroupViewAdminPanel /> : <> </>}
+            {isGroupAdmin ? <GroupViewAdminPanel groupId={groupData.id} /> : <> </>}
 
         </div>
         <div className="Dnd__GroupViewContent">

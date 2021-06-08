@@ -1,6 +1,8 @@
 //=========================================================
 //CONSTANTS
 //=========================================================
+import {setGroupEvents} from "./event";
+
 const GET_MESSAGES = "session/GET_MESSAGES"
 const GET_MESSAGE = "session/GET_MESSAGE"
 const CREATE_MESSAGE = "session/CREATE_MESSAGE"
@@ -55,8 +57,26 @@ export const getOneMessage = id => async (dispatch) => {
     dispatch(getMessage(data));
 }
 
+export const getGroupMessages = groupId => async (dispatch) => {
+    let res = await fetch(`/api/groups/${groupId}`);
+    let data = await res.json();
+    console.log(data)
+    for (let key in data){
+        if (key === "messages"){
+            dispatch(setGroupMessages(data[key]))
+        }
+    }
+}
+export const setGroupMessages = messages => async (dispatch) => {
+     dispatch(getMessage(messages));
+}
+
 export const createNewMessage = (text,
-                               sender_id,
+                                sender_id,
+                                group_id,
+                                event_id,
+                                user_id,
+                                application_id,
                                ) => async (dispatch)  => {
     const response = await fetch("/api/messages/", {
         method: "POST",
@@ -66,6 +86,10 @@ export const createNewMessage = (text,
         body: JSON.stringify({
             text,
             sender_id,
+            group_id,
+            event_id,
+            user_id,
+            application_id,
             }),
         });
         const data = await response.json();
@@ -79,7 +103,7 @@ export const createNewMessage = (text,
             console.log(data.errors);
             return data.errors;
          }
-    dispatch(getAllMessages())
+    await dispatch(getGroupMessages(group_id))
     return {};
 }
 
@@ -102,6 +126,10 @@ export const deleteMyMessage = (id) => async (dispatch) => {
 export const updateMyMessage =  (id,
                                 text,
                                 sender_id,
+                                group_id,
+                                event_id,
+                                user_id,
+                                application_id,
                                ) => async (dispatch)  => {
     const response = await fetch(`/api/messages/${id}/`, {
         method: "PUT",
@@ -109,9 +137,12 @@ export const updateMyMessage =  (id,
             "Content-Type": "application/json",
         },
         body: JSON.stringify({
-            id,
             text,
             sender_id,
+            group_id,
+            event_id,
+            user_id,
+            application_id,
             }),
         });
         const data = await response.json();

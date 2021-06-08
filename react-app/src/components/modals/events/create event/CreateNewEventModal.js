@@ -3,7 +3,7 @@ import {Modal} from "../../Modal";
 
 import "./CreateNewEventModal.css"
 import CreateNewEventForm from "./CreateNewEventForm";
-export default function CreateNewEventModal(){
+export default function CreateNewEventModal( {groupId}){
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -12,7 +12,7 @@ export default function CreateNewEventModal(){
                 <button onClick={() => setShowModal(true)}>New Event</button>
                 {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
-                        <CreateNewEventForm setShowModal={setShowModal}/>
+                        <CreateNewEventForm setShowModal={setShowModal} groupId={groupId}/>
                     </Modal>
                 )}
             </div>

@@ -3,7 +3,7 @@ import {createNewEvent} from "../../../../store/event";
 import {useDispatch, useSelector} from "react-redux";
 
 import "./CreateNewEventForm.css"
-export default function CreateNewEventForm({setShowModal}){
+export default function CreateNewEventForm({setShowModal, groupId}){
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
 
@@ -21,7 +21,7 @@ export default function CreateNewEventForm({setShowModal}){
     const [endTime, setEndTime] = useState(10);
     const [timeOfDay, setTimeOfDay] = useState('');
     const [notes, setNotes] = useState(sessionUser.id);
-    const [group_id, setGroup_id] = useState(1);
+    const [group_id, setGroup_id] = useState(groupId);
     const [timeZone, setTimeZone] = useState('');
 
     const [errors, setErrors] = useState([]);
@@ -73,7 +73,7 @@ export default function CreateNewEventForm({setShowModal}){
 
     }
 
-return (
+    return (
         <div className='DnD__CreateNewEventForm'>
             <form onSubmit={handleSubmit}>
                 {errors.length > 0 ?

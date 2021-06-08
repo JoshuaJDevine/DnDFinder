@@ -2,6 +2,7 @@
 //CONSTANTS
 //=========================================================
 import {getAllApplications} from "./application";
+import {getAllGroups} from "./group";
 
 const GET_EVENTS = "session/GET_EVENTS"
 const GET_EVENT = "session/GET_EVENT"
@@ -60,7 +61,6 @@ export const getOneEvent = id => async (dispatch) => {
 export const setGroupEventsById = id => async (dispatch) => {
         let res = await fetch(`/api/groups/${id}`);
         let data = await res.json();
-        console.log("Received " + JSON.stringify(data) )
 
         for (let key in data){
             if (key === "events"){
@@ -72,12 +72,7 @@ export const setGroupEventsById = id => async (dispatch) => {
 }
 
 export const setGroupEvents = events =>  async (dispatch) => {
-        for (let key in events){
-            console.log("Will dispatch")
-            console.log(events[key])
-
-        }
-    dispatch(getEvent(events));
+     dispatch(getEvent(events));
 }
 
 
@@ -118,7 +113,8 @@ export const createNewEvent = (name,
             console.log(data.errors);
             return data.errors;
          }
-    dispatch(getAllEvents())
+    // await dispatch(getAllGroups())
+    await dispatch(setGroupEventsById(group_id))
     return {};
 }
 
@@ -130,7 +126,8 @@ export const deleteMyEvent = (id, group_id) => async (dispatch) => {
     });
     if (response.ok) {
         await dispatch(deleteEvent(id));
-        // await dispatch(setGroupEventsById(group_id))
+        // await dispatch(getAllGroups())
+        await dispatch(setGroupEventsById(group_id))
 
         return response;
     }
@@ -174,7 +171,8 @@ export const updateMyEvent =  (id,
             console.log(data.errors);
             return data.errors;
          }
-    // await dispatch(setGroupEventsById(group_id))
+    // await dispatch(getAllGroups())
+    await dispatch(setGroupEventsById(group_id))
     return {};
 }
 
