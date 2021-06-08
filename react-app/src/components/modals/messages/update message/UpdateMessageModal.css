@@ -1,0 +1,15 @@
+.DnD__EditMessageForm{
+}
+
+.DnD__EditMessageForm form  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.DnD__EditMessageForm--EditButton {
+    width: 140px;
+    height: 60px;
+    margin-bot: 10px;
+}

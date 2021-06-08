@@ -9,7 +9,7 @@ export default function EditEventModal({event, groupId}){
 
     return (
         <>
-            <button className="DnD__EditEventForm--EditButton" onClick={() => setShowModal(true)}>EDIT EVENT {event.id}</button>
+            <button className="glow" onClick={() => setShowModal(true)}>EDIT EVENT {event.id}</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <EditEventForm setShowModal={setShowModal} event={event} groupId={groupId}/>
