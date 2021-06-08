@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 
 import "./GroupViewContentEvents.css"
 import Event from "../events/Event";
-import {setGroupEvents, setGroupEventsById} from "../../store/event";
+import {setGroupEventsById} from "../../store/event";
 import {useDispatch, useSelector} from "react-redux";
 
 export default function GroupViewContentEvents({groupData, isGroupAdmin}){

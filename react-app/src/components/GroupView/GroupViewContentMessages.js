@@ -3,8 +3,7 @@ import React, {useEffect, useState} from "react";
 import "./GroupViewContentMessages.css"
 import CreateNewMessageModal from "../modals/messages/create message/CreateNewMessageModal";
 import {useDispatch, useSelector} from "react-redux";
-import {setGroupEventsById} from "../../store/event";
-import {getGroupMessages, setGroupMessages} from "../../store/message";
+import {getGroupMessages} from "../../store/message";
 import Message from "../messages/message";
 export default function GroupViewContentMessages({groupData}){
     const sessionUser = useSelector(state => state.session.user);

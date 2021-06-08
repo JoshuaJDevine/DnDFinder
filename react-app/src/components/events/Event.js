@@ -11,7 +11,7 @@ export default function Event({eventData, groupId,isGroupAdmin}){
             <p>{eventData.startTime + " " + eventData.timeOfDay}</p>
             <div className="DnD__Event--buttons">
                 {isGroupAdmin ? <EditEventModal event={eventData} groupId={groupId}/> : <> </>}
-                {isGroupAdmin ? <DeleteEventModal eventId={eventData.id} groupId={eventData.group_id}>delete</DeleteEventModal> : <> </>}
+                {isGroupAdmin ? <DeleteEventModal eventId={eventData.id} groupId={groupId}>delete</DeleteEventModal> : <> </>}
             </div>
         </div>
     )
