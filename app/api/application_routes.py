@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, session, request
 from flask_login import login_required
 
-from app.models import Application, db
+from app.models import Application, User, Group, Message, db
 from app.forms import ApplicationForm
 
 application_routes = Blueprint('applications', __name__)
@@ -38,6 +38,12 @@ def applications():
 @login_required
 @application_routes.route('/', methods=['POST'])
 def create_application():
+    print("==================================================")
+    print("==================================================")
+    print("==================================================")
+    print("==================================================")
+    print("==================================================")
+    print("APPLICATION")
     form = ApplicationForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
@@ -46,8 +52,16 @@ def create_application():
             group_id=form.data['group_id'],
             user_id=form.data['user_id'],
         )
-
         db.session.add(application)
+        db.session.commit()
+
+        message = Message(
+            text=form.data['text'],
+            sender_id=form.data['user_id'],
+            application_id=application.id,
+        )
+
+        db.session.add(message)
         db.session.commit()
 
         new_application = []
@@ -89,3 +103,27 @@ def delete_event(id):
     db.session.delete(application_to_delete)
     db.session.commit()
     return application_to_delete.to_dict()
+
+# Manage an application
+@login_required
+@application_routes.route('/manage/<int:decision>/<int:application_id>/', methods=['POST'])
+def manage_application(decision, application_id):
+    if decision == 2:
+        application_to_delete = Application.query.get(application_id)
+        db.session.delete(application_to_delete)
+        db.session.commit()
+        return application_to_delete.to_dict()
+    elif decision == 1:
+        application_to_update = Application.query.get(application_id)
+        application_to_update.status = True
+
+        updated_application = []
+        updated_application.append(application_to_update.to_dict())
+
+        group_to_update = Group.query.get(application_to_update.group_id)
+        user_to_update = User.query.get(application_to_update.user_id)
+
+        user_to_update.groups.append(group_to_update)
+
+        db.session.commit()
+        return jsonify(updated_application)

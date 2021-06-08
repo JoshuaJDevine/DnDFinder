@@ -24,7 +24,7 @@ def seed_users():
         timeZone="PDT"
     )
     demo2.groups.append(groupTest)
-    db.session.add(demo2)
+    db.session.add(demo)
 
     db.session.commit()
 

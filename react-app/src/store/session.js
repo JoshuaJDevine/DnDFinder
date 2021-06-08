@@ -1,5 +1,6 @@
 // constants
 const SET_USER = "session/SET_USER";
+const SET_APPLICANT = "session/SET_APPLICANT"
 const REMOVE_USER = "session/REMOVE_USER";
 
 const setUser = (user) => ({
@@ -7,11 +8,27 @@ const setUser = (user) => ({
     payload: user
 });
 
+const setApplicant = (user) => ({
+    type: SET_APPLICANT,
+    payload: user
+});
+
 const removeUser = () => ({
     type: REMOVE_USER,
 })
 
-const initialState = { user: null };
+const initialState = { user: null, applicant: null };
+
+export const getApplicant = (id) => async (dispatch) => {
+    const response = await fetch(`/api/auth/getApplicant/${id}`, {
+      headers: {
+        "Content-Type": "application/json",
+      }
+    });
+
+    const data = await response.json();
+    dispatch(setApplicant(data));
+}
 
 export const authenticate = () => async (dispatch) => {
     const response = await fetch('/api/auth/',{
@@ -27,7 +44,7 @@ export const authenticate = () => async (dispatch) => {
     dispatch(setUser(data))
   }
   
-  export const login = (email, password) => async (dispatch)  => {
+export const login = (email, password) => async (dispatch)  => {
     const response = await fetch('/api/auth/login/', {
       method: 'POST',
       headers: {
@@ -47,7 +64,7 @@ export const authenticate = () => async (dispatch) => {
     return {};
   }
   
-  export const logout = () => async (dispatch) => {
+export const logout = () => async (dispatch) => {
     const response = await fetch("/api/auth/logout/", {
       headers: {
         "Content-Type": "application/json",
@@ -57,9 +74,8 @@ export const authenticate = () => async (dispatch) => {
     const data = await response.json();
     dispatch(removeUser());
   };
-  
-  
-  export const signUp = (username, email, password) => async (dispatch)  => {
+
+export const signUp = (username, email, password) => async (dispatch)  => {
     const response = await fetch("/api/auth/signup/", {
       method: "POST",
       headers: {
@@ -86,6 +102,8 @@ export default function reducer(state=initialState, action) {
             return {user: action.payload}
         case REMOVE_USER:
             return {user: null}
+        case SET_APPLICANT:
+            return {user:state.user, applicant: action.payload}
         default:
             return state;
     }

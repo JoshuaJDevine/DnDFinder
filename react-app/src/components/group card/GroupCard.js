@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useSelector} from "react-redux";
 
 import "./GroupCard.css"
@@ -7,14 +7,28 @@ import EditGroupModal from "../modals/groups/edit group/EditGroupModal";
 import {Modal} from "../modals/Modal";
 import ViewGroupDetails from "../modals/groups/view group/ViewGroupDetails";
 import ViewGroupDetailsModal from "../modals/groups/view group/ViewGroupDetailsModal";
+import CreateNewApplicationModal from "../modals/applications/create application/CreateNewApplicationModal";
 
 export default function GroupCard({data, setViewingGroup}){
     const [showModal, setShowModal] = useState(false);
+    const [userHasApplied, setUserHasApplied] = useState(false)
+    const [userIsMember, setUserIsMember] = useState(false)
     const sessionUser = useSelector(state => state.session.user);
 
+    useEffect(() => {
+        data.applications.map((application, idx) => {
+            if (application.userId === sessionUser.id){
+                setUserHasApplied(true)
+            }
+        })
+    }, [])
+
     const handleDoubleClick = function (data, setViewingGroup) {
-        setViewingGroup(data.id)
+            setViewingGroup(data.id)
     }
+
+
+
 
     return(
 
@@ -37,6 +51,12 @@ export default function GroupCard({data, setViewingGroup}){
                 <>
                     <div className="DnD__GroupCard--Buttons">
                         <ViewGroupDetailsModal group={data} setViewingGroup={setViewingGroup}/>
+                        {sessionUser.id !== data.groupAdmin && userHasApplied !== true ?
+                            <CreateNewApplicationModal groupId={data.id} setUserHasApplied={setUserHasApplied} />
+                            :
+                            <>
+                            </>
+                        }
                     </div>
                 </>
             }

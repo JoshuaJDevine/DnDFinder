@@ -30,6 +30,11 @@ def authenticate():
     return {'errors': ['Unauthorized']}
 
 
+@auth_routes.route('/getApplicant/<int:id>/')
+def getApplicant(id):
+    user = User.query.get(id)
+    return user.to_dict()
+
 @auth_routes.route('/login/', methods=['POST'])
 def login():
     """
