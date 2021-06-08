@@ -8,8 +8,8 @@
 
 }
 
-.DnD__EditEventForm form button {
+.DnD__EditEventForm--EditButton {
     width: 140px;
     height: 60px;
-    margin-top: 10px;
+    margin-bot: 10px;
 }

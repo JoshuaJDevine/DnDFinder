@@ -2,11 +2,11 @@ import React, {useState} from "react";
 import {useSelector} from "react-redux";
 
 import "./GroupCard.css"
-import DeleteGroupModal from "../modals/DeleteGroupModal";
-import EditGroupModal from "../modals/EditGroupModal";
+import DeleteGroupModal from "../modals/groups/delete group/DeleteGroupModal";
+import EditGroupModal from "../modals/groups/edit group/EditGroupModal";
 import {Modal} from "../modals/Modal";
-import ViewGroupDetails from "../modals/ViewGroupDetails";
-import ViewGroupDetailsModal from "../modals/ViewGroupDetailsModal";
+import ViewGroupDetails from "../modals/groups/view group/ViewGroupDetails";
+import ViewGroupDetailsModal from "../modals/groups/view group/ViewGroupDetailsModal";
 
 export default function GroupCard({data, setViewingGroup}){
     const [showModal, setShowModal] = useState(false);

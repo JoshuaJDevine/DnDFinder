@@ -2,17 +2,17 @@ import React, {useEffect, useState} from "react";
 
 import "./GroupViewContentEvents.css"
 import Event from "../events/Event";
-import {setGroupEvents} from "../../store/event";
+import {setGroupEvents, setGroupEventsById} from "../../store/event";
 import {useDispatch, useSelector} from "react-redux";
 
-export default function GroupViewContentEvents({groupData}){
+export default function GroupViewContentEvents({groupData, isGroupAdmin}){
     const dispatch = useDispatch();
 
     const [loaded, setLoaded] = useState(false);
     const eventData = useSelector(state => state.eventData.event);
 
     useEffect(() => {
-        dispatch(setGroupEvents(groupData.events))
+        dispatch(setGroupEventsById(groupData.id))
         setLoaded(true);
     }, [eventData])
 
@@ -31,7 +31,7 @@ export default function GroupViewContentEvents({groupData}){
             <div className="DnD__GroupViewContentMessages--events">
                     {eventData.map((event, idx) => {
                         return(
-                            <Event eventData={event} />
+                            <Event eventData={event} groupId={groupData.id} isGroupAdmin={isGroupAdmin} />
                         )
                     })}
             </div>

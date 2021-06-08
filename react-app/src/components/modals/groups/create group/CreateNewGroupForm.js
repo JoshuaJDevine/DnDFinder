@@ -1,10 +1,9 @@
-import React, {useState} from "react";
-import {createNewEvent} from "../../store/event";
+import React, {useEffect, useState} from "react";
+import {createNewGroup} from "../../../../store/group";
 import {useDispatch, useSelector} from "react-redux";
 
-import "./CreateNewEventForm.css"
-import {createNewGroup} from "../../store/group";
-export default function CreateNewEventForm({setShowModal}){
+import "./CreateNewGroupForm.css"
+export default function CreateNewGroupForm({setShowModal}){
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
 
@@ -12,17 +11,19 @@ export default function CreateNewEventForm({setShowModal}){
         setShowModal(false)
     }
 
-//------------------------------------------------------------------
+    //------------------------------------------------------------------
     //Form controls
     //------------------------------------------------------------------
     const [name, setName] = useState('');
-    const [location, setLocation] = useState("");
+    const [details, setDetails] = useState("");
+    const [where, setWhere] = useState('Discord');
+    const [module, setModule] = useState('');
     const [dayOfWeek, setDayOfWeek] = useState('');
     const [startTime, setStartTime] = useState(7);
     const [endTime, setEndTime] = useState(10);
     const [timeOfDay, setTimeOfDay] = useState('');
-    const [notes, setNotes] = useState(sessionUser.id);
-    const [group_id, setGroup_id] = useState(1);
+    const [groupAdmin, setGroupAdmin] = useState(sessionUser.id);
+    const [maxPartySize, setMaxPartySize] = useState(1);
     const [timeZone, setTimeZone] = useState('');
 
     const [errors, setErrors] = useState([]);
@@ -33,6 +34,18 @@ export default function CreateNewEventForm({setShowModal}){
         let newErrors = [];
         if (name.length > 100) {
             newErrors.push("Name should be 100 characters or less.")
+            setErrors(newErrors);
+        }
+        if (details.length > 500){
+            newErrors.push("Details should be 500 characters or less.")
+            setErrors(newErrors);
+        }
+        if (module.length <=0){
+            newErrors.push("Please select a module.")
+            setErrors(newErrors);
+        }
+        if (dayOfWeek.length <=0){
+            newErrors.push("Please select a day of the week.")
             setErrors(newErrors);
         }
         if (startTime.length <=0){
@@ -51,18 +64,25 @@ export default function CreateNewEventForm({setShowModal}){
             newErrors.push("Please input a timezone.")
             setErrors(newErrors);
         }
+        if (maxPartySize < 3 || maxPartySize > 8){
+            newErrors.push("Currently support for party size is between 3-8 players.")
+            setErrors(newErrors);
+        }
 
         if (newErrors.length <= 0) {
             setShowModal(false)
-            return await dispatch(createNewEvent(
+            return await dispatch(createNewGroup(
                 name,
-                location,
+                details,
+                where,
+                module,
                 dayOfWeek,
                 startTime,
                 endTime,
                 timeOfDay,
-                notes,
-                group_id
+                groupAdmin,
+                maxPartySize,
+                timeZone,
             ))
                 .catch(async (res) => {
                     const data = await res;
@@ -74,8 +94,8 @@ export default function CreateNewEventForm({setShowModal}){
 
     }
 
-return (
-        <div className='DnD__CreateNewEventForm'>
+    return (
+        <div className='DnD__CreateNewGroupForm'>
             <form onSubmit={handleSubmit}>
                 {errors.length > 0 ?
                     <div className='DnD_Errors'>
@@ -102,19 +122,56 @@ return (
                 />
 
                 {/*------------------------------------------------------*/}
-                {/*LOCATION*/}
+                {/*DETAILS*/}
                 {/*------------------------------------------------------*/}
-                <label htmlFor='notes'>
-                    location
+                <label htmlFor='details'>
+                    Game Details
                 </label>
                 <textarea
-                    id='notes'
+                    id='details'
                     type="text"
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
+                    value={details}
+                    onChange={(e) => setDetails(e.target.value)}
                     required
                 />
 
+                {/*------------------------------------------------------*/}
+                {/*where*/}
+                {/*------------------------------------------------------*/}
+                <label htmlFor='where'>
+                    Primary Platform
+                </label>
+                <select required value={where} onChange={(e) => setWhere(e.target.value)}>
+                    <option value="Discord">Discord</option>
+                    <option value="Roll 20">Roll 20</option>
+                    <option value="DnD Beyond">DnD Beyond</option>
+                    <option value="Skype">Skype</option>
+                    <option value="Fantasy Grounds">Fantasy Grounds</option>
+                    <option value="D20PRO">D20PRO</option>
+                    <option value="Foundry">Foundry</option>
+                    <option value="Tabletop Simulator">Tabletop Simulator</option>
+                    <option value="Other">Other</option>
+                </select>
+
+
+                {/*------------------------------------------------------*/}
+                {/*Module*/}
+                {/*------------------------------------------------------*/}
+                <label htmlFor='module'>
+                    Module
+                </label>
+                <select required value={module} onChange={(e) => setModule(e.target.value)}>
+                    <option value="Curse of Strahd">Curse of Strahd</option>
+                    <option value="Out of the Abyss">Out of the Abyss</option>
+                    <option value="Descent into Avernus">Descent into Avernus</option>
+                    <option value="Storm King">Storm King</option>
+                    <option value="Yawning Portal">Yawning Portal</option>
+                    <option value="Saltmarsh">Saltmarsh</option>
+                    <option value="Tomb of Annihilation">Tomb of Annihilation</option>
+                    <option value="Phandelver">Phandelver</option>
+                    <option value="Eberron">Eberron</option>
+                    <option value="Other">Other</option>
+                </select>
 
                 {/*------------------------------------------------------*/}
                 {/*Day of Week*/}
@@ -203,13 +260,13 @@ return (
                 {/*Time Zone*/}
                 {/*------------------------------------------------------*/}
                 <label htmlFor='maxPartySize'>
-                    Details
+                    Max Party Size
                 </label>
                 <input
                     id='maxPartySize'
-                    type="text"
-                    value={notes}
-                    onChange={(e) => setNotes(e.target.value)}
+                    type="number"
+                    value={maxPartySize}
+                    onChange={(e) => setMaxPartySize(e.target.value)}
                     required
                 />
 

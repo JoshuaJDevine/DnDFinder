@@ -1,20 +1,20 @@
 import React from "react";
-import "./DeleteGroupForm.css"
+import "./DeleteEventForm.css"
 import {useDispatch} from "react-redux";
-import {deleteMyGroup} from "../../store/group";
+import {deleteMyEvent} from "../../../../store/event";
 
-export default function DeleteGroupForm( {setShowModal, groupId} ){
+export default function DeleteEventForm( {eventId, setShowModal, group_id } ){
     const dispatch = useDispatch();
     const handleCancel = () => {
         setShowModal(false);
     }
     const handleOK = async () => {
         setShowModal(false);
-        return await dispatch(deleteMyGroup(groupId))
+        return await dispatch(deleteMyEvent(eventId, group_id))
         .catch(async (res) => {
             const data = await res;
             if (data && data.errors){
-                console.log("error deleting group " + groupId)
+                console.log("error deleting event " + eventId)
                 console.log("data was " + data)
                 console.log("erorrs were" + data.errors)
             }
@@ -22,10 +22,10 @@ export default function DeleteGroupForm( {setShowModal, groupId} ){
     }
 
     return (
-        <div className="DnD__DeleteGroupForm">
-            <p>Are you sure you want to delete you group?</p>
+        <div className="DnD__DeleteEventForm">
+            <p>Are you sure you want to delete your event?</p>
             <p>This cannot be undone.</p>
-            <div className="DnD__DeleteGroupForm--ButtonWrapper">
+            <div className="DnD__DeleteEventForm--ButtonWrapper">
                 <button onClick={handleCancel}>Cancel</button>
                 <button onClick={handleOK}>Delete</button>
             </div>

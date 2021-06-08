@@ -91,7 +91,7 @@ def update_event(id):
         event_to_update.endTime = form.data['endTime'],
         event_to_update.timeOfDay = form.data['timeOfDay'],
         event_to_update.notes = form.data['notes'],
-
+        event_to_update.group_id = form.data['group_id']
         db.session.commit()
 
         updated_event = []

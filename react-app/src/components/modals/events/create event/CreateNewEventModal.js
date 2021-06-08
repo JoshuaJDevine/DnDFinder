@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import {Modal} from "./Modal";
+import {Modal} from "../../Modal";
 
 import "./CreateNewEventModal.css"
-import CreateNewGroupForm from "./CreateNewGroupForm";
+import CreateNewGroupForm from "../../groups/create group/CreateNewGroupForm";
 import CreateNewEventForm from "./CreateNewEventForm";
 export default function CreateNewEventModal(){
     const [showModal, setShowModal] = useState(false);

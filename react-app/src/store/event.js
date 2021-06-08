@@ -57,7 +57,26 @@ export const getOneEvent = id => async (dispatch) => {
     dispatch(getEvent(data));
 }
 
+export const setGroupEventsById = id => async (dispatch) => {
+        let res = await fetch(`/api/groups/${id}`);
+        let data = await res.json();
+        console.log("Received " + JSON.stringify(data) )
+
+        for (let key in data){
+            if (key === "events"){
+                console.log("Test")
+                dispatch(setGroupEvents(data[key]))
+            }
+        }
+
+}
+
 export const setGroupEvents = events =>  async (dispatch) => {
+        for (let key in events){
+            console.log("Will dispatch")
+            console.log(events[key])
+
+        }
     dispatch(getEvent(events));
 }
 
@@ -105,13 +124,14 @@ export const createNewEvent = (name,
 
 
 
-export const deleteMyEvent = (id) => async (dispatch) => {
+export const deleteMyEvent = (id, group_id) => async (dispatch) => {
     const response = await fetch(`/api/events/${id}/`, {
         method: "DELETE"
     });
     if (response.ok) {
         await dispatch(deleteEvent(id));
-        await dispatch(getAllEvents())
+        // await dispatch(setGroupEventsById(group_id))
+
         return response;
     }
     else {
@@ -130,6 +150,7 @@ export const updateMyEvent =  (id,
                                notes,
                                group_id
                                ) => async (dispatch)  => {
+    console.log(group_id)
     const response = await fetch(`/api/events/${id}/`, {
         method: "PUT",
         headers: {
@@ -146,13 +167,14 @@ export const updateMyEvent =  (id,
                                group_id
             }),
         });
+
         const data = await response.json();
         if (data.errors) {
             console.log("Received the following errors");
             console.log(data.errors);
             return data.errors;
          }
-    await dispatch(getAllEvents())
+    // await dispatch(setGroupEventsById(group_id))
     return {};
 }
 

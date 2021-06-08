@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 import "./ViewGroupDetailsModal.css"
-import {Modal} from "./Modal";
+import {Modal} from "../../Modal";
 import ViewGroupDetails from "./ViewGroupDetails";
 
 export default function ViewGroupDetailsModal({group, setViewingGroup}){

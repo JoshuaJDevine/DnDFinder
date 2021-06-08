@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from "react";
-import {createNewGroup, updateMyGroup} from "../../store/group";
+import React, {useState} from "react";
+import {createNewEvent} from "../../../../store/event";
 import {useDispatch, useSelector} from "react-redux";
 
-import "./EditGroupForm.css"
-export default function EditGroupForm( {setShowModal, group} ){
+import "./CreateNewEventForm.css"
+import {createNewGroup} from "../../../../store/group";
+export default function CreateNewEventForm({setShowModal}){
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
 
@@ -11,20 +12,18 @@ export default function EditGroupForm( {setShowModal, group} ){
         setShowModal(false)
     }
 
-    //------------------------------------------------------------------
+//------------------------------------------------------------------
     //Form controls
     //------------------------------------------------------------------
-    const [name, setName] = useState(group.name);
-    const [details, setDetails] = useState(group.details);
-    const [where, setWhere] = useState(group.where);
-    const [module, setModule] = useState(group.module);
-    const [dayOfWeek, setDayOfWeek] = useState(group.dayOfWeek);
-    const [startTime, setStartTime] = useState(group.startTime);
-    const [endTime, setEndTime] = useState(group.endTime);
-    const [timeOfDay, setTimeOfDay] = useState(group.timeOfDay);
-    const [groupAdmin, setGroupAdmin] = useState(sessionUser.id);
-    const [maxPartySize, setMaxPartySize] = useState(group.maxPartySize);
-    const [timeZone, setTimeZone] = useState(group.timeZone);
+    const [name, setName] = useState('');
+    const [location, setLocation] = useState("");
+    const [dayOfWeek, setDayOfWeek] = useState('');
+    const [startTime, setStartTime] = useState(7);
+    const [endTime, setEndTime] = useState(10);
+    const [timeOfDay, setTimeOfDay] = useState('');
+    const [notes, setNotes] = useState(sessionUser.id);
+    const [group_id, setGroup_id] = useState(1);
+    const [timeZone, setTimeZone] = useState('');
 
     const [errors, setErrors] = useState([]);
 
@@ -34,18 +33,6 @@ export default function EditGroupForm( {setShowModal, group} ){
         let newErrors = [];
         if (name.length > 100) {
             newErrors.push("Name should be 100 characters or less.")
-            setErrors(newErrors);
-        }
-        if (details.length > 500){
-            newErrors.push("Details should be 500 characters or less.")
-            setErrors(newErrors);
-        }
-        if (module.length <=0){
-            newErrors.push("Please select a module.")
-            setErrors(newErrors);
-        }
-        if (dayOfWeek.length <=0){
-            newErrors.push("Please select a day of the week.")
             setErrors(newErrors);
         }
         if (startTime.length <=0){
@@ -64,25 +51,18 @@ export default function EditGroupForm( {setShowModal, group} ){
             newErrors.push("Please input a timezone.")
             setErrors(newErrors);
         }
-        if (maxPartySize < 3 || maxPartySize > 8){
-            newErrors.push("Currently support for party size is between 3-8 players.")
-            setErrors(newErrors);
-        }
+
         if (newErrors.length <= 0) {
             setShowModal(false)
-            return await dispatch(updateMyGroup(
-                group.id,
+            return await dispatch(createNewEvent(
                 name,
-                details,
-                where,
-                module,
+                location,
                 dayOfWeek,
                 startTime,
                 endTime,
                 timeOfDay,
-                groupAdmin,
-                maxPartySize,
-                timeZone,
+                notes,
+                group_id
             ))
                 .catch(async (res) => {
                     const data = await res;
@@ -91,10 +71,11 @@ export default function EditGroupForm( {setShowModal, group} ){
                     }
                 });
         }
+
     }
 
-    return (
-        <div className='DnD__UpdateGroupForm'>
+return (
+        <div className='DnD__CreateNewEventForm'>
             <form onSubmit={handleSubmit}>
                 {errors.length > 0 ?
                     <div className='DnD_Errors'>
@@ -121,56 +102,19 @@ export default function EditGroupForm( {setShowModal, group} ){
                 />
 
                 {/*------------------------------------------------------*/}
-                {/*DETAILS*/}
+                {/*LOCATION*/}
                 {/*------------------------------------------------------*/}
-                <label htmlFor='details'>
-                    Game Details
+                <label htmlFor='notes'>
+                    location
                 </label>
                 <textarea
-                    id='details'
+                    id='notes'
                     type="text"
-                    value={details}
-                    onChange={(e) => setDetails(e.target.value)}
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
                     required
                 />
 
-                {/*------------------------------------------------------*/}
-                {/*where*/}
-                {/*------------------------------------------------------*/}
-                <label htmlFor='where'>
-                    Primary Platform
-                </label>
-                <select required value={where} defaultValue={group.where} onChange={(e) => setWhere(e.target.value)}>
-                    <option value="Discord">Discord</option>
-                    <option value="Roll 20">Roll 20</option>
-                    <option value="DnD Beyond">DnD Beyond</option>
-                    <option value="Skype">Skype</option>
-                    <option value="Fantasy Grounds">Fantasy Grounds</option>
-                    <option value="D20PRO">D20PRO</option>
-                    <option value="Foundry">Foundry</option>
-                    <option value="Tabletop Simulator">Tabletop Simulator</option>
-                    <option value="Other">Other</option>
-                </select>
-
-
-                {/*------------------------------------------------------*/}
-                {/*Module*/}
-                {/*------------------------------------------------------*/}
-                <label htmlFor='module'>
-                    Module
-                </label>
-                <select required value={module} defaultValue={group.module} onChange={(e) => setModule(e.target.value)}>
-                    <option value="Curse of Strahd">Curse of Strahd</option>
-                    <option value="Out of the Abyss">Out of the Abyss</option>
-                    <option value="Descent into Avernus">Descent into Avernus</option>
-                    <option value="Storm King">Storm King</option>
-                    <option value="Yawning Portal">Yawning Portal</option>
-                    <option value="Saltmarsh">Saltmarsh</option>
-                    <option value="Tomb of Annihilation">Tomb of Annihilation</option>
-                    <option value="Phandelver">Phandelver</option>
-                    <option value="Eberron">Eberron</option>
-                    <option value="Other">Other</option>
-                </select>
 
                 {/*------------------------------------------------------*/}
                 {/*Day of Week*/}
@@ -178,7 +122,7 @@ export default function EditGroupForm( {setShowModal, group} ){
                 <label htmlFor='dayOfWeek'>
                     Day
                 </label>
-                <select required value={dayOfWeek} defaultValue={group.dayOfWeek} onChange={(e) => setDayOfWeek(e.target.value)}>
+                <select required value={dayOfWeek} onChange={(e) => setDayOfWeek(e.target.value)}>
                     <option value="Monday">Monday</option>
                     <option value="Tuesday">Tuesday</option>
                     <option value="Wednesday">Wednesday</option>
@@ -194,7 +138,7 @@ export default function EditGroupForm( {setShowModal, group} ){
                 <label htmlFor='startTime'>
                     Start time
                 </label>
-                <select required value={startTime} defaultValue={group.startTime} onChange={(e) => setStartTime(e.target.value)}>
+                <select required value={startTime} onChange={(e) => setStartTime(e.target.value)}>
                     <option value={1}>1</option>
                     <option value={2}>2</option>
                     <option value={3}>3</option>
@@ -215,7 +159,7 @@ export default function EditGroupForm( {setShowModal, group} ){
                 <label htmlFor='endTime'>
                     End time
                 </label>
-                <select required value={endTime} defaultValue={group.endTime} onChange={(e) => setEndTime(e.target.value)}>
+                <select required value={endTime} onChange={(e) => setEndTime(e.target.value)}>
                     <option value={1}>1</option>
                     <option value={2}>2</option>
                     <option value={3}>3</option>
@@ -236,7 +180,7 @@ export default function EditGroupForm( {setShowModal, group} ){
                 <label htmlFor='timeOfDay'>
                     Time Of Day
                 </label>
-                <select required value={timeOfDay} defaultValue={group.timeOfDay} onChange={(e) => setTimeOfDay(e.target.value)}>
+                <select required value={timeOfDay} onChange={(e) => setTimeOfDay(e.target.value)}>
                     <option value="PM">PM</option>
                     <option value="AM">AM</option>
                 </select>
@@ -259,20 +203,20 @@ export default function EditGroupForm( {setShowModal, group} ){
                 {/*Time Zone*/}
                 {/*------------------------------------------------------*/}
                 <label htmlFor='maxPartySize'>
-                    Max Party Size
+                    Details
                 </label>
                 <input
                     id='maxPartySize'
-                    type="number"
-                    value={maxPartySize}
-                    onChange={(e) => setMaxPartySize(e.target.value)}
+                    type="text"
+                    value={notes}
+                    onChange={(e) => setNotes(e.target.value)}
                     required
                 />
 
                 {/*------------------------------------------------------*/}
                 {/*SUBMIT*/}
                 {/*------------------------------------------------------*/}
-                <button type="submit">Update</button>
+                <button type="submit">Create</button>
                 <button onClick={handleClose}>Close</button>
             </form>
         </div>

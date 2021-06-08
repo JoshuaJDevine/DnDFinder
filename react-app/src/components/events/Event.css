@@ -1,21 +1,32 @@
 .DnD__Event{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     background-image: url(https://i.imgur.com/SqrUFSn.png);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     justify-content: center;
     align-items: center;
     color: black;
+    margin-bottom:10px ;
 }
 .DnD__Event p {
     font-size: 2vw;
+    padding: 10px;
+}
+
+.DnD__Event--buttons{
+    display: flex;
+    flex-direction: column;
 }
 
 .DnD__Event--buttons button {
-    width: 100px;
-    height: 30px;
-    margin-top: 10px;
-    color: #3F826D;
+    width: 6vw;
+    height: 3vw;
+    margin-bottom: 10px;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+    font-size: .8vw;
+    color: #000000;
 }

@@ -1,18 +1,18 @@
 import React, {useState} from "react";
 
 import "./EditEventModal.css"
-import {Modal} from "./Modal";
+import {Modal} from "../../Modal";
 import EditEventForm from "./EditEventForm";
 
-export default function EditEventModal({event}){
+export default function EditEventModal({event, groupId}){
     const [showModal, setShowModal] = useState(false);
 
     return (
         <>
-            <button id="DnD__EditEventForm--EditButton" onClick={() => setShowModal(true)}>EDIT</button>
+            <button className="DnD__EditEventForm--EditButton" onClick={() => setShowModal(true)}>EDIT EVENT {event.id}</button>
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
-                    <EditEventForm setShowModal={setShowModal} event={event}/>
+                    <EditEventForm setShowModal={setShowModal} event={event} groupId={groupId}/>
                 </Modal>
             )}
         </>

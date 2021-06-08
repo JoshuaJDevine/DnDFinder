@@ -26,7 +26,7 @@ export default function GroupView({groupData}){
 
         </div>
         <div className="Dnd__GroupViewContent">
-            <GroupViewContentEvents groupData={groupData} />
+            <GroupViewContentEvents groupData={groupData} isGroupAdmin={isGroupAdmin} />
             <GroupViewContentMessages groupData={groupData} />
         </div>
         </>
