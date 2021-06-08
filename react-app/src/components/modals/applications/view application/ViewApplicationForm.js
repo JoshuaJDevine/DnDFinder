@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import "./ViewApplicationForm.css"
 import {useDispatch, useSelector} from "react-redux";
-import {getApplicant} from "../../../store/session";
+import {getApplicant} from "../../../../store/session";
 
 export default function ViewApplicationForm( {applicantId, setShowModal}){
     const dispatch = useDispatch()

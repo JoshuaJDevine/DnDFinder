@@ -7,6 +7,7 @@ import EditGroupModal from "../modals/groups/edit group/EditGroupModal";
 import {Modal} from "../modals/Modal";
 import ViewGroupDetails from "../modals/groups/view group/ViewGroupDetails";
 import ViewGroupDetailsModal from "../modals/groups/view group/ViewGroupDetailsModal";
+import CreateNewApplicationModal from "../modals/applications/create application/CreateNewApplicationModal";
 
 export default function GroupCard({data, setViewingGroup}){
     const [showModal, setShowModal] = useState(false);
@@ -37,6 +38,7 @@ export default function GroupCard({data, setViewingGroup}){
                 <>
                     <div className="DnD__GroupCard--Buttons">
                         <ViewGroupDetailsModal group={data} setViewingGroup={setViewingGroup}/>
+                        <CreateNewApplicationModal groupId={data.id} />
                     </div>
                 </>
             }
