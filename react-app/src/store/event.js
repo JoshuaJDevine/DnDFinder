@@ -57,6 +57,9 @@ export const getOneEvent = id => async (dispatch) => {
     dispatch(getEvent(data));
 }
 
+export const setGroupEvents = events =>  async (dispatch) => {
+    dispatch(getEvent(events));
+}
 
 
 

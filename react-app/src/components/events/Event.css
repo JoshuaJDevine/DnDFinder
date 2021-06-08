@@ -1,6 +1,6 @@
 .DnD__Event{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background-image: url(https://i.imgur.com/SqrUFSn.png);
     background-position: center;
     background-repeat: no-repeat;
