@@ -3,7 +3,6 @@ import {createNewEvent} from "../../../../store/event";
 import {useDispatch, useSelector} from "react-redux";
 
 import "./CreateNewEventForm.css"
-import {createNewGroup} from "../../../../store/group";
 export default function CreateNewEventForm({setShowModal}){
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
@@ -12,7 +11,7 @@ export default function CreateNewEventForm({setShowModal}){
         setShowModal(false)
     }
 
-//------------------------------------------------------------------
+    //------------------------------------------------------------------
     //Form controls
     //------------------------------------------------------------------
     const [name, setName] = useState('');

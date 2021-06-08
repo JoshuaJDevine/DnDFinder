@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./GroupViewContentMessages.css"
-import GroupFinder from "../group finder/GroupFinder";
+import CreateNewMessageModal from "../modals/messages/CreateNewMessageModal";
 export default function GroupViewContentMessages({groupData}){
     return(
         <div className="DnD__GroupViewContentMessages">
@@ -14,6 +14,7 @@ export default function GroupViewContentMessages({groupData}){
                         )
                     })}
             </div>
+            <CreateNewMessageModal />
         </div>
     )
 }
