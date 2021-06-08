@@ -67,7 +67,7 @@ export default function UpdateMessageForm({setShowModal, message, groupId}) {
                 <input
                     id='text'
                     type="text"
-                    value={message.text}
+                    value={text}
                     onChange={(e) => setText(e.target.value)}
                     required
                 />

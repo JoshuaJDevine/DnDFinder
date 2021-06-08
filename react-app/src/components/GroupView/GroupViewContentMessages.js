@@ -39,12 +39,12 @@ export default function GroupViewContentMessages({groupData}){
                             <Message message={message} group_id={groupData.id} isOwner={message.sender_id === sessionUser.id} />
                         )
                     })}
+                    <CreateNewMessageModal groupId={groupData.id}/>
+
             </div>
             :
             <p>No Messages...</p>
-
             }
-            <CreateNewMessageModal groupId={groupData.id}/>
 
         </div>
     )

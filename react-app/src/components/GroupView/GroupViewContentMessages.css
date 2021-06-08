@@ -1,3 +1,7 @@
 .DnD__GroupViewContentMessages{
     margin-left: 20px;
 }
+.DnD__GroupViewContentMessages--messages{
+    display: flex;
+    flex-direction: column;
+}
