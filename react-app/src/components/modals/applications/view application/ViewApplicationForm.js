@@ -3,11 +3,11 @@ import "./ViewApplicationForm.css"
 import {useDispatch, useSelector} from "react-redux";
 import {getApplicant} from "../../../../store/session";
 
-export default function ViewApplicationForm( {applicantId, setShowModal}){
+export default function ViewApplicationForm( {applicationData, applicantId, setShowModal}){
     const dispatch = useDispatch()
     const [loaded, setLoaded] = useState(false);
     const applicant = useSelector(state => state.session.applicant);
-
+    console.log(applicationData)
     useEffect(async () => {
         await dispatch(getApplicant(applicantId));
         setLoaded(true);
@@ -55,6 +55,11 @@ export default function ViewApplicationForm( {applicantId, setShowModal}){
     return(
         <div className="DnD__ApplicationForm">
             <p>Applicant</p>
+            {applicationData.messages.map((message, idx) => {
+                return(
+                    <p key={idx}>{message.text}</p>
+                )
+            })}
             <div className="DnD__ApplicationForm--ButtonWrapper">
                 <button onClick={handleCancel}>Close</button>
                 <button onClick={handleApprove}>Approve</button>

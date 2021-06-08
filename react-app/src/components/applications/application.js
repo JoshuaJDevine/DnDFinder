@@ -6,7 +6,7 @@ import ViewApplicationModal from "../modals/applications/view application/ViewAp
 export default function Application({applicationData}){
     return(
         <div className="DnD__application">
-            <ViewApplicationModal applicantId={applicationData.userId} />
+            <ViewApplicationModal applicationData={applicationData} applicantId={applicationData.userId} />
         </div>
     )
 }
