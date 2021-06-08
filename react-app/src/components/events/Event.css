@@ -12,3 +12,10 @@
 .DnD__Event p {
     font-size: 2vw;
 }
+
+.DnD__Event--buttons button {
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+    color: #3F826D;
+}
