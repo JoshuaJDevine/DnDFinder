@@ -1,3 +1,9 @@
+
+.DnD__LoginFormModal--errors{
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
 .DnD__LoginForm{
     margin-top: 100px;
     display: flex;
@@ -12,16 +18,35 @@
 
 .DnD__LoginFormModal--ButtonGroup{
     display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
+    flex-direction: row;
+    margin-bottom: 5vw;
+}
+.DnD__LoginFormModal--ButtonGroup label{
+    margin-right: 10px;
+}
+.DnD__LoginFormModal--ButtonGroup input{
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 5px;
+    border: 1px solid rgba(78, 78, 78, 0.58);
+    color: black;
+}
+.DnD__LoginFormModal--ButtonGroup input::placeholder{
+    color: black;
+    opacity: .5;
+}
+.DnD__LoginFormModal--ButtonGroup input:focus{
+    background: rgba(255, 255, 255, 0.3);
 }
 
 .DnD__LoginForm p {
 }
 
 .DnD__LoginForm button {
-    width: 180px;
-    height: 60px;
+    width: 4vw;
+    height: 2vh;
     background-image: url("https://i.imgur.com/SqrUFSn.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -124,3 +149,5 @@ https://codepen.io/kocsten
     background-position: 0 0;
   }
 }
+
+

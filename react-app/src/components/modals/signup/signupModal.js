@@ -92,8 +92,10 @@ export default function SignUpModalForm({setShowModal}){
           required={true}
         ></input>
       </div>
-      <button type="submit">Sign Up</button>
-      <button onClick={handleCancel}>Cancel</button>
+      <div className="glow-dark">
+          <button type="submit">Sign Up</button>
+          <button onClick={handleCancel}>Cancel</button>
+      </div>
     </form>
   );
 };

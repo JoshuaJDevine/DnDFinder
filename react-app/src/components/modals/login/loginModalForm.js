@@ -40,7 +40,7 @@ export default function LoginModalForm({setShowModal}){
     }
     return (
     <form onSubmit={handleOK}>
-      <div className="DnD__LoginFormModal--ButtonGroup">
+      <div className="DnD__LoginFormModal--errors">
         {errors.map((error) => (
           <div>{error}</div>
         ))}
