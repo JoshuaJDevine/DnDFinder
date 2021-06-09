@@ -11,7 +11,7 @@ const LogoutButton = () => {
 
   return (
 
-        <div className="glow">
+        <div className="glow-dark">
           <button onClick={onLogout}>Logout</button>
         </div>
   )

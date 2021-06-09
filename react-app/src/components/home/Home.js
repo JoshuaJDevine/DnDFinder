@@ -111,7 +111,7 @@ export default function Home(){
                 {groups && viewingGroup === 0 && groups.length > 1 && sessionUser ?
                     <>
                         {/*Render the navbar*/}
-                        <NavBar />
+                        {/*<NavBar />*/}
 
                         {/*Render the splash bar*/}
                         <SplashBar numberOfGroups={groups?.length > 0 ? groups.length : 0} setViewingGroup={setViewingGroup}/>
@@ -148,14 +148,14 @@ export default function Home(){
                 {groups && viewingGroup >= 1 && sessionUser ?
                     <>
                         {/*Render the navbar*/}
-                        <NavBar />
+                        {/*<NavBar />*/}
 
                         {/*Render the splash bar*/}
                         <SplashBar numberOfGroups={groups?.length > 0 ? groups.length : 0} setViewingGroup={setViewingGroup}/>
 
                         {/*[WIP] Render filter and search option*/}
-                        <SearchBar text={"Filter 1"}/>
-                        <SearchBar text={"Filter 2"}/>
+                        {/*<SearchBar text={"Filter 1"}/>*/}
+                        {/*<SearchBar text={"Filter 2"}/>*/}
 
                         <GroupView groupData={groups[viewingGroup-1]} userIsMember={userIsMember} />
                         {/*Render the footer*/}

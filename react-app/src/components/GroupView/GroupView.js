@@ -29,7 +29,7 @@ export default function GroupView({groupData, userIsMember}){
         })
         }
         window.scrollTo(0, 0)
-    })
+    }, [])
 
 
     return(

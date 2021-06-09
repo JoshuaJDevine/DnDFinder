@@ -130,8 +130,11 @@ svg {
 }
 
 .sign {
+  /*  Original colors*/
+  /*background: linear-gradient(rgba(88, 52, 36, 0.5), rgba(35, 19, 12, 0.5)),*/
+  /*  radial-gradient(rgb(128, 84, 65), #23130c, black);*/
   background: linear-gradient(rgba(88, 52, 36, 0.5), rgba(35, 19, 12, 0.5)),
-    radial-gradient(rgb(128, 84, 65), #23130c, black);
+    radial-gradient(rgb(128, 84, 65), #844227, black);
 
   background-size: 10px 10px, 100% 100%;
   width: 200px;
@@ -150,6 +153,12 @@ svg {
   border-radius: 50px;
   backface-visibility: hidden;
 }
+
+.sign:hover {
+    text-shadow: 0px 0px 2px #ffffff, 1px 1px 1px #131313;
+    color: darkgoldenrod;
+}
+
 
 .sign {
   cursor: pointer;

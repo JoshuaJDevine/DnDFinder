@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "./ModalForm.css"
+import "./loginModalForm.css"
 
 import {useDispatch, useSelector} from "react-redux";
 import {deleteMyEvent} from "../../../store/event";
