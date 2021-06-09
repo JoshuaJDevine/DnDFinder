@@ -34,7 +34,7 @@ export default function Home(){
         // console.log("checking viewingGroup. Value is: ", viewingGroup)
         if (viewingGroup > 0) {
             groups[viewingGroup-1].users.map((user, idx) => {
-            if (sessionUser.id === user.id){
+            if (sessionUser?.id === user.id){
                 console.log("IsTrue");
                 setUserIsMember(true)
             }
@@ -82,6 +82,8 @@ export default function Home(){
     }
 
     return (
+        <>
+        <div className="DnD__Background"></div>
             <div className="DnD__Home">
                 {/*Render a splash page if the viewingGroup is === -1*/}
                 {!sessionUser ?
@@ -115,8 +117,8 @@ export default function Home(){
                         <SplashBar numberOfGroups={groups?.length > 0 ? groups.length : 0} setViewingGroup={setViewingGroup}/>
 
                         {/*[WIP] Render filter and search option*/}
-                        <SearchBar text={"Filter 1"}/>
-                        <SearchBar text={"Filter 2"}/>
+                        {/*<SearchBar text={"Filter 1"}/>*/}
+                        {/*<SearchBar text={"Filter 2"}/>*/}
 
 
 
@@ -171,5 +173,6 @@ export default function Home(){
                 {/*Layout Testing*/}
                 {/*<BackgroundTester/>*/}
             </div>
+        </>
     )
 }

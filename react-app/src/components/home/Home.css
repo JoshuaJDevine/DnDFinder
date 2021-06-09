@@ -1,3 +1,15 @@
+.DnD__Background{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d297121a-919b-4f18-9163-78f08879b333/d5313im-100b08cc-30d2-4bc3-ae90-cf6e9c04bd9c.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2QyOTcxMjFhLTkxOWItNGYxOC05MTYzLTc4ZjA4ODc5YjMzM1wvZDUzMTNpbS0xMDBiMDhjYy0zMGQyLTRiYzMtYWU5MC1jZjZlOWMwNGJkOWMuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.aaL_gdQOu2kK8q7V7riJkHECeIcw8prAJt-j17VR-Ww ");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: blur(2px);
+    z-index: -1;
+}
+
 .DnD__Home{
 
 }
