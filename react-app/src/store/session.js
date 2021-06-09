@@ -20,7 +20,7 @@ const removeUser = () => ({
 const initialState = { user: null, applicant: null };
 
 export const getApplicant = (id) => async (dispatch) => {
-    const response = await fetch(`/api/auth/getApplicant/${id}`, {
+    const response = await fetch(`/api/auth/getApplicant/${id}/`, {
       headers: {
         "Content-Type": "application/json",
       }

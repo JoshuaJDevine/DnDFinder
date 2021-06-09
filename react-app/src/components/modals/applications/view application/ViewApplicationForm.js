@@ -8,7 +8,7 @@ import {getGroupMessages} from "../../../../store/message";
 export default function ViewApplicationForm( {applicationData, applicantId, setShowModal}){
     const dispatch = useDispatch()
     const [loaded, setLoaded] = useState(false);
-    console.log(applicationData)
+    // console.log(applicationData)
     useEffect( () => {
         async function fetchData() {
             await dispatch(getApplicant(applicantId));

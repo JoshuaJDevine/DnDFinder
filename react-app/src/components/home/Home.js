@@ -29,7 +29,7 @@ export default function Home(){
     const [userIsMember, setUserIsMember] = useState(false)
 
     useEffect(() => {
-        console.log("checking viewingGroup. Value is: ", viewingGroup)
+        // console.log("checking viewingGroup. Value is: ", viewingGroup)
         if (viewingGroup > 0) {
             groups[viewingGroup-1].users.map((user, idx) => {
             if (sessionUser.id === user.id){
