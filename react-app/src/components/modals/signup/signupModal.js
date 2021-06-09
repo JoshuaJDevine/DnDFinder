@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { Redirect } from 'react-router-dom';
 import {signUp} from "../../../store/session";
+import "./signupModal.css"
 
 export default function SignUpModalForm({setShowModal}){
   const [errors, setErrors] = useState([]);
@@ -50,12 +51,12 @@ export default function SignUpModalForm({setShowModal}){
 
   return (
     <form onSubmit={onSignUp}>
-      <div>
+      <div className="DnD__LoginFormModal--errors">
         {errors.map((error) => (
           <div>{error}</div>
         ))}
       </div>
-      <div>
+      <div className="DnD__SignupFormModal--ButtonGroup">
         <label>User Name</label>
         <input
           type="text"
@@ -64,7 +65,7 @@ export default function SignUpModalForm({setShowModal}){
           value={username}
         ></input>
       </div>
-      <div>
+      <div className="DnD__SignupFormModal--ButtonGroup">
         <label>Email</label>
         <input
           type="text"
@@ -73,7 +74,7 @@ export default function SignUpModalForm({setShowModal}){
           value={email}
         ></input>
       </div>
-      <div>
+      <div className="DnD__SignupFormModal--ButtonGroup">
         <label>Password</label>
         <input
           type="password"
@@ -82,7 +83,7 @@ export default function SignUpModalForm({setShowModal}){
           value={password}
         ></input>
       </div>
-      <div>
+      <div className="DnD__SignupFormModal--ButtonGroup">
         <label>Repeat Password</label>
         <input
           type="password"

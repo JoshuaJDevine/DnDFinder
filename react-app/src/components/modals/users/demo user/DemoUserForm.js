@@ -24,8 +24,11 @@ export default function DemoUserForm( {setShowModal, setViewingGroup} ){
             <p>Welcome</p>
             <p>This app is a work in progress</p>
             <p>The Demo user can create groups, delete groups and edit groups</p>
-            <button onClick={handleCancel}>No!</button>
-            <button onClick={handleOK}>OK!</button>
+            <div className="glow-dark">
+                <button onClick={handleOK}>Login</button>
+                <button onClick={handleCancel}>Cancel</button>
+            </div>
+
         </div>
     )
 }
