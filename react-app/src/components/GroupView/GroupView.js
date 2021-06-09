@@ -22,7 +22,6 @@ export default function GroupView({groupData, userIsMember}){
         }
         else {
             groupData.users.map((user, idx) => {
-            console.log("Checking user: " + sessionUser.id + " aginst " + user.username + " with an id of " + user.id)
             if (sessionUser.id === user.id){
                 console.log("IsTrue");
                 setUserIsAMember(true)
@@ -31,8 +30,7 @@ export default function GroupView({groupData, userIsMember}){
         }
         window.scrollTo(0, 0)
     })
-    console.log("User is a group admin = " + isGroupAdmin)
-    console.log("User is a member = " + userIsAMember)
+
 
     return(
         <>

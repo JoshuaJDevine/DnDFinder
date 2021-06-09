@@ -13,7 +13,6 @@ export const getDeviantArtImages = () => async (dispatch)  => {
       }
     });
     const data = await response.json();
-    const token = data.access_token
 
     const images = await fetch(`/api/images/${data.access_token}/`,{
       method: "GET",

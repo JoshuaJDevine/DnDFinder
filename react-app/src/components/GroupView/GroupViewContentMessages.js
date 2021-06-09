@@ -13,9 +13,12 @@ export default function GroupViewContentMessages({groupData}){
     const messageData = useSelector(state => state.messageData.message);
 
 
-    useEffect(async () => {
-        await dispatch(getGroupMessages(groupData.id))
-        setLoaded(true);
+    useEffect( () => {
+        async function fetchData() {
+            await dispatch(getGroupMessages(groupData.id))
+            setLoaded(true);
+        }
+        fetchData();
     }, [])
 
 

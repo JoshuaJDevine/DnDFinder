@@ -7,14 +7,11 @@ import {useSelector, useDispatch} from "react-redux";
 // import BackgroundTester from "../utility/BackgroundTester";
 
 import "./Home.css"
-import {authenticate} from "../../store/session";
-import {getAllGroups, getAllGroupsWithUsers, getOneGroup} from "../../store/group";
-import GroupCard from "../group card/GroupCard";
+import {getAllGroupsWithUsers} from "../../store/group";
 import GroupView from "../groupview/GroupView";
-import {getAllEvents} from "../../store/event";
-import {getAllApplications, getOneApplication} from "../../store/application";
-import {getAllMessages} from "../../store/message";
+import {getAllApplications} from "../../store/application";
 import {getDeviantArtImages} from "../../store/deviantArt";
+import uuid from "react-uuid";
 
 export default function Home(){
     const dispatch = useDispatch();
@@ -32,9 +29,9 @@ export default function Home(){
     const [userIsMember, setUserIsMember] = useState(false)
 
     useEffect(() => {
+        console.log("checking viewingGroup. Value is: ", viewingGroup)
         if (viewingGroup > 0) {
             groups[viewingGroup-1].users.map((user, idx) => {
-            console.log("Checking user: " + sessionUser.id + " aginst " + user.username + " with an id of " + user.id)
             if (sessionUser.id === user.id){
                 console.log("IsTrue");
                 setUserIsMember(true)
@@ -117,7 +114,7 @@ export default function Home(){
                     {groups.map((group, idx) => {
                         if (idx % 2 === 0){
                             return(
-                                <GroupFinder key={idx} groupList={groups} myIdx={idx} single={groups.length % 2 !== 0 && idx+1 === groups.length} setViewingGroup={setViewingGroup} />
+                                <GroupFinder key={uuid()} groupList={groups} myIdx={idx} single={groups.length % 2 !== 0 && idx+1 === groups.length} setViewingGroup={setViewingGroup} />
                             )
                         }
                     })}

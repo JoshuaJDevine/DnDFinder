@@ -3,15 +3,18 @@ import "./ViewApplicationForm.css"
 import {useDispatch, useSelector} from "react-redux";
 import {getApplicant} from "../../../../store/session";
 import {manageMyApplication} from "../../../../store/application";
+import {getGroupMessages} from "../../../../store/message";
 
 export default function ViewApplicationForm( {applicationData, applicantId, setShowModal}){
     const dispatch = useDispatch()
     const [loaded, setLoaded] = useState(false);
-    const applicant = useSelector(state => state.session.applicant);
     console.log(applicationData)
-    useEffect(async () => {
-        await dispatch(getApplicant(applicantId));
-        setLoaded(true);
+    useEffect( () => {
+        async function fetchData() {
+            await dispatch(getApplicant(applicantId));
+            setLoaded(true);
+        }
+        fetchData()
     }, [])
 
     if (!loaded) {
