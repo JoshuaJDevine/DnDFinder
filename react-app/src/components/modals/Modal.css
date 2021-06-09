@@ -56,28 +56,33 @@
 }
 
 #modal-content {
-    /*width: 100%;*/
-    /*max-width: 100%;*/
-    /*height: auto;*/
-    /*margin: 0 auto 0 auto;*/
-    /*padding: 0 1.5rem 2rem;*/
+    position: absolute;
+    top: 35%;
+    left: 30%;
+    display: flex;
+    width: 40vw;
+    height: 100%;
+    /* width: 100%; */
+    /* max-width: 100%; */
+    /* height: auto; */
+    /* margin: 0 auto 0 auto; */
+    /* padding: 0 1.5rem 2rem; */
     font-size: 30px;
     color: #ffffff;
     text-shadow: 5px 8px 10px #000000;
-    /*border-top: 1px solid rgba(255, 255, 255, 0.5);*/
-    /*border-bottom: 1px solid rgba(255, 255, 255, 0.5);*/
-    /*border-radius: 4px;*/
-    /*box-shadow: inset 0 -1rem 1rem rgba(255, 255, 255, 0.2),*/
-    /*0 0 0 1px rgba(255, 255, 255, 0.1),*/
-    /*0.3rem 0.2rem 3rem rgba(255, 255, 255, 0.2);*/
-    /*backdrop-filter: blur(50px);*/
-    /*-webkit-backdrop-filter: blur(50px);*/
+    /* border-top: 1px solid rgba(255, 255, 255, 0.5); */
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.5); */
+    /* border-radius: 4px; */
+    /* backdrop-filter: blur(50px); */
+    /* -webkit-backdrop-filter: blur(50px); */
+    justify-content: center;
+    flex-wrap: nowrap;
 }
-#modal Button {
-    font-family:'Montserrat', sans-serif;
-    text-align: center;
+/*#modal Button {*/
+/*    font-family:'Montserrat', sans-serif;*/
+/*    text-align: center;*/
 
-}
-#modal Button:Hover{
-    background-color: var(--main-palette-dark-meetupBlue);
-}
+/*}*/
+/*#modal Button:Hover{*/
+/*    background-color: var(--main-palette-dark-meetupBlue);*/
+/*}*/

@@ -40,12 +40,12 @@ export default function LoginModalForm({setShowModal}){
     }
     return (
     <form onSubmit={handleOK}>
-      <div>
+      <div className="DnD__LoginFormModal--ButtonGroup">
         {errors.map((error) => (
           <div>{error}</div>
         ))}
       </div>
-      <div>
+      <div className="DnD__LoginFormModal--ButtonGroup">
         <label htmlFor="email">Email</label>
         <input
           name="email"
@@ -55,7 +55,7 @@ export default function LoginModalForm({setShowModal}){
           onChange={updateEmail}
         />
       </div>
-      <div>
+      <div className="DnD__LoginFormModal--ButtonGroup">
         <label htmlFor="password">Password</label>
         <input
           name="password"
@@ -64,9 +64,12 @@ export default function LoginModalForm({setShowModal}){
           value={password}
           onChange={updatePassword}
         />
+      </div>
+      <div className="glow-dark">
         <button type="submit">Login</button>
         <button onClick={handleCancel}>Cancel</button>
       </div>
+
     </form>
   );
 }
