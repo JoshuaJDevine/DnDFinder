@@ -48,30 +48,9 @@ export default function Home(){
             await dispatch(getAllGroupsWithUsers())
             await dispatch(getDeviantArtImages()).catch((err) => {console.log(err)})
             await dispatch(getAllApplications()).catch((err) => {console.log(err)})
-//----------------------------------------------------------------------------------------------------------------------
-            //Test block for thunks
-//----------------------------------------------------------------------------------------------------------------------
-            // await dispatch(getAllMessages()).catch((err)=>{console.log(err)})
-
-            // == GET ONE GROUP ===
-            // await dispatch(getOneGroup(4));
-
-            // == GET ALL EVENTS ===
-            // await dispatch(getAllEvents());
-
-            // == GET ALL APPLICATIONS ===
-            // await dispatch(getAllApplications());
-
-            // == GET ONE APPLICATION ===
-            //Testing single application dispatch --> N.B. Add the catch to make sure that errors from the server are
-            //                                             handled.
-            // await dispatch(getOneApplication(2)).catch((err) => {console.log(err)})
-            // await dispatch(getOneApplication(1)).catch((err) => {console.log(err)})
-
-
-          setLoaded(true);
+            setLoaded(true);
         })();
-    }, []);
+    }, [sessionUser, viewingGroup]);
 
     if (!loaded) {
         return (
