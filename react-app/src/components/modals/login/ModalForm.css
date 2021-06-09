@@ -1,0 +1,25 @@
+.DnD__SingupForm{
+    margin-top: 100px;
+    display: flex;
+    gap: 5rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.DnD__SingupForm--ButtonWrapper{
+    display: flex;
+}
+
+.DnD__SingupForm p {
+}
+
+.DnD__SingupForm button {
+    width: 180px;
+    height: 60px;
+    background-image: url("https://i.imgur.com/SqrUFSn.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-color: rgba(255, 255, 255, 0);
+    border: rgba(255, 255, 255, 0);
+}

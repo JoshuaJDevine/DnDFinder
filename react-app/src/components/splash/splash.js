@@ -3,9 +3,12 @@ import React, {useState} from "react";
 import "./splash.css"
 import {Modal} from "../modals/Modal";
 import DemoUserForm from "../modals/users/demo user/DemoUserForm";
+
+import LoginModalForm from "../modals/login/loginModalForm";
 export default function Splash( {setViewingGroup} ){
     const [showDemoModal, setShowDemoModal] = useState(false);
     const [showLoginModal, setShowLoginModal] = useState(false)
+    const [showSignupModal, setShowSignupModal] = useState(false)
 
     return(
         <>
@@ -26,12 +29,17 @@ export default function Splash( {setViewingGroup} ){
                         <div className="pole"> </div>
                         <div className="sign-1 sign" onClick={() => setShowDemoModal(true)}>DEMO</div>
                         <div className="sign-2 sign">ABOUT</div>
-                        <div className="sign-3 sign">LOGIN</div>
-                        <div className="sign-4 sign">SIGNUP</div>
+                        <div className="sign-3 sign" onClick={() => setShowLoginModal(true)}>LOGIN</div>
+                        <div className="sign-4 sign" onClick={() => setShowSignupModal(true)}>SIGNUP</div>
 
                         {showDemoModal && (
                             <Modal onClose={() => setShowDemoModal(false)}>
                                 <DemoUserForm setShowModal={setShowDemoModal} setViewingGroup={setViewingGroup}/>
+                            </Modal>
+                        )}
+                        {showLoginModal && (
+                            <Modal onClose={() => setShowLoginModal(false)}>
+                                <LoginModalForm setShowModal={setShowLoginModal}/>
                             </Modal>
                         )}
                     </div>
