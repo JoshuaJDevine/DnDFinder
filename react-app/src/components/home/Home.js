@@ -12,6 +12,8 @@ import GroupView from "../groupview/GroupView";
 import {getAllApplications} from "../../store/application";
 import {getDeviantArtImages} from "../../store/deviantArt";
 import uuid from "react-uuid";
+import Splash from "../splash/splash";
+import NavBar from "../navbar/NavBar";
 
 export default function Home(){
     const dispatch = useDispatch();
@@ -81,15 +83,10 @@ export default function Home(){
 
     return (
             <div className="DnD__Home">
-
-                {/*Render the splash bar*/}
-                <SplashBar numberOfGroups={groups?.length > 0 ? groups.length : 0} setViewingGroup={setViewingGroup}/>
-
-                {/*[WIP] Render filter and search option*/}
-                {groups && viewingGroup <= 0 && groups.length > 1 ?
+                {/*Render a splash page if the viewingGroup is === -1*/}
+                {!sessionUser ?
                     <>
-                        <SearchBar text={"Filter 1"}/>
-                        <SearchBar text={"Filter 2"}/>
+                        <Splash setViewingGroup={setViewingGroup}/>
                     </>
                     :
                     <>
@@ -109,36 +106,64 @@ export default function Home(){
                 {/*//------------------------------------------------------------------------------------------------*/}
 
                 {/*Render many filtered groups*/}
-                {groups && viewingGroup <= 0 && groups.length > 1 ?
-                <div className="DnD_GroupWrapper">
-                    {groups.map((group, idx) => {
-                        if (idx % 2 === 0){
-                            return(
-                                <GroupFinder key={uuid()} groupList={groups} myIdx={idx} single={groups.length % 2 !== 0 && idx+1 === groups.length} setViewingGroup={setViewingGroup} />
-                            )
-                        }
-                        else {
-                            return null
-                        }
-                    })}
-                </div>
-                    :
-                <>
-                </>
+                {groups && viewingGroup === 0 && groups.length > 1 && sessionUser ?
+                    <>
+                        {/*Render the navbar*/}
+                        <NavBar />
+
+                        {/*Render the splash bar*/}
+                        <SplashBar numberOfGroups={groups?.length > 0 ? groups.length : 0} setViewingGroup={setViewingGroup}/>
+
+                        {/*[WIP] Render filter and search option*/}
+                        <SearchBar text={"Filter 1"}/>
+                        <SearchBar text={"Filter 2"}/>
+
+
+
+                        <div className="DnD_GroupWrapper">
+                            {groups.map((group, idx) => {
+                                if (idx % 2 === 0){
+                                    return(
+                                        <GroupFinder key={uuid()} groupList={groups} myIdx={idx} single={groups.length % 2 !== 0 && idx+1 === groups.length} setViewingGroup={setViewingGroup} />
+                                    )
+                                }
+                                else {
+                                    return null
+                                }
+                            })}
+                        </div>
+
+
+                        {/*Render the footer*/}
+                        <Footer/>
+                    </>
+                        :
+                    <>
+                    </>
                 }
 
-                {/*Render one group*/}
-                {groups && viewingGroup >= 1 ?
+                {/*Else Render one group*/}
+                {groups && viewingGroup >= 1 && sessionUser ?
                     <>
+                        {/*Render the navbar*/}
+                        <NavBar />
+
+                        {/*Render the splash bar*/}
+                        <SplashBar numberOfGroups={groups?.length > 0 ? groups.length : 0} setViewingGroup={setViewingGroup}/>
+
+                        {/*[WIP] Render filter and search option*/}
+                        <SearchBar text={"Filter 1"}/>
+                        <SearchBar text={"Filter 2"}/>
+
                         <GroupView groupData={groups[viewingGroup-1]} userIsMember={userIsMember} />
+                        {/*Render the footer*/}
+                        <Footer/>
                     </>
                     :
                     <>
                     </>
                 }
 
-                {/*Render the footer*/}
-                <Footer/>
 
 
 

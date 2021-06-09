@@ -1,0 +1,196 @@
+/*Amazing codepen adapted for my site.
+/*Original by Gabriela Johnson*!*/
+/*https://codepen.io/gabrielajohnson/pen/zYOqozy*/
+/*https://codepen.io/gabrielajohnson*/
+svg {
+  height: 100%;
+  width: 100%;
+}
+
+.DnD__Splash--wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.DnD__Splash--header{
+    position: fixed;
+    height: 7%;
+    width: 100%;
+    top: 10%;
+    bottom: 0;
+    /*font-family: 'Aclonica';font-size: 22px;*/
+    color: #b4aeae;
+    text-shadow: none;
+    font-size: 3rem;
+    text-align: center;
+    background: rgba(42, 43, 40, 0.55);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13.0px );
+    -webkit-backdrop-filter: blur( 13.0px );
+}
+.DnD__Splash--header h3 {
+    margin: 0;
+}
+
+.DnD__Splash--overlay h1{
+    color: #828278;
+    cursor: pointer;
+    margin-left: 20px;
+    font-size: 1.5rem;
+    text-shadow: none;
+}
+.DnD__Splash--overlay h2{
+    color: #828278;
+    cursor: pointer;
+    margin-right: 20px;
+    font-size: 1.5rem;
+    text-shadow: none;
+
+}
+.DnD__Splash--overlay h1:hover{
+    font-weight: bold;
+    text-decoration: underline;
+}
+.DnD__Splash--overlay h2:hover{
+    font-weight: bold;
+    text-decoration: underline;
+}
+.DnD__Splash{
+    background: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0c6e0590-011b-4912-bfe4-9353b6e5dc98/ddgj924-27954d13-1028-4eca-b1c7-114edfbd1ba3.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzBjNmUwNTkwLTAxMWItNDkxMi1iZmU0LTkzNTNiNmU1ZGM5OFwvZGRnajkyNC0yNzk1NGQxMy0xMDI4LTRlY2EtYjFjNy0xMTRlZGZiZDFiYTMuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.oG_Ww_fGrcCkWNLnnZan_jIyAlWtjlbEZZB2qgFkv3g");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    filter: blur(3px);
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.DnD__Splash--overlay{
+    position: absolute;
+    top: 90%;
+    display: flex;
+    z-index: 3;
+    width: 100vw;
+    justify-content: space-between;
+}
+
+.Splash__glow {
+  /*width: 300px;*/
+  /*height: 300px;*/
+  /*background: radial-gradient(*/
+  /*  rgba(255, 231, 113, 0.5),*/
+  /*  rgba(255, 255, 255, 0.5) 5%,*/
+  /*  rgba(255, 255, 255, 0.2) 20%,*/
+  /*  rgba(255, 255, 255, 0.1) 30%,*/
+  /*  rgba(255, 255, 255, 0) 60%*/
+  /*);*/
+  /*position: absolute;*/
+  /*margin: auto;*/
+  /*left: 0;*/
+  /*right: 0;*/
+  /*top: 22%;*/
+  /*border-radius: 50%;*/
+}
+
+.pole-container {
+  /*animation: ghostly-turn 2s;*/
+  position: fixed;
+  bottom: -150px;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  transform-style: preserve-3d;
+}
+
+.pole {
+  background: linear-gradient(transparent, black),
+    linear-gradient(90deg, rgba(88, 52, 36, 0.4), rgba(35, 19, 12, 0.4)),
+    linear-gradient(90deg, rgba(88, 52, 36, 0.4), rgba(35, 19, 12, 0.4)),
+  radial-gradient(rgb(128, 84, 65), #23130c);
+  background-size: 100% 100%, 5px 5px, 10px 10px, 100% 100%;
+  background-position: 2px 5px, 0px 0px, 0px 0px;
+  height: 100%;
+  width: 20px;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  border-radius: 20% 20% 0px 0px;
+}
+
+.sign {
+  background: linear-gradient(rgba(88, 52, 36, 0.5), rgba(35, 19, 12, 0.5)),
+    radial-gradient(rgb(128, 84, 65), #23130c, black);
+
+  background-size: 10px 10px, 100% 100%;
+  width: 200px;
+  padding: 20px 0px;
+  clip-path: polygon(0% 20%, 85% 20%, 100% 50%, 85% 80%, 0% 80%);
+  -webkit-clip-path: polygon(0% 20%, 85% 20%, 100% 50%, 85% 80%, 0% 80%);
+  position: absolute;
+  margin: auto;
+  left: 20px;
+  right: 0;
+  color: transparent;
+  font-size: 34px;
+  text-align: center;
+  font-family: "Indie Flower", cursive;
+  text-shadow: 0px 0px 2px #23130c, 0px 0px 1px black;
+  border-radius: 50px;
+  backface-visibility: hidden;
+}
+
+.sign {
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.sign-1 {
+  transform: rotate(-10deg);
+}
+
+.sign-1:hover {
+  transform: rotate(10deg);
+}
+
+.sign-2 {
+  top: 100px;
+  transform: rotateY(50deg);
+}
+
+.sign-2:hover {
+  transform: rotateY(50deg) rotate(-10deg);
+}
+
+.sign-3 {
+  top: 200px;
+}
+
+.sign-3:hover {
+  transform: rotateY(30deg);
+}
+
+.sign-4 {
+  top: 300px;
+}
+
+.sign-4:hover {
+  transform: rotateY(20deg) rotate(-10deg);
+}
+
+/*@keyframes ghostly-turn {*/
+/*  100% {*/
+/*    transform: rotateY(360deg);*/
+/*  }*/
+/*}*/

@@ -1,10 +1,7 @@
 .DnD__Navbar{
     background-color: rgb(92, 92, 92);
     height: 70px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 99;
+
 }
 .DnD__Navbar ul{
     margin: 0;
