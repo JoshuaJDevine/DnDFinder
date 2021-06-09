@@ -101,11 +101,11 @@ export default function Home(){
 
 
                 {/*//------------------------------------------------------------------------------------------------*/}
-                {/*   //Time constraints led to a design that requires pairs of two objects sent into one GroupFinder*/}
-                {/*   //You have been warned.  I recommend not looking at this code.*/}
-                {/*   //For my future reference I only create a GroupFinder on evens.*/}
+                {/*   //Two cards belong to one GroupFinder.*/}
+                {/*   //Requires GroupFinder create a pair or single if last in an uneven list*/}
                 {/*   //GroupFinder does more work to determine if it is the last in an uneven pair.*/}
                 {/*   //Refactor later. No way this will ever cause unexpected behaviour.*/}
+                {/*   //EDIT. This is causing unexpected behaviour...*/}
                 {/*//------------------------------------------------------------------------------------------------*/}
 
                 {/*Render many filtered groups*/}
