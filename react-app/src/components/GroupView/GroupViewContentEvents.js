@@ -34,7 +34,7 @@ export default function GroupViewContentEvents({groupData, isGroupAdmin}){
             <div className="DnD__GroupViewContentMessages--events">
                     {eventData.map((event, idx) => {
                         return(
-                            <Event eventData={event} groupId={groupData.id} isGroupAdmin={isGroupAdmin} />
+                            <Event key={idx} eventData={event} groupId={groupData.id} isGroupAdmin={isGroupAdmin} />
                         )
                     })}
             </div>

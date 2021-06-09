@@ -35,7 +35,7 @@ export default function GroupViewContentMessages({groupData}){
             <div className="DnD__GroupViewContentMessages--messages">
                     {messageData.map((message, idx) => {
                         return(
-                            <Message message={message} group_id={groupData.id} isOwner={message.sender_id === sessionUser.id} />
+                            <Message key={idx} message={message} group_id={groupData.id} isOwner={message.sender_id === sessionUser.id} />
                         )
                     })}
                     <CreateNewMessageModal groupId={groupData.id}/>

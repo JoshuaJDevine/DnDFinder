@@ -34,12 +34,14 @@ export default function Home(){
     useEffect(() => {
         if (viewingGroup > 0) {
             groups[viewingGroup-1].users.map((user, idx) => {
+            console.log("Checking user: " + sessionUser.id + " aginst " + user.username + " with an id of " + user.id)
             if (sessionUser.id === user.id){
+                console.log("IsTrue");
                 setUserIsMember(true)
             }
         })
     }
-    }, [viewingGroup])
+    }, [viewingGroup, sessionUser])
 
     useEffect(() => {
         (async() => {

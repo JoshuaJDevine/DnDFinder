@@ -13,14 +13,25 @@ export default function GroupView({groupData, userIsMember}){
     const sessionUser = useSelector(state => state.session.user);
     const [userIsAMember, setUserIsAMember] = useState(userIsMember)
     const [isGroupAdmin, setIsGroupAdmin] = useState(false)
-    useEffect(async () => {
+
+
+    useEffect(( ) => {
         setIsGroupAdmin(groupData.groupAdmin === sessionUser.id)
         if (isGroupAdmin){
             setUserIsAMember(true)
         }
+        else {
+            groupData.users.map((user, idx) => {
+            console.log("Checking user: " + sessionUser.id + " aginst " + user.username + " with an id of " + user.id)
+            if (sessionUser.id === user.id){
+                console.log("IsTrue");
+                setUserIsAMember(true)
+            }
+        })
+        }
         window.scrollTo(0, 0)
     })
-
+    console.log("User is a group admin = " + isGroupAdmin)
     console.log("User is a member = " + userIsAMember)
 
     return(
