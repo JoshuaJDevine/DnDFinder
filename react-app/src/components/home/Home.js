@@ -117,6 +117,9 @@ export default function Home(){
                                 <GroupFinder key={uuid()} groupList={groups} myIdx={idx} single={groups.length % 2 !== 0 && idx+1 === groups.length} setViewingGroup={setViewingGroup} />
                             )
                         }
+                        else {
+                            return null
+                        }
                     })}
                 </div>
                     :
