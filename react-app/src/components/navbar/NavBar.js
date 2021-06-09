@@ -71,19 +71,10 @@ const NavBar = () => {
             }
             {sessionUser ?
               <li>
-                  <LogoutButton />
               </li>
                   :
                   <>
                   </>
-            }
-            {sessionUser ?
-                <li>
-                    <CreateNewGroupModal/>
-                </li>
-                :
-                <>
-                </>
             }
         </ul>
       </nav>

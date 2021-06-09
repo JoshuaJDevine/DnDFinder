@@ -14,23 +14,25 @@ export default function DnD(){
     return(
     <div className="DnD">
         <BrowserRouter>
-            <NavBar />
             <Switch>
-                <Route path="/login" exact={true}>
-                    <LoginForm />
-                </Route>
-                <Route path="/sign-up" exact={true}>
-                    <SignUpForm />
-                </Route>
-                <ProtectedRoute path="/users" exact={true} >
-                    <UsersList/>
-                </ProtectedRoute>
-                <ProtectedRoute path="/users/:userId" exact={true} >
-                    <UserView />
-                </ProtectedRoute>
-                <ProtectedRoute path="/" exact={true} >
+                <Route path="*">
                     <Home />
-                </ProtectedRoute>
+                </Route>
+                {/*<Route path="/login" exact={true}>*/}
+                {/*    <LoginForm />*/}
+                {/*</Route>*/}
+                {/*<Route path="/sign-up" exact={true}>*/}
+                {/*    <SignUpForm />*/}
+                {/*</Route>*/}
+                {/*<ProtectedRoute path="/users" exact={true} >*/}
+                {/*    <UsersList/>*/}
+                {/*</ProtectedRoute>*/}
+                {/*<ProtectedRoute path="/users/:userId" exact={true} >*/}
+                {/*    <UserView />*/}
+                {/*</ProtectedRoute>*/}
+                {/*<ProtectedRoute path="/" exact={true} >*/}
+                {/*    <Home />*/}
+                {/*</ProtectedRoute>*/}
             </Switch>
         </BrowserRouter>
     </div>

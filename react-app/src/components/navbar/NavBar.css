@@ -1,10 +1,7 @@
 .DnD__Navbar{
-    background-color: rgb(92, 92, 92);
+    /*background-color: rgb(92, 92, 92);*/
     height: 70px;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 99;
+
 }
 .DnD__Navbar ul{
     margin: 0;
@@ -72,15 +69,28 @@
 }
 
 .glow-dark button {
-  text-decoration: none;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  transition: all 0.5s;
-  font-family: Audiowide;
+    text-decoration: none;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    font-family: Audiowide;
+    color: black;
+    font-weight: bold;
+    text-shadow: 2px 3px 5px #ffffff;
+    width: 160px;
+    height: 40px;
+    font-size: 2rem;
+    background-color: rgba(255, 255, 255, 0);
+    border: rgba(255, 255, 255, 0);
 }
 
 .glow-dark button:hover {
-  animation: neon5-dark 1.5s ease-in-out infinite alternate;
+  animation: neon5-dark 1s ease-in-out infinite alternate;
+    background: rgba(15, 23, 33, 0.44);
+    color: white;
+    text-shadow: 2px 3px 5px #000000;
+    border-radius: 5px;
+
 }
 
 .glow-dark a:hover {
@@ -89,9 +99,12 @@
 
 @keyframes neon5-dark {
   from {
-    text-shadow: 0 0 10px #e7e7e7, 0 0 20px #d7d7d7, 0 0 30px #d4d4d4, 0 0 40px #ff3c00, 0 0 70px #ff3c00, 0 0 80px #ff3c00, 0 0 100px #ff3c00, 0 0 150px #ff3c00;
+    text-shadow: 0 0 10px #e7e7e7, 0 0 20px #d7d7d7, 0 0 30px #d4d4d4, 0 0 40px #ff0000, 0 0 70px #ff0000, 0 0 80px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
+    box-shadow: 0px 0px 22px 3px #FFFFFF;
+
   }
   to {
-    text-shadow: 0 0 5px #e7e7e7, 0 0 10px #d7d7d7, 0 0 15px #d4d4d4, 0 0 20px #ff3c00, 0 0 35px #ff3c00, 0 0 40px #ff3c00, 0 0 50px #ff3c00, 0 0 75px #ff3c00;
+    text-shadow: 0 0 5px #e7e7e7, 0 0 10px #d7d7d7, 0 0 15px #d4d4d4, 0 0 20px #ff0000, 0 0 35px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000, 0 0 75px #ff0000;
+    box-shadow: 0px 0px 22px 12px #FFFFFF;
   }
 }

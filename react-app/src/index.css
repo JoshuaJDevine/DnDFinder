@@ -7,16 +7,21 @@
     --main-palette-dark-blackCoffee: #352D39;
 
     /*Meetup Colors*/
-    --main-palette-light-meetupBrightWhite: #4b4b4b;
-    --main-palette-light-meetupAshWhite: #fafafa;
+    --main-palette-light-meetupBrightWhite: #e5e5e5;
+    --main-palette-light-meetupAshWhite: #444444;
     --main-palette-dark-meetupBlack: #0f1721;
     --main-palette-dark-meetupBlue: #00455d;
     --main-palette-text-light-meetupGrey: #757575;
+
+    --mainSplashUrl1: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/bad52dbc-4a14-4b61-9d28-bbc9c9c22be9/d8rvy5g-75f82093-7c04-4c2d-a136-946c00ed14a3.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2JhZDUyZGJjLTRhMTQtNGI2MS05ZDI4LWJiYzljOWMyMmJlOVwvZDhydnk1Zy03NWY4MjA5My03YzA0LTRjMmQtYTEzNi05NDZjMDBlZDE0YTMuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Ffrpg_z_p8qXvzJ3suXg_lXk-2TAMY_7Ha5Es3pE0bE"
 }
 
 html, body {
     min-width: 600px;
-    background-color: var(--main-palette-light-meetupAshWhite);
+    /*background-color: var(--main-palette-light-meetupAshWhite);*/
     margin: 0;
     height: 100%;
 }
+
+
+

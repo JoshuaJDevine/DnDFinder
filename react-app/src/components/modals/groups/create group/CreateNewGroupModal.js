@@ -9,7 +9,7 @@ export default function CreateNewGroupModal(){
 
     return (
         <>
-            <div className="glow">
+            <div className="glow-dark">
                 <button onClick={() => setShowModal(true)}>New Group</button>
                 {showModal && (
                     <Modal onClose={() => setShowModal(false)}>

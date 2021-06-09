@@ -5,7 +5,7 @@ import {useDispatch} from "react-redux";
 import {deleteMyGroup} from "../../../../store/group";
 import {login} from "../../../../store/session";
 
-export default function DemoUserForm( {setShowModal} ){
+export default function DemoUserForm( {setShowModal, setViewingGroup} ){
     const dispatch = useDispatch();
     const handleCancel = () => {
         setShowModal(false);
@@ -13,6 +13,7 @@ export default function DemoUserForm( {setShowModal} ){
     const handleOK = async () => {
         const data = await dispatch(login("chrisOdinson@wotc.com", "password"));
         setShowModal(false);
+        setViewingGroup(0)
         if (data.errors) {
             console.log("There were errors logging in demo user... :(")
             console.log(data.errors)
@@ -23,8 +24,11 @@ export default function DemoUserForm( {setShowModal} ){
             <p>Welcome</p>
             <p>This app is a work in progress</p>
             <p>The Demo user can create groups, delete groups and edit groups</p>
-            <button onClick={handleCancel}>No!</button>
-            <button onClick={handleOK}>OK!</button>
+            <div className="glow-dark">
+                <button onClick={handleOK}>Login</button>
+                <button onClick={handleCancel}>Cancel</button>
+            </div>
+
         </div>
     )
 }

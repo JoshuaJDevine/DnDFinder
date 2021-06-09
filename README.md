@@ -29,3 +29,7 @@ heroku run -a dnd-finder flask seed all
 Under Settings find "Config Vars" and add any additional/secret .env variables.
 
 profit
+
+sounds from zapsplat
+
+https://drive.google.com/file/d/1KiHdif9qkZQhixi9K-hxSB_yRpxiYKgO/view?usp=sharing

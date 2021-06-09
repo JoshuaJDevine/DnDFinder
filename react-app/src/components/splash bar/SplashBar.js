@@ -1,5 +1,7 @@
 import React from "react";
 import "./SplashBar.css"
+import CreateNewGroupModal from "../modals/groups/create group/CreateNewGroupModal";
+import LogoutButton from "../auth/LogoutButton";
 
 export default function SplashBar({numberOfGroups, setViewingGroup}){
 
@@ -32,6 +34,8 @@ export default function SplashBar({numberOfGroups, setViewingGroup}){
                 <div className="glow-dark">
                     <button>My groups</button>
                 </div>
+                <CreateNewGroupModal/>
+                <LogoutButton />
             </div>
         </div>
     )
