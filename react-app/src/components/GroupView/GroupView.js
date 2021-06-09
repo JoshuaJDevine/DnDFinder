@@ -11,14 +11,17 @@ import {setGroupEvents} from "../../store/event";
 import GroupViewMembers from "./GroupViewMembers";
 export default function GroupView({groupData, userIsMember}){
     const sessionUser = useSelector(state => state.session.user);
+    const [userIsAMember, setUserIsAMember] = useState(userIsMember)
     const [isGroupAdmin, setIsGroupAdmin] = useState(false)
     useEffect(async () => {
         setIsGroupAdmin(groupData.groupAdmin === sessionUser.id)
         if (isGroupAdmin){
-            userIsMember = true;
+            setUserIsAMember(true)
         }
         window.scrollTo(0, 0)
     })
+
+    console.log("User is a member = " + userIsAMember)
 
     return(
         <>
@@ -30,7 +33,7 @@ export default function GroupView({groupData, userIsMember}){
             {groupData.users.length > 0 ? <GroupViewMembers groupMembers={groupData.users} /> : <> </>}
         </div>
 
-        {userIsMember ?
+        {userIsAMember ?
             <div className="Dnd__GroupViewContent">
                 <GroupViewContentEvents groupData={groupData} isGroupAdmin={isGroupAdmin} />
                 <GroupViewContentMessages groupData={groupData}/>
