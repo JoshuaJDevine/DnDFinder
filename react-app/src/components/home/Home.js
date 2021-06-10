@@ -28,19 +28,23 @@ export default function Home(){
     // Otherwise we will render the filtered groups
     //===========================================================
     const [viewingGroup, setViewingGroup] = useState(0)
-    const [userIsMember, setUserIsMember] = useState(false)
+    // const [userIsMember, setUserIsMember] = useState(false)
 
-    useEffect(() => {
-        // console.log("checking viewingGroup. Value is: ", viewingGroup)
-        if (viewingGroup > 0) {
-            groups[viewingGroup-1].users.map((user, idx) => {
-            if (sessionUser?.id === user.id){
-                console.log("IsTrue");
-                setUserIsMember(true)
-            }
-        })
-    }
-    }, [viewingGroup, sessionUser])
+    // useEffect(() => {
+    //     console.log("checking viewingGroup. Value is: ", viewingGroup)
+    //     let foundMembership = false
+    //     if (viewingGroup > 0) {
+    //         console.log(groups[viewingGroup-1].users);
+    //         groups[viewingGroup-1].users.map((user, idx) => {
+    //         if (sessionUser?.id === user.id){
+    //             console.log("IsTrue");
+    //             foundMembership = true
+    //         }
+    //     })
+    //     console.log("FoundMembership == ", foundMembership);
+    //     setUserIsMember(foundMembership)
+    // }
+    // }, [viewingGroup, sessionUser])
 
     useEffect(() => {
         (async() => {
@@ -50,7 +54,7 @@ export default function Home(){
             await dispatch(getAllApplications()).catch((err) => {console.log(err)})
             setLoaded(true);
         })();
-    }, [sessionUser, viewingGroup]);
+    }, [sessionUser]);
 
     if (!loaded) {
         return (
@@ -64,7 +68,7 @@ export default function Home(){
         <>
         <div className="DnD__Background"></div>
             <div className="DnD__Home">
-                {/*Render a splash page if the viewingGroup is === -1*/}
+                {/*Render a splash page if there is no user*/}
                 {!sessionUser ?
                     <>
                         <Splash setViewingGroup={setViewingGroup}/>
@@ -136,7 +140,7 @@ export default function Home(){
                         {/*<SearchBar text={"Filter 1"}/>*/}
                         {/*<SearchBar text={"Filter 2"}/>*/}
 
-                        <GroupView groupData={groups[viewingGroup-1]} userIsMember={userIsMember} />
+                        <GroupView groupData={groups[viewingGroup-1]}  />
                         {/*Render the footer*/}
                         <Footer/>
                     </>

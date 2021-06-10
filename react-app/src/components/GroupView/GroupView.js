@@ -9,27 +9,33 @@ import GroupViewContentEvents from "./GroupViewContentEvents";
 import GroupViewContentMessages from "./GroupViewContentMessages";
 import {setGroupEvents} from "../../store/event";
 import GroupViewMembers from "./GroupViewMembers";
-export default function GroupView({groupData, userIsMember}){
+export default function GroupView({groupData}){
     const sessionUser = useSelector(state => state.session.user);
-    const [userIsAMember, setUserIsAMember] = useState(userIsMember)
+    const [userIsAMember, setUserIsAMember] = useState(false)
     const [isGroupAdmin, setIsGroupAdmin] = useState(false)
 
-
+    console.log("Group ", groupData)
+    console.log("Is now loaded");
+    console.log("user", sessionUser, "Is a member ==", userIsAMember)
     useEffect(( ) => {
-        setIsGroupAdmin(groupData.groupAdmin === sessionUser.id)
-        if (isGroupAdmin){
-            setUserIsAMember(true)
-        }
-        else {
+        let foundMembership = false
+        foundMembership = groupData.groupAdmin === sessionUser.id
+
+        console.log("Group useEffect running");
+        if (!foundMembership){
             groupData.users.map((user, idx) => {
             if (sessionUser.id === user.id){
                 console.log("IsTrue");
-                setUserIsAMember(true)
+                foundMembership = true
             }
         })
         }
+
+        console.log("userIsAMember ===", userIsAMember)
+        setUserIsAMember(foundMembership)
+
         window.scrollTo(0, 0)
-    }, [])
+    }, [sessionUser])
 
 
     return(

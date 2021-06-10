@@ -35,7 +35,7 @@ export default function SplashBar({numberOfGroups, setViewingGroup}){
                     <button>My groups</button>
                 </div>
                 <CreateNewGroupModal/>
-                <LogoutButton />
+                <LogoutButton setViewingGroup={setViewingGroup} />
             </div>
         </div>
     )
