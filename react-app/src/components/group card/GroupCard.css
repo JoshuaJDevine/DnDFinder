@@ -21,16 +21,19 @@
     /*-webkit-backdrop-filter: blur( 2px );*/
     animation: card-hover-anim 1s ease-in-out infinite alternate;
     cursor: pointer;
+    transform: rotate(2deg);
+
 }
 @keyframes card-hover-anim {
   from {
--webkit-box-shadow: inset 0px 0px 10px 4px #ce602d, 0px 0px 18px 10px #ce602d;
-box-shadow: inset 0px 0px 10px 4px #ce602d,  0px 0px 18px 10px #ce602d;
-
+-webkit-box-shadow: inset 0px 0px 8px 10px rgba(241, 240, 235, 0.15), 0px 0px 18px 10px rgba(241, 240, 235, 0.15);
+box-shadow: inset 0px 0px 8px 10px rgba(241, 240, 235, 0.15),  0px 0px 18px 10px rgba(241, 240, 235, 0.15);
+border-radius: 20px;
   }
   to {
--webkit-box-shadow: inset 0px 0px 10px 6px #ce602d, 0px 0px 18px 10px #ce602d;
-box-shadow: inset 0px 0px 10px 6px #ce602d, 0px 0px 18px 10px #ce602d;
+-webkit-box-shadow: inset 0px 0px 10px 12px rgba(241, 240, 235, 0.15), 0px 0px 18px 10px rgba(241, 240, 235, 0.15);
+box-shadow: inset 0px 0px 10px 12px rgba(241, 240, 235, 0.15), 0px 0px 18px 10px rgba(241, 240, 235, 0.15);
+border-radius: 20px;
 
   }
 
