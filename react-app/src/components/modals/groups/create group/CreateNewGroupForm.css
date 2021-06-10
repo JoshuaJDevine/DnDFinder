@@ -8,8 +8,54 @@
 
 }
 
-.DnD__CreateNewGroupForm form button {
-    width: 140px;
-    height: 60px;
-    margin-top: 10px;
+
+.DnD__CreateNewGroupForm--ButtonGroup{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1vw;
+}
+.DnD__CreateNewGroupForm--ButtonGroup label{
+    margin-right: 10px;
+}
+.DnD__CreateNewGroupForm--ButtonGroup input{
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 5px;
+    border: 1px solid rgba(78, 78, 78, 0.58);
+    color: black;
+}
+.DnD__CreateNewGroupForm--ButtonGroup textarea{
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 5px;
+    border: 1px solid rgba(78, 78, 78, 0.58);
+    color: black;
+}
+.DnD__CreateNewGroupForm--ButtonGroup select{
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 5px;
+    border: none;
+    color: black;
+}
+
+.DnD__CreateNewGroupForm--ButtonGroup input::placeholder{
+    color: black;
+    opacity: .5;
+}
+.DnD__CreateNewGroupForm--ButtonGroup input:focus{
+    background: rgba(255, 255, 255, 0.3);
+}
+.DnD__CreateNewGroupForm--TimeButtonGroup{
+    display: flex;
+    flex-direction: row;
+}
+#DnD__ENDTIMEFORM{
+    margin-right: 0;
 }
