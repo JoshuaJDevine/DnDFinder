@@ -152,3 +152,38 @@
     text-shadow: 0 0 3px #bbb7b7, 0 0 6px #bbb7b7, 0 0 10px #908c8c;
   }
 }
+
+
+
+.glow-admin {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.glow-admin button {
+  text-decoration: none;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+  font-family: Audiowide;
+}
+
+.glow-admin button:hover {
+    animation: glowAdmin 1.5s ease-in-out infinite alternate;
+    color: #808080;
+    cursor: pointer;
+}
+
+.glow-admin a:hover {
+  color: #ffffff;
+}
+
+@keyframes glowAdmin {
+  from {
+    text-shadow: 0 0 10px #e53535, 0 0 40px #e87b32, 0 0 50px #e79609;
+  }
+  to {
+    text-shadow: 0 0 5px #e87b32, 0 0 20px #e79609, 0 0 25px #e53535;
+  }
+}

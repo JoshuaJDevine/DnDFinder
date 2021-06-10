@@ -7,21 +7,25 @@ import uuid from "react-uuid";
 export default function GroupViewAdminPanel({groupId, applications}){
     return(
         <div className="DnD__GroupViewAdminPanel">
-            <p>ADMIN PANEL</p>
-            <CreateNewEventModal groupId={groupId} />
-            {applications.map((application, idx) => {
-                if (application.status === false){
-                    return(
-                        <>
-                            <Application key={uuid()} applicationData={application} groupId={groupId} />
-                        </>
-                    )
-                }
-                else {
-                    return <div key={uuid()}></div>
-                }
+            <div className="DnD__GroupViewAdminPanel--header">
+                <h1>ADMIN PANEL</h1>
+            </div>
+            <div className="DnD__GroupViewAdminPanel--content">
+             <CreateNewEventModal groupId={groupId} />
+                {applications.map((application, idx) => {
+                    if (application.status === false){
+                        return(
+                            <>
+                                <Application key={uuid()} applicationData={application} groupId={groupId} />
+                            </>
+                        )
+                    }
+                    else {
+                        return null
+                    }
 
-            })}
+                })}
+            </div>
         </div>
     )
 }
