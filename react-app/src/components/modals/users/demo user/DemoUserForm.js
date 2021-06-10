@@ -21,9 +21,8 @@ export default function DemoUserForm( {setShowModal, setViewingGroup} ){
     }
     return(
         <div className="DnD__DemoUserForm">
-            <p>Welcome</p>
-            <p>This app is a work in progress</p>
-            <p>The Demo user can create groups, delete groups and edit groups</p>
+            <p>Welcome to the demo of DnD Group Finder</p>
+            <p>This app is [WIP]</p>
             <div className="DnD__Button--glow">
               <div className="DnD_Button--sign fx2" onClick={handleOK}>Login</div>
               <div className="DnD_Button--sign fx1" onClick={handleCancel}>Cancel</div>
