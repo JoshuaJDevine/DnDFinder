@@ -1,3 +1,11 @@
 .DnD__GroupViewDetails{
-    margin-top: 20px;
+}
+.DnD__GroupViewDetails h1{
+    font-size: 30px;
+    text-decoration: underline;
+    text-align: center;
+}
+.DnD__GroupViewDetails p {
+    font-size: 22px;
+    text-align: center;
 }

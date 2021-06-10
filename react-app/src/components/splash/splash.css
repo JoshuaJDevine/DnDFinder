@@ -162,8 +162,8 @@ svg {
 }
 
 .sign:hover {
-    text-shadow: 0px 0px 2px #ffffff, 1px 1px 1px #131313;
-    color: darkgoldenrod;
+    text-shadow: 0px 0px 2px #2d2d2d, 1px 1px 1px #131313;
+    color: #babab3;
 }
 
 

@@ -77,7 +77,7 @@ export default function EditEventForm( {setShowModal, event, groupId}) {
     }
 
     return (
-        <div className='DnD__UpdateEventForm'>
+        <div className='DnD__EditEventForm'>
             <form onSubmit={handleSubmit}>
                 {errors.length > 0 ?
                     <div className='DnD_Errors'>
@@ -92,119 +92,142 @@ export default function EditEventForm( {setShowModal, event, groupId}) {
                 {/*------------------------------------------------------*/}
                 {/*NAME*/}
                 {/*------------------------------------------------------*/}
-                <label htmlFor='name'>
-                    Name
-                </label>
-                <input
-                    id='name'
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                />
+                <div className="DnD__EditEventFormModal--ButtonGroup">
+                    <label htmlFor='name'>
+                        Name
+                    </label>
+                    <input
+                        id='name'
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        required
+                    />
+                </div>
+
 
                 {/*------------------------------------------------------*/}
                 {/*LOCATION*/}
                 {/*------------------------------------------------------*/}
-                <label htmlFor='location'>
-                    Location
-                </label>
-                <textarea
-                    id='location'
-                    type="text"
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
-                    required
-                />
+                <div className="DnD__EditEventFormModal--ButtonGroup">
+                    <label htmlFor='location'>
+                        Location
+                    </label>
+                    <textarea
+                        id='location'
+                        type="text"
+                        value={location}
+                        onChange={(e) => setLocation(e.target.value)}
+                        required
+                    />
+                </div>
+
 
                 {/*------------------------------------------------------*/}
                 {/*Day of Week*/}
                 {/*------------------------------------------------------*/}
-                <label htmlFor='dayOfWeek'>
-                    Day
-                </label>
-                <select required value={dayOfWeek} defaultValue={event.dayOfWeek} onChange={(e) => setDayOfWeek(e.target.value)}>
-                    <option value="Monday">Monday</option>
-                    <option value="Tuesday">Tuesday</option>
-                    <option value="Wednesday">Wednesday</option>
-                    <option value="Thursday">Thursday</option>
-                    <option value="Friday">Friday</option>
-                    <option value="Saturday">Saturday</option>
-                    <option value="Sunday">Sunday</option>
-                </select>
+                <div className="DnD__EditEventFormModal--ButtonGroup">
+                    <label htmlFor='dayOfWeek'>
+                        Day
+                    </label>
+                    <select required value={dayOfWeek} defaultValue={event.dayOfWeek} onChange={(e) => setDayOfWeek(e.target.value)}>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                    </select>
+                </div>
+
 
                 {/*------------------------------------------------------*/}
                 {/*Start Time*/}
                 {/*------------------------------------------------------*/}
-                <label htmlFor='startTime'>
-                    Start time
-                </label>
-                <select required value={startTime} defaultValue={event.startTime} onChange={(e) => setStartTime(e.target.value)}>
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
-                    <option value={3}>3</option>
-                    <option value={4}>4</option>
-                    <option value={5}>5</option>
-                    <option value={6}>6</option>
-                    <option value={7}>7</option>
-                    <option value={8}>8</option>
-                    <option value={9}>9</option>
-                    <option value={10}>10</option>
-                    <option value={11}>11</option>
-                    <option value={12}>12</option>
-                </select>
+                <div className="DnD__EditEventFormModal--ButtonGroup">
+                    <label htmlFor='startTime'>
+                        Start time
+                    </label>
+                    <select required value={startTime} defaultValue={event.startTime} onChange={(e) => setStartTime(e.target.value)}>
+                        <option value={1}>1</option>
+                        <option value={2}>2</option>
+                        <option value={3}>3</option>
+                        <option value={4}>4</option>
+                        <option value={5}>5</option>
+                        <option value={6}>6</option>
+                        <option value={7}>7</option>
+                        <option value={8}>8</option>
+                        <option value={9}>9</option>
+                        <option value={10}>10</option>
+                        <option value={11}>11</option>
+                        <option value={12}>12</option>
+                    </select>
+                </div>
+
 
                 {/*------------------------------------------------------*/}
                 {/*End Time*/}
                 {/*------------------------------------------------------*/}
-                <label htmlFor='endTime'>
-                    End time
-                </label>
-                <select required value={endTime} defaultValue={event.endTime} onChange={(e) => setEndTime(e.target.value)}>
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
-                    <option value={3}>3</option>
-                    <option value={4}>4</option>
-                    <option value={5}>5</option>
-                    <option value={6}>6</option>
-                    <option value={7}>7</option>
-                    <option value={8}>8</option>
-                    <option value={9}>9</option>
-                    <option value={10}>10</option>
-                    <option value={11}>11</option>
-                    <option value={12}>12</option>
-                </select>
+                <div className="DnD__EditEventFormModal--ButtonGroup">
+                    <label htmlFor='endTime'>
+                        End time
+                    </label>
+                    <select required value={endTime} defaultValue={event.endTime} onChange={(e) => setEndTime(e.target.value)}>
+                        <option value={1}>1</option>
+                        <option value={2}>2</option>
+                        <option value={3}>3</option>
+                        <option value={4}>4</option>
+                        <option value={5}>5</option>
+                        <option value={6}>6</option>
+                        <option value={7}>7</option>
+                        <option value={8}>8</option>
+                        <option value={9}>9</option>
+                        <option value={10}>10</option>
+                        <option value={11}>11</option>
+                        <option value={12}>12</option>
+                    </select>
+                </div>
+
 
                 {/*------------------------------------------------------*/}
                 {/*Time of Day*/}
                 {/*------------------------------------------------------*/}
-                <label htmlFor='timeOfDay'>
-                    Time Of Day
-                </label>
-                <select required value={timeOfDay} defaultValue={event.timeOfDay} onChange={(e) => setTimeOfDay(e.target.value)}>
-                    <option value="PM">PM</option>
-                    <option value="AM">AM</option>
-                </select>
+                <div className="DnD__EditEventFormModal--ButtonGroup">
+                    <label htmlFor='timeOfDay'>
+                        Time Of Day
+                    </label>
+                    <select required value={timeOfDay} defaultValue={event.timeOfDay} onChange={(e) => setTimeOfDay(e.target.value)}>
+                        <option value="PM">PM</option>
+                        <option value="AM">AM</option>
+                    </select>
+                </div>
+
 
                 {/*------------------------------------------------------*/}
                 {/*Notes*/}
                 {/*------------------------------------------------------*/}
-                <label htmlFor='notes'>
-                    Notes
-                </label>
-                <input
-                    id='notes'
-                    type="text"
-                    value={notes}
-                    onChange={(e) => setNotes(e.target.value)}
-                    required
-                />
+                <div className="DnD__EditEventFormModal--ButtonGroup">
+                    <label htmlFor='notes'>
+                        Notes
+                    </label>
+                    <input
+                        id='notes'
+                        type="text"
+                        value={notes}
+                        onChange={(e) => setNotes(e.target.value)}
+                        required
+                    />
+                </div>
+
 
                 {/*------------------------------------------------------*/}
                 {/*SUBMIT*/}
                 {/*------------------------------------------------------*/}
-                <button type="submit">Update</button>
-                <button onClick={handleClose}>Close</button>
+                <div className="DnD__Button--glow">
+                    <div className="DnD_Button--sign fx1" onClick={handleSubmit}>Update</div>
+                    <div className="DnD_Button--sign fx2" onClick={handleClose}>Cancel</div>
+                </div>
             </form>
         </div>
     )

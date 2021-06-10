@@ -70,7 +70,7 @@ export const getAllGroupsWithUsers = () => async (dispatch)  => {
 }
 
 export const getOneGroup = id => async (dispatch) => {
-    const res = await fetch(`/api/groups/${id}`);
+    const res = await fetch(`/api/groups/${id}/`);
     const data = await res.json();
     dispatch(getGroup(data));
     return data;

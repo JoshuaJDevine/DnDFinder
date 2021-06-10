@@ -6,9 +6,11 @@
     background-size: contain;
     display: flex;
     flex-direction: column;
+    align-items: center;
     height: 20vw;
     color: black;
     text-shadow: 2px 3px 5px #ffffff;
+    min-height: 250px;
 }
 .DnD__SplashBar--Title{
     align-self: center;
@@ -26,20 +28,83 @@
 .DnD__SplashBar--subTitle p{
     font-size: 2vw;
     margin:0;
+    text-align: center;
 }
 
 .DnD__SplashBar--Options {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    margin-top: 3vw;
+    margin-top: 1vw;
+    width: 38%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    left: -23px;
+    position: relative;
 }
 .DnD__SplashBar--Options button{
     color: black;
     text-shadow: 2px 3px 5px #ffffff;
-    width: 160px;
-    height: 40px;
-    font-size: 1.5rem;
+    width: 2vw;
+    height: .6vw;
+    font-size: 2vw;
     background-color: rgba(255, 255, 255, 0);
     border: rgba(255, 255, 255, 0);
+}
+
+@media (max-width: 1000px) {
+  .DnD__SplashBar--Options {
+    margin-top: 2vw;
+    width: 60%;
+    }
+    .DnD__SplashBar--Options button{
+        width: 2.4vw;
+        height: 1vw;
+        font-size: 2.4vw;
+    }
+    .DnD__SplashBar--Title h1 {
+        font-size: 3vw;
+        margin-top: 40px;
+        margin-bottom: 5px;
+    }
+    .DnD__SplashBar--subTitle{
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+    }
+    .DnD__SplashBar--subTitle p{
+        font-size: 2vw;
+        margin:0;
+    }
+}
+@media (max-width: 680px) {
+  .DnD__SplashBar--Options {
+        margin-top: 4vw;
+        width: 80%;
+        left: -41px;
+        position: relative;
+    }
+    .DnD__SplashBar--Options button{
+        width: 4vw;
+        height: 4vw;
+        font-size: 4vw;
+    }
+    .DnD__SplashBar--Title h1 {
+        font-size: 5vw;
+        margin-top: 40px;
+        margin-bottom: 5px;
+    }
+    .DnD__SplashBar--subTitle{
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+    }
+    .DnD__SplashBar--subTitle p{
+        font-size: 4vw;
+        margin:0;
+    }
+}
+
+.DnD__TextWrapper{
+    display: flex;
+    flex-direction: column;
 }

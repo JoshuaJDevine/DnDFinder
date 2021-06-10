@@ -1,18 +1,17 @@
 .DnD__GroupViewHeader{
-    margin-left: 20px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
 }
 .DnD__GroupViewHeader--right{
-    margin-left: 20px;
     display: flex;
     flex-direction: column;
 
 }
-.DnD__GroupViewHeader--right h1{
+.DnD__GroupViewHeader h1{
     margin-top: 0;
     font-size: 5vw;
     text-decoration: underline;
+    text-align: center;
 }
 .DnD__GroupViewHeader--right svg {
     font-size: 2vw;
@@ -20,5 +19,24 @@
 }
 .DnD__GroupViewHeader--right p {
         font-size: 2vw;
+}
+#DnDGroup--ImgLink{
+    color: white;
+}
 
+.DnD__GroupViewHeader--blur{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+background: rgba( 0, 0, 0, 0.5 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 1.5px );
+-webkit-backdrop-filter: blur( 1.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+    z-index: -1;
 }

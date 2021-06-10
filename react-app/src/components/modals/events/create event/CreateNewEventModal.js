@@ -8,8 +8,8 @@ export default function CreateNewEventModal( {groupId}){
 
     return (
         <>
-            <div className="glow">
-                <button onClick={() => setShowModal(true)}>New Event</button>
+            <div className="glow-admin">
+                <button onClick={() => setShowModal(true)}>Create New Event</button>
                 {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
                         <CreateNewEventForm setShowModal={setShowModal} groupId={groupId}/>

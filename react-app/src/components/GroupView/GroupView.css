@@ -14,3 +14,12 @@
     display: flex;
     justify-content: center;
 }
+
+.DnD__GroupView--detailContent{
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

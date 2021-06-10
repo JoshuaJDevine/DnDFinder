@@ -8,11 +8,11 @@ import {getOneGroup} from "../../../../store/group";
 
 export default function ViewApplicationForm( {applicationData, applicantId, setShowModal, groupId}){
     const dispatch = useDispatch()
+    const applicationInfo = useSelector(state => state.session.applicant)
     const [loaded, setLoaded] = useState(false);
-    // console.log(applicationData)
     useEffect( () => {
         async function fetchData() {
-            await dispatch(getApplicant(applicantId));
+            const data = await dispatch(getApplicant(applicantId));
             setLoaded(true);
         }
         fetchData()
@@ -59,16 +59,16 @@ export default function ViewApplicationForm( {applicationData, applicantId, setS
     }
     return(
         <div className="DnD__ApplicationForm">
-            <p>Applicant</p>
+            {applicationInfo ? <p>Applicant: {applicationInfo.username}</p>: <>Loading...</>}
             {applicationData.messages.map((message, idx) => {
                 return(
-                    <p key={idx}>{message.text}</p>
+                    <p key={idx}>Message: {message.text}</p>
                 )
             })}
-            <div className="DnD__ApplicationForm--ButtonWrapper">
-                <button onClick={handleCancel}>Close</button>
-                <button onClick={handleApprove}>Approve</button>
-                <button onClick={handleReject}>Reject</button>
+            <div className="DnD__Button--glow">
+                <div className="DnD_Button--sign fx1" onClick={handleApprove}>Approve</div>
+                <div className="DnD_Button--sign fx1" onClick={handleReject}>Reject</div>
+                <div className="DnD_Button--sign fx2" onClick={handleCancel}>Close</div>
             </div>
         </div>
     )

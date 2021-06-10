@@ -29,7 +29,6 @@ export default function Home(){
     //===========================================================
     const [viewingGroup, setViewingGroup] = useState(-1)
 
-
     useEffect(() => {
         (async() => {
             setViewingGroup(-1)
@@ -49,6 +48,30 @@ export default function Home(){
         );
     }
 
+    let newGreeting = ""
+    let allowedToCreateGroup = false
+    if (sessionUser){
+        newGreeting = "Welcome " + sessionUser.username
+    }
+    else {
+        newGreeting = "Welcome Adventurer"
+    }
+    let newActivity = ""
+    if (viewingGroup <= 0 && groups){
+        newActivity = "Searching " + groups.length + " groups."
+        allowedToCreateGroup = true
+    }
+    else {
+        if (groups){
+            newActivity = "Viewing " + groups[viewingGroup].name
+        }
+    }
+    const splashOptions = {
+        greeting: newGreeting,
+        activity: newActivity,
+        allowedToCreateGroup: allowedToCreateGroup
+    }
+
     return (
         <>
         <div className="DnD__Background"></div>
@@ -62,9 +85,6 @@ export default function Home(){
                     <>
                     </>
                 }
-
-
-
 
 
                 {/*//------------------------------------------------------------------------------------------------*/}
@@ -82,7 +102,7 @@ export default function Home(){
                         {/*<NavBar />*/}
 
                         {/*Render the splash bar*/}
-                        <SplashBar numberOfGroups={groups?.length > 0 ? groups.length : 0} setViewingGroup={setViewingGroup}/>
+                        <SplashBar numberOfGroups={groups?.length > 0 ? groups.length : 0} setViewingGroup={setViewingGroup} splashOptions={splashOptions}/>
 
                         {/*[WIP] Render filter and search option*/}
                         {/*<SearchBar text={"Filter 1"}/>*/}
@@ -119,12 +139,11 @@ export default function Home(){
                         {/*<NavBar />*/}
 
                         {/*Render the splash bar*/}
-                        <SplashBar numberOfGroups={groups?.length > 0 ? groups.length : 0} setViewingGroup={setViewingGroup}/>
+                        <SplashBar numberOfGroups={groups?.length > 0 ? groups.length : 0} setViewingGroup={setViewingGroup} splashOptions={splashOptions}/>
 
                         {/*[WIP] Render filter and search option*/}
                         {/*<SearchBar text={"Filter 1"}/>*/}
                         {/*<SearchBar text={"Filter 2"}/>*/}
-                        {console.log("User trying to view group", viewingGroup)}
                         <GroupView groupId={groups[viewingGroup].id}  />
                         {/*Render the footer*/}
                         <Footer/>

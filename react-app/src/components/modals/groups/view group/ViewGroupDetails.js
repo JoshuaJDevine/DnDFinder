@@ -14,20 +14,25 @@ export default function ViewGroupDetails({setShowModal, data, setViewingGroup, m
     }
 
     return(
+        <>
         <div className="DnD__ViewGroupDetails">
-            <p>{data.name}</p>
-            <p>{data.details}</p>
-            <p>{data.where}</p>
-            <p>{data.module}</p>
-            <p>{data.dayOfWeek}</p>
-            <p>{data.startTime}</p>
-            <p>{data.endTime}</p>
-            <p>{data.timeOfDay}</p>
-            <p>{data.maxPartySize}</p>
-            <p>{data.groupAdmin}</p>
-            <p>{data.timeZone}</p>
-            <button onClick={handleClose}>Close</button>
-            <button onClick={handleViewGroup}>Visit Group</button>
+            <div className="DnD__ViewGroupDetails--ButtonGroup">
+                <p>{data.name}: {data.module}</p>
+            </div>
+            <div className="DnD__ViewGroupDetails--ButtonGroup">
+                <p>{data.details}</p>
+            </div>
+            <div className="DnD__ViewGroupDetails--ButtonGroup">
+                <p>{data.where}</p>
+            </div>
+            <div className="DnD__ViewGroupDetails--ButtonGroup">
+                <p>{data.dayOfWeek} {data.startTime} - {data.endTime} {data.timeOfDay} {data.timeZone}</p>
+            </div>
+            <div className="DnD__Button--glow">
+                <div className="DnD_Button--sign fx1" onClick={handleClose}>Close</div>
+                <div className="DnD_Button--sign fx2" onClick={handleViewGroup}>Visit Group</div>
+            </div>
         </div>
+        </>
     )
 }

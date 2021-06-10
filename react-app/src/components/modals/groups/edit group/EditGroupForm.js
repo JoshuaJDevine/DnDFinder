@@ -109,171 +109,195 @@ export default function EditGroupForm( {setShowModal, group} ){
                 {/*------------------------------------------------------*/}
                 {/*NAME*/}
                 {/*------------------------------------------------------*/}
-                <label htmlFor='name'>
-                    Name
-                </label>
-                <input
-                    id='name'
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                />
+                <div className="DnD__EditGroupForm--ButtonGroup">
+                    <label htmlFor='name'>
+                        Name
+                    </label>
+                    <input
+                        id='name'
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        required
+                    />
+                </div>
 
                 {/*------------------------------------------------------*/}
                 {/*DETAILS*/}
                 {/*------------------------------------------------------*/}
-                <label htmlFor='details'>
-                    Game Details
-                </label>
-                <textarea
-                    id='details'
-                    type="text"
-                    value={details}
-                    onChange={(e) => setDetails(e.target.value)}
-                    required
-                />
-
-                {/*------------------------------------------------------*/}
-                {/*where*/}
-                {/*------------------------------------------------------*/}
-                <label htmlFor='where'>
-                    Primary Platform
-                </label>
-                <select required value={where} defaultValue={group.where} onChange={(e) => setWhere(e.target.value)}>
-                    <option value="Discord">Discord</option>
-                    <option value="Roll 20">Roll 20</option>
-                    <option value="DnD Beyond">DnD Beyond</option>
-                    <option value="Skype">Skype</option>
-                    <option value="Fantasy Grounds">Fantasy Grounds</option>
-                    <option value="D20PRO">D20PRO</option>
-                    <option value="Foundry">Foundry</option>
-                    <option value="Tabletop Simulator">Tabletop Simulator</option>
-                    <option value="Other">Other</option>
-                </select>
+                <div className="DnD__EditGroupForm--ButtonGroup">
+                    <label htmlFor='details'>
+                        Game Details
+                    </label>
+                    <textarea
+                        id='details'
+                        type="text"
+                        value={details}
+                        onChange={(e) => setDetails(e.target.value)}
+                        required
+                    />
+                </div>
 
 
                 {/*------------------------------------------------------*/}
-                {/*Module*/}
+                {/*WHERE*/}
                 {/*------------------------------------------------------*/}
-                <label htmlFor='module'>
-                    Module
-                </label>
-                <select required value={module} defaultValue={group.module} onChange={(e) => setModule(e.target.value)}>
-                    <option value="Curse of Strahd">Curse of Strahd</option>
-                    <option value="Out of the Abyss">Out of the Abyss</option>
-                    <option value="Descent into Avernus">Descent into Avernus</option>
-                    <option value="Storm King">Storm King</option>
-                    <option value="Yawning Portal">Yawning Portal</option>
-                    <option value="Saltmarsh">Saltmarsh</option>
-                    <option value="Tomb of Annihilation">Tomb of Annihilation</option>
-                    <option value="Phandelver">Phandelver</option>
-                    <option value="Eberron">Eberron</option>
-                    <option value="Other">Other</option>
-                </select>
+                <div className="DnD__EditGroupForm--ButtonGroup">
+                    <label htmlFor='where'>
+                        Primary Platform
+                    </label>
+                    <select required value={where} onChange={(e) => setWhere(e.target.value)}>
+                        <option value="Discord">Discord</option>
+                        <option value="Roll 20">Roll 20</option>
+                        <option value="DnD Beyond">DnD Beyond</option>
+                        <option value="Skype">Skype</option>
+                        <option value="Fantasy Grounds">Fantasy Grounds</option>
+                        <option value="D20PRO">D20PRO</option>
+                        <option value="Foundry">Foundry</option>
+                        <option value="Tabletop Simulator">Tabletop Simulator</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
 
                 {/*------------------------------------------------------*/}
-                {/*Day of Week*/}
+                {/*MODULE*/}
                 {/*------------------------------------------------------*/}
-                <label htmlFor='dayOfWeek'>
-                    Day
-                </label>
-                <select required value={dayOfWeek} defaultValue={group.dayOfWeek} onChange={(e) => setDayOfWeek(e.target.value)}>
-                    <option value="Monday">Monday</option>
-                    <option value="Tuesday">Tuesday</option>
-                    <option value="Wednesday">Wednesday</option>
-                    <option value="Thursday">Thursday</option>
-                    <option value="Friday">Friday</option>
-                    <option value="Saturday">Saturday</option>
-                    <option value="Sunday">Sunday</option>
-                </select>
+                <div className="DnD__EditGroupForm--ButtonGroup">
+                    <label htmlFor='module'>
+                        Module
+                    </label>
+                    <select required value={module} onChange={(e) => setModule(e.target.value)}>
+                        <option value="Curse of Strahd">Curse of Strahd</option>
+                        <option value="Out of the Abyss">Out of the Abyss</option>
+                        <option value="Descent into Avernus">Descent into Avernus</option>
+                        <option value="Storm King">Storm King</option>
+                        <option value="Yawning Portal">Yawning Portal</option>
+                        <option value="Saltmarsh">Saltmarsh</option>
+                        <option value="Tomb of Annihilation">Tomb of Annihilation</option>
+                        <option value="Phandelver">Phandelver</option>
+                        <option value="Eberron">Eberron</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
 
                 {/*------------------------------------------------------*/}
-                {/*Start Time*/}
+                {/*DAY OF WEEK*/}
                 {/*------------------------------------------------------*/}
-                <label htmlFor='startTime'>
-                    Start time
-                </label>
-                <select required value={startTime} defaultValue={group.startTime} onChange={(e) => setStartTime(e.target.value)}>
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
-                    <option value={3}>3</option>
-                    <option value={4}>4</option>
-                    <option value={5}>5</option>
-                    <option value={6}>6</option>
-                    <option value={7}>7</option>
-                    <option value={8}>8</option>
-                    <option value={9}>9</option>
-                    <option value={10}>10</option>
-                    <option value={11}>11</option>
-                    <option value={12}>12</option>
-                </select>
+                <div className="DnD__EditGroupForm--ButtonGroup">
+                    <label htmlFor='dayOfWeek'>
+                        Day
+                    </label>
+                    <select required value={dayOfWeek} onChange={(e) => setDayOfWeek(e.target.value)}>
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                    </select>
+                </div>
 
-                {/*------------------------------------------------------*/}
-                {/*End Time*/}
-                {/*------------------------------------------------------*/}
-                <label htmlFor='endTime'>
-                    End time
-                </label>
-                <select required value={endTime} defaultValue={group.endTime} onChange={(e) => setEndTime(e.target.value)}>
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
-                    <option value={3}>3</option>
-                    <option value={4}>4</option>
-                    <option value={5}>5</option>
-                    <option value={6}>6</option>
-                    <option value={7}>7</option>
-                    <option value={8}>8</option>
-                    <option value={9}>9</option>
-                    <option value={10}>10</option>
-                    <option value={11}>11</option>
-                    <option value={12}>12</option>
-                </select>
+                <div className="DnD__EditGroupForm--TimeButtonGroup">
+                    {/*------------------------------------------------------*/}
+                    {/*Start Time*/}
+                    {/*------------------------------------------------------*/}
+                    <div className="DnD__EditGroupForm--ButtonGroup">
+                        <label htmlFor='startTime'>
+                            Time:
+                        </label>
+                        <select required value={startTime} onChange={(e) => setStartTime(e.target.value)}>
+                            <option value={1}>1</option>
+                            <option value={2}>2</option>
+                            <option value={3}>3</option>
+                            <option value={4}>4</option>
+                            <option value={5}>5</option>
+                            <option value={6}>6</option>
+                            <option value={7}>7</option>
+                            <option value={8}>8</option>
+                            <option value={9}>9</option>
+                            <option value={10}>10</option>
+                            <option value={11}>11</option>
+                            <option value={12}>12</option>
+                        </select>
+                    </div>
 
-                {/*------------------------------------------------------*/}
-                {/*Time of Day*/}
-                {/*------------------------------------------------------*/}
-                <label htmlFor='timeOfDay'>
-                    Time Of Day
-                </label>
-                <select required value={timeOfDay} defaultValue={group.timeOfDay} onChange={(e) => setTimeOfDay(e.target.value)}>
-                    <option value="PM">PM</option>
-                    <option value="AM">AM</option>
-                </select>
+
+                    {/*------------------------------------------------------*/}
+                    {/*End Time*/}
+                    {/*------------------------------------------------------*/}
+                    <div className="DnD__EditGroupForm--ButtonGroup">
+                        <label id="DnD__ENDTIMEFORM" htmlFor='endTime'>
+                             -
+                        </label>
+                        <select required value={endTime} onChange={(e) => setEndTime(e.target.value)}>
+                            <option value={1}>1</option>
+                            <option value={2}>2</option>
+                            <option value={3}>3</option>
+                            <option value={4}>4</option>
+                            <option value={5}>5</option>
+                            <option value={6}>6</option>
+                            <option value={7}>7</option>
+                            <option value={8}>8</option>
+                            <option value={9}>9</option>
+                            <option value={10}>10</option>
+                            <option value={11}>11</option>
+                            <option value={12}>12</option>
+                        </select>
+                    </div>
+
+
+                    {/*------------------------------------------------------*/}
+                    {/*Time of Day*/}
+                    {/*------------------------------------------------------*/}
+                    <div className="DnD__EditGroupForm--ButtonGroup">
+                        <select required value={timeOfDay} onChange={(e) => setTimeOfDay(e.target.value)}>
+                            <option value="PM">PM</option>
+                            <option value="AM">AM</option>
+                        </select>
+                    </div>
+                </div>
 
                 {/*------------------------------------------------------*/}
                 {/*Time Zone*/}
                 {/*------------------------------------------------------*/}
-                <label htmlFor='timeZone'>
-                    Time Zone
-                </label>
-                <input
-                    id='timeZone'
-                    type="text"
-                    value={timeZone}
-                    onChange={(e) => setTimeZone(e.target.value)}
-                    required
-                />
+                <div className="DnD__CreateNewGroupForm--ButtonGroup">
+                    <label htmlFor='timeZone'>
+                        Time Zone
+                    </label>
+                    <input
+                        id='timeZone'
+                        type="text"
+                        value={timeZone}
+                        onChange={(e) => setTimeZone(e.target.value)}
+                        required
+                    />
+                </div>
 
                 {/*------------------------------------------------------*/}
-                {/*Time Zone*/}
+                {/*Party Size Max*/}
                 {/*------------------------------------------------------*/}
-                <label htmlFor='maxPartySize'>
-                    Max Party Size
-                </label>
-                <input
-                    id='maxPartySize'
-                    type="number"
-                    value={maxPartySize}
-                    onChange={(e) => setMaxPartySize(e.target.value)}
-                    required
-                />
+                <div className="DnD__CreateNewGroupForm--ButtonGroup">
+                    <label htmlFor='maxPartySize'>
+                        Max Party Size
+                    </label>
+                    <input
+                        id='maxPartySize'
+                        type="number"
+                        value={maxPartySize}
+                        onChange={(e) => setMaxPartySize(e.target.value)}
+                        required
+                    />
+                </div>
 
                 {/*------------------------------------------------------*/}
                 {/*SUBMIT*/}
                 {/*------------------------------------------------------*/}
-                <button type="submit">Update</button>
-                <button onClick={handleClose}>Close</button>
+                <div className="DnD__Button--glow">
+                    <div className="DnD_Button--sign fx1" onClick={handleSubmit}>Update</div>
+                    <div className="DnD_Button--sign fx2" onClick={handleClose}>Cancel</div>
+                </div>
             </form>
         </div>
     )

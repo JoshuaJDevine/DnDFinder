@@ -25,11 +25,10 @@ export default function DeleteEventForm( {eventId, setShowModal, group_id } ){
         <div className="DnD__DeleteEventForm">
             <p>Are you sure you want to delete your event?</p>
             <p>This cannot be undone.</p>
-            <div className="DnD__DeleteEventForm--ButtonWrapper">
-                <button onClick={handleCancel}>Cancel</button>
-                <button onClick={handleOK}>Delete</button>
+            <div className="DnD__Button--glow">
+                <div className="DnD_Button--sign fx1" onClick={handleOK}>Delete</div>
+                <div className="DnD_Button--sign fx2" onClick={handleCancel}>Cancel</div>
             </div>
-
         </div>
     )
 }

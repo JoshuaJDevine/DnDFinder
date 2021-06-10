@@ -1,10 +1,29 @@
 .DnD__ViewGroupDetails{
     display: flex;
-    flex-direction: row;
-    height: 100%;
-    width: 60%;
-    margin: auto;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+}
+
+.DnD__ViewGroupDetails--ButtonGroup{
+    display: flex;
+    flex-direction: row;
+}
+.DnD__ViewGroupDetails--ButtonGroup p {
+    font-size: 1.4rem;
+}
+.DnD__EditGroupForm--TimeButtonGroup{
+    display: flex;
+    flex-direction: row;
+}
+@media (max-width: 900px) {
+    .DnD__ViewGroupDetails--ButtonGroup p{
+        font-size: 3vw;
+    }
+    .DnD__ViewGroupDetails--ButtonGroup{
+        margin-bottom: 1vw;
+    }
+
+}
+#DnD__ENDTIMEFORM{
+    margin-right: 0;
 }

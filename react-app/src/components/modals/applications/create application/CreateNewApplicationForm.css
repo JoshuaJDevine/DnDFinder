@@ -1,15 +1,55 @@
-.DnD_NewApplicationForm{
+.DnD__CreateNewApplicationForm{
 }
 
-.DnD_NewApplicationForm form  {
+.DnD__CreateNewApplicationForm form  {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
-.DnD_NewApplicationForm form button {
-    width: 140px;
-    height: 60px;
-    margin-top: 10px;
+
+.DnD__CreateNewApplicationForm--ButtonGroup{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1vw;
+}
+.DnD__CreateNewApplicationForm--ButtonGroup label{
+    margin-right: 10px;
+}
+.DnD__CreateNewApplicationForm--ButtonGroup input{
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 5px;
+    border: 1px solid rgba(78, 78, 78, 0.58);
+    color: black;
+}
+.DnD__CreateNewApplicationForm--ButtonGroup textarea{
+    width: 20vw;
+    height: 20vh;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 5px;
+    border: 1px solid rgba(78, 78, 78, 0.58);
+    color: black;
+}
+.DnD__CreateNewApplicationForm--ButtonGroup select{
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 5px;
+    border: none;
+    color: black;
+}
+
+.DnD__CreateNewApplicationForm--ButtonGroup input::placeholder{
+    color: black;
+    opacity: .5;
+}
+.DnD__CreateNewApplicationForm--ButtonGroup input:focus{
+    background: rgba(255, 255, 255, 0.3);
 }

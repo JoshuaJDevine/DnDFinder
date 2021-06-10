@@ -8,8 +8,8 @@ export default function ViewApplicationModal( {applicationData, applicantId, gro
     const [showModal, setShowModal] = useState(false);
     return (
         <>
-            <div className="glow">
-                <button onClick={() => setShowModal(true)}>view application {applicantId}</button>
+            <div className="glow-admin">
+                <button onClick={() => setShowModal(true)}>View New Application</button>
                 {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
                         <ViewApplicationForm applicationData={applicationData} applicantId={applicantId} setShowModal={setShowModal} groupId={groupId}/>
