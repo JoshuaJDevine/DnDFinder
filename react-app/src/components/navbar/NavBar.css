@@ -85,12 +85,11 @@
 }
 
 .glow-dark button:hover {
-  animation: neon5-dark 1s ease-in-out infinite alternate;
+    animation: neon5-dark 1s ease-in-out infinite alternate;
     /*background: rgba(15, 23, 33, 0.44);*/
     color: white;
     text-shadow: 2px 3px 5px #000000;
     border-radius: 5px;
-
 }
 
 .glow-dark a:hover {

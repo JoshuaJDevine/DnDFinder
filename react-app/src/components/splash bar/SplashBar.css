@@ -78,15 +78,29 @@
 }
 @media (max-width: 680px) {
   .DnD__SplashBar--Options {
-    margin-top: 4vw;
-    width: 80%;
-    left: -41px;
-    position: relative;
+        margin-top: 4vw;
+        width: 80%;
+        left: -41px;
+        position: relative;
     }
     .DnD__SplashBar--Options button{
         width: 4vw;
         height: 4vw;
         font-size: 4vw;
+    }
+    .DnD__SplashBar--Title h1 {
+        font-size: 5vw;
+        margin-top: 40px;
+        margin-bottom: 5px;
+    }
+    .DnD__SplashBar--subTitle{
+        display: flex;
+        flex-direction: row;
+        align-self: center;
+    }
+    .DnD__SplashBar--subTitle p{
+        font-size: 4vw;
+        margin:0;
     }
 }
 

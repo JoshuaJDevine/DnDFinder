@@ -48,7 +48,13 @@ export default function Home(){
         );
     }
 
-    let newGreeting = "Welcome " + sessionUser.username
+    let newGreeting = ""
+    if (sessionUser){
+        newGreeting = "Welcome " + sessionUser.username
+    }
+    else {
+        newGreeting = "Welcome Adventurer"
+    }
     let newActivity = ""
     if (viewingGroup <= 0){
         newActivity = "Searching " + groups.length + " groups."

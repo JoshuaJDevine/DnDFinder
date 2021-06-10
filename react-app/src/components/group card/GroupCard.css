@@ -15,13 +15,26 @@
 
 }
 /*Not Niiiice!*/
-/*.DnD__GroupCard:hover{*/
-    /*background: rgb(127, 31, 48);*/
+.DnD__GroupCard:hover{
     /*box-shadow: 0 8px 32px 0 rgba(241, 190, 190, 0.69);*/
     /*backdrop-filter: blur( 1.5px );*/
     /*-webkit-backdrop-filter: blur( 2px );*/
-/*}*/
+    animation: card-hover-anim 1s ease-in-out infinite alternate;
+    cursor: pointer;
+}
+@keyframes card-hover-anim {
+  from {
+-webkit-box-shadow: inset 0px 0px 10px 4px #ce602d, 0px 0px 18px 10px #ce602d;
+box-shadow: inset 0px 0px 10px 4px #ce602d,  0px 0px 18px 10px #ce602d;
 
+  }
+  to {
+-webkit-box-shadow: inset 0px 0px 10px 6px #ce602d, 0px 0px 18px 10px #ce602d;
+box-shadow: inset 0px 0px 10px 6px #ce602d, 0px 0px 18px 10px #ce602d;
+
+  }
+
+}
 
 
 
