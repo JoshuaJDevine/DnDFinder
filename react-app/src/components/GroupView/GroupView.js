@@ -29,7 +29,6 @@ export default function GroupView({groupId}){
             if (!foundMembership){
                 myNewGroupData.users.map((user, idx) => {
                 if (sessionUser.id === user.id){
-                    console.log("IsTrue");
                     foundMembership = true
                 }
             })

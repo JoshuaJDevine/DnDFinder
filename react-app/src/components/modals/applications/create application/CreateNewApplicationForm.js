@@ -62,22 +62,27 @@ export default function CreateNewApplicationForm( {setShowModal, groupId, setUse
                 {/*------------------------------------------------------*/}
                 {/*TEXT*/}
                 {/*------------------------------------------------------*/}
-                <label htmlFor='text'>
-                    Application Message
-                </label>
-                <input
-                    id='text'
-                    type="text"
-                    value={text}
-                    onChange={(e) => setText(e.target.value)}
-                    required
-                />
+                <div className="DnD__CreateNewApplicationForm--ButtonGroup">
+                    <label htmlFor='text'>
+                        Application Message
+                    </label>
+                    <textarea
+                        id='text'
+                        type="text"
+                        value={text}
+                        onChange={(e) => setText(e.target.value)}
+                        required
+                    />
+                </div>
+
 
                 {/*------------------------------------------------------*/}
                 {/*SUBMIT*/}
                 {/*------------------------------------------------------*/}
-                <button type="submit">Apply</button>
-                <button onClick={handleClose}>Cancel</button>
+                <div className="DnD__Button--glow">
+                    <div className="DnD_Button--sign fx1" onClick={handleSubmit}>Create</div>
+                    <div className="DnD_Button--sign fx2" onClick={handleClose}>Cancel</div>
+                </div>
             </form>
         </div>
     )

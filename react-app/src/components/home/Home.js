@@ -144,7 +144,6 @@ export default function Home(){
                         {/*[WIP] Render filter and search option*/}
                         {/*<SearchBar text={"Filter 1"}/>*/}
                         {/*<SearchBar text={"Filter 2"}/>*/}
-                        {console.log("User trying to view group", viewingGroup)}
                         <GroupView groupId={groups[viewingGroup].id}  />
                         {/*Render the footer*/}
                         <Footer/>
