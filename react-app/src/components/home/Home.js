@@ -57,12 +57,14 @@ export default function Home(){
         newGreeting = "Welcome Adventurer"
     }
     let newActivity = ""
-    if (viewingGroup <= 0){
+    if (viewingGroup <= 0 && groups){
         newActivity = "Searching " + groups.length + " groups."
         allowedToCreateGroup = true
     }
     else {
-        newActivity = "Viewing " + groups[viewingGroup].name
+        if (groups){
+            newActivity = "Viewing " + groups[viewingGroup].name
+        }
     }
     const splashOptions = {
         greeting: newGreeting,
