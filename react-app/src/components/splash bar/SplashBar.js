@@ -2,8 +2,10 @@ import React from "react";
 import "./SplashBar.css"
 import CreateNewGroupModal from "../modals/groups/create group/CreateNewGroupModal";
 import LogoutButton from "../auth/LogoutButton";
+import {useSelector} from "react-redux";
 
-export default function SplashBar({numberOfGroups, setViewingGroup}){
+export default function SplashBar({numberOfGroups, setViewingGroup, }){
+    const sessionUser = useSelector(state => state.session.user);
 
 
     const handleAllGroupsButton =async () => {
@@ -22,7 +24,12 @@ export default function SplashBar({numberOfGroups, setViewingGroup}){
             </div>
             <div className="DnD__SplashBar--subTitle">
                 {numberOfGroups > 0?
-                    <p>searching {numberOfGroups} groups!</p>
+                    <>
+                    <div className="DnD__TextWrapper">
+                        <p>Welcome {sessionUser.username}</p>
+                        <p>searching {numberOfGroups} groups!</p>
+                    </div>
+                    </>
                     :
                     <p>Error, could not get groups</p>
                 }
