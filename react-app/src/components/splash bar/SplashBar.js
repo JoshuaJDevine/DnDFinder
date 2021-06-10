@@ -4,7 +4,7 @@ import CreateNewGroupModal from "../modals/groups/create group/CreateNewGroupMod
 import LogoutButton from "../auth/LogoutButton";
 import {useSelector} from "react-redux";
 
-export default function SplashBar({numberOfGroups, setViewingGroup, splashText}){
+export default function SplashBar({numberOfGroups, setViewingGroup, splashOptions}){
 
 
     const handleAllGroupsButton =async () => {
@@ -15,7 +15,6 @@ export default function SplashBar({numberOfGroups, setViewingGroup, splashText})
 //----------------------------------------------------------------------------------------------------------------------
         setViewingGroup(-1)
     }
-    console.log(splashText)
     return(
         <div className="DnD__SplashBar--Splash">
             <div className="DnD__SplashBar--Title">
@@ -25,8 +24,8 @@ export default function SplashBar({numberOfGroups, setViewingGroup, splashText})
                 {numberOfGroups > 0?
                     <>
                     <div className="DnD__TextWrapper">
-                        <p>{splashText.greeting}</p>
-                        <p>{splashText.activity}</p>
+                        <p>{splashOptions.greeting}</p>
+                        <p>{splashOptions.activity}</p>
                     </div>
                     </>
                     :
@@ -40,7 +39,7 @@ export default function SplashBar({numberOfGroups, setViewingGroup, splashText})
                 {/*<div className="glow-dark">*/}
                 {/*    <button>My groups</button>*/}
                 {/*</div>*/}
-                <CreateNewGroupModal/>
+                {splashOptions.allowedToCreateGroup ? <CreateNewGroupModal/> : <></>}
                 <LogoutButton setViewingGroup={setViewingGroup} />
             </div>
         </div>

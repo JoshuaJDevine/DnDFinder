@@ -64,10 +64,10 @@ export default function LoginModalForm({setShowModal}){
           value={password}
           onChange={updatePassword}
         />
-      </div>
+        </div>
         <div className="DnD__Button--glow">
-          <div className="DnD_Button--sign fx1" onClick={handleOK}>Login</div>
-          <div className="DnD_Button--sign fx2" onClick={handleCancel}>Cancel</div>
+            <div className="DnD_Button--sign fx1" onClick={handleOK}>Login</div>
+            <div className="DnD_Button--sign fx2" onClick={handleCancel}>Cancel</div>
         </div>
 
 

@@ -5,11 +5,49 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
-.DnD__EditEventForm form button {
-    width: 100px;
-    height: 30px;
-    margin-top: 10px;
+
+.DnD__EditEventFormModal--ButtonGroup{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1vw;
+}
+.DnD__EditEventFormModal--ButtonGroup label{
+    margin-right: 10px;
+}
+.DnD__EditEventFormModal--ButtonGroup input{
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 5px;
+    border: 1px solid rgba(78, 78, 78, 0.58);
+    color: black;
+}
+.DnD__EditEventFormModal--ButtonGroup textarea{
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 5px;
+    border: 1px solid rgba(78, 78, 78, 0.58);
+    color: black;
+}
+.DnD__EditEventFormModal--ButtonGroup select{
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 5px;
+    border: none;
+    color: black;
+}
+
+.DnD__EditEventFormModal--ButtonGroup input::placeholder{
+    color: black;
+    opacity: .5;
+}
+.DnD__EditEventFormModal--ButtonGroup input:focus{
+    background: rgba(255, 255, 255, 0.3);
 }

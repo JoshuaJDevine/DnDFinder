@@ -49,6 +49,7 @@ export default function Home(){
     }
 
     let newGreeting = ""
+    let allowedToCreateGroup = false
     if (sessionUser){
         newGreeting = "Welcome " + sessionUser.username
     }
@@ -58,13 +59,15 @@ export default function Home(){
     let newActivity = ""
     if (viewingGroup <= 0){
         newActivity = "Searching " + groups.length + " groups."
+        allowedToCreateGroup = true
     }
     else {
         newActivity = "Viewing " + groups[viewingGroup].name
     }
-    const splashText = {
+    const splashOptions = {
         greeting: newGreeting,
-        activity: newActivity
+        activity: newActivity,
+        allowedToCreateGroup: allowedToCreateGroup
     }
 
     return (
@@ -97,7 +100,7 @@ export default function Home(){
                         {/*<NavBar />*/}
 
                         {/*Render the splash bar*/}
-                        <SplashBar numberOfGroups={groups?.length > 0 ? groups.length : 0} setViewingGroup={setViewingGroup} splashText={splashText}/>
+                        <SplashBar numberOfGroups={groups?.length > 0 ? groups.length : 0} setViewingGroup={setViewingGroup} splashOptions={splashOptions}/>
 
                         {/*[WIP] Render filter and search option*/}
                         {/*<SearchBar text={"Filter 1"}/>*/}
@@ -134,7 +137,7 @@ export default function Home(){
                         {/*<NavBar />*/}
 
                         {/*Render the splash bar*/}
-                        <SplashBar numberOfGroups={groups?.length > 0 ? groups.length : 0} setViewingGroup={setViewingGroup} splashText={splashText}/>
+                        <SplashBar numberOfGroups={groups?.length > 0 ? groups.length : 0} setViewingGroup={setViewingGroup} splashOptions={splashOptions}/>
 
                         {/*[WIP] Render filter and search option*/}
                         {/*<SearchBar text={"Filter 1"}/>*/}
