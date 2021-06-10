@@ -13,7 +13,7 @@ export default function GroupViewAdminPanel({groupId, applications}){
                 if (application.status === false){
                     return(
                         <>
-                            <Application key={uuid()} applicationData={application} />
+                            <Application key={uuid()} applicationData={application} groupId={groupId} />
                         </>
                     )
                 }

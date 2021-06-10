@@ -12,14 +12,14 @@ export default function GroupFinder({groupList, myIdx, single, setViewingGroup})
             if (idx % 2 !== 0 && myIdx+1 === idx) {
                 return(
                     <>
-                    <GroupCard key={uuid()} data={groupList[idx-1]} setViewingGroup={setViewingGroup} />
-                    <GroupCard key={uuid()} data={groupList[idx]} setViewingGroup={setViewingGroup} />
+                    <GroupCard key={uuid()} data={groupList[idx-1]} setViewingGroup={setViewingGroup} myIdx={idx-1} />
+                    <GroupCard key={uuid()} data={groupList[idx]} setViewingGroup={setViewingGroup} myIdx={idx} />
                     </>
                 )
             }
             else if (groupList.length % 2 !== 0 && idx+1 === groupList.length && single){
                 return(
-                    <GroupCard key={uuid()} data={groupList[idx]} setViewingGroup={setViewingGroup}/>
+                    <GroupCard key={uuid()} data={groupList[idx]} setViewingGroup={setViewingGroup} myIdx={idx}/>
                 )
             }
             else {

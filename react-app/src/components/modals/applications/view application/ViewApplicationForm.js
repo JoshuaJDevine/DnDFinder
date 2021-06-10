@@ -4,8 +4,9 @@ import {useDispatch, useSelector} from "react-redux";
 import {getApplicant} from "../../../../store/session";
 import {manageMyApplication} from "../../../../store/application";
 import {getGroupMessages} from "../../../../store/message";
+import {getOneGroup} from "../../../../store/group";
 
-export default function ViewApplicationForm( {applicationData, applicantId, setShowModal}){
+export default function ViewApplicationForm( {applicationData, applicantId, setShowModal, groupId}){
     const dispatch = useDispatch()
     const [loaded, setLoaded] = useState(false);
     // console.log(applicationData)
@@ -31,7 +32,7 @@ export default function ViewApplicationForm( {applicationData, applicantId, setS
     }
     const handleApprove = async () => {
         setShowModal(false);
-        return await dispatch(manageMyApplication(1, applicationData.id ))
+        await dispatch(manageMyApplication(1, applicationData.id ))
         .catch(async (res) => {
             const data = await res;
             if (data && data.errors){
@@ -40,6 +41,8 @@ export default function ViewApplicationForm( {applicationData, applicantId, setS
                 console.log("erorrs were" + data.errors)
             }
         });
+        await dispatch(getOneGroup(groupId))
+
     }
 
     const handleReject = async () => {

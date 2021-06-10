@@ -19,7 +19,7 @@ def validation_errors_to_error_messages(validation_errors):
 @group_routes.route('/<int:id>/')
 def group(id):
     group = Group.query.get(id)
-    return group.to_dict()
+    return group.to_dict_include_users()
 
 
 @login_required

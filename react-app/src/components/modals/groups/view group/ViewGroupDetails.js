@@ -2,14 +2,15 @@ import React from "react";
 
 import "./ViewGroupDetails.css"
 
-export default function ViewGroupDetails({setShowModal, data, setViewingGroup}){
+export default function ViewGroupDetails({setShowModal, data, setViewingGroup, myIdx}){
 
     const handleClose = () => {
         setShowModal(false)
     }
     const handleViewGroup = () => {
         setShowModal(false)
-        setViewingGroup(data.id)
+        console.log("setting viewing group to " + myIdx)
+        setViewingGroup(myIdx)
     }
 
     return(

@@ -12,7 +12,7 @@ export default function SplashBar({numberOfGroups, setViewingGroup}){
         // Choosing "all groups" simply resets the viewingGroup to 0
         // so home can rerender all groups
 //----------------------------------------------------------------------------------------------------------------------
-        setViewingGroup(0)
+        setViewingGroup(-1)
     }
 
     return(

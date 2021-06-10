@@ -9,11 +9,12 @@ import ViewGroupDetails from "../modals/groups/view group/ViewGroupDetails";
 import ViewGroupDetailsModal from "../modals/groups/view group/ViewGroupDetailsModal";
 import CreateNewApplicationModal from "../modals/applications/create application/CreateNewApplicationModal";
 
-export default function GroupCard({data, setViewingGroup}){
+export default function GroupCard({data, setViewingGroup, myIdx}){
     const [showModal, setShowModal] = useState(false);
+
+
     const [userHasApplied, setUserHasApplied] = useState(false)
     const sessionUser = useSelector(state => state.session.user);
-
     useEffect(() => {
         data.applications.map((application, idx) => {
             if (application.userId === sessionUser.id){
@@ -23,7 +24,7 @@ export default function GroupCard({data, setViewingGroup}){
     }, [])
 
     const handleDoubleClick = function (data, setViewingGroup) {
-            setViewingGroup(data.id)
+        setViewingGroup(myIdx)
     }
 
 
@@ -43,13 +44,13 @@ export default function GroupCard({data, setViewingGroup}){
                     <div className="DnD__GroupCard--Buttons">
                         <EditGroupModal group={data} />
                         <DeleteGroupModal groupId={data.id} />
-                        <ViewGroupDetailsModal group={data} setViewingGroup={setViewingGroup}/>
+                        <ViewGroupDetailsModal group={data} setViewingGroup={setViewingGroup} myIdx={myIdx}/>
                     </div>
                 </>
                 :
                 <>
                     <div className="DnD__GroupCard--Buttons">
-                        <ViewGroupDetailsModal group={data} setViewingGroup={setViewingGroup}/>
+                        <ViewGroupDetailsModal group={data} setViewingGroup={setViewingGroup} myIdx={myIdx}/>
                         {sessionUser.id !== data.groupAdmin && userHasApplied !== true ?
                             <CreateNewApplicationModal groupId={data.id} setUserHasApplied={setUserHasApplied} />
                             :

@@ -19,7 +19,7 @@ const getGroupsWithUsers = (groups) => ({
 });
 
 const getGroup = (group) => ({
-    type: GET_GROUPS,
+    type: GET_GROUP,
     payload: group
 });
 
@@ -72,8 +72,8 @@ export const getAllGroupsWithUsers = () => async (dispatch)  => {
 export const getOneGroup = id => async (dispatch) => {
     const res = await fetch(`/api/groups/${id}`);
     const data = await res.json();
-
     dispatch(getGroup(data));
+    return data;
 }
 
 export const createNewGroup = (name,
@@ -196,7 +196,7 @@ export default function reducer(state=initialState, action) {
         case GET_GROUPS:
             return {groups: action.payload}
         case GET_GROUP:
-            return {group: action.payload}
+            return {groups:state.groups, group: action.payload}
         case CREATE_GROUP:
             return {group: action.payload}
         case  UPDATE_GROUP:

@@ -27,27 +27,12 @@ export default function Home(){
     // If the user is viewing a group > 0 then show that group.
     // Otherwise we will render the filtered groups
     //===========================================================
-    const [viewingGroup, setViewingGroup] = useState(0)
-    // const [userIsMember, setUserIsMember] = useState(false)
+    const [viewingGroup, setViewingGroup] = useState(-1)
 
-    // useEffect(() => {
-    //     console.log("checking viewingGroup. Value is: ", viewingGroup)
-    //     let foundMembership = false
-    //     if (viewingGroup > 0) {
-    //         console.log(groups[viewingGroup-1].users);
-    //         groups[viewingGroup-1].users.map((user, idx) => {
-    //         if (sessionUser?.id === user.id){
-    //             console.log("IsTrue");
-    //             foundMembership = true
-    //         }
-    //     })
-    //     console.log("FoundMembership == ", foundMembership);
-    //     setUserIsMember(foundMembership)
-    // }
-    // }, [viewingGroup, sessionUser])
 
     useEffect(() => {
         (async() => {
+            setViewingGroup(-1)
             // await dispatch(getAllGroups());
             await dispatch(getAllGroupsWithUsers())
             await dispatch(getDeviantArtImages()).catch((err) => {console.log(err)})
@@ -91,7 +76,7 @@ export default function Home(){
                 {/*//------------------------------------------------------------------------------------------------*/}
 
                 {/*Render many filtered groups*/}
-                {groups && viewingGroup === 0 && groups.length > 1 && sessionUser ?
+                {groups && viewingGroup < 0 && groups.length > 1 && sessionUser ?
                     <>
                         {/*Render the navbar*/}
                         {/*<NavBar />*/}
@@ -128,7 +113,7 @@ export default function Home(){
                 }
 
                 {/*Else Render one group*/}
-                {groups && viewingGroup >= 1 && sessionUser ?
+                {groups && viewingGroup >= 0 && sessionUser ?
                     <>
                         {/*Render the navbar*/}
                         {/*<NavBar />*/}
@@ -139,8 +124,8 @@ export default function Home(){
                         {/*[WIP] Render filter and search option*/}
                         {/*<SearchBar text={"Filter 1"}/>*/}
                         {/*<SearchBar text={"Filter 2"}/>*/}
-
-                        <GroupView groupData={groups[viewingGroup-1]}  />
+                        {console.log("User trying to view group", viewingGroup)}
+                        <GroupView groupId={groups[viewingGroup].id}  />
                         {/*Render the footer*/}
                         <Footer/>
                     </>

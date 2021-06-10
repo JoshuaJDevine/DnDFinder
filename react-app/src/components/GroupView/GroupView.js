@@ -9,55 +9,72 @@ import GroupViewContentEvents from "./GroupViewContentEvents";
 import GroupViewContentMessages from "./GroupViewContentMessages";
 import {setGroupEvents} from "../../store/event";
 import GroupViewMembers from "./GroupViewMembers";
-export default function GroupView({groupData}){
+import {getOneGroup} from "../../store/group";
+export default function GroupView({groupId}){
+    const dispatch = useDispatch()
+
     const sessionUser = useSelector(state => state.session.user);
+    const myGroup = useSelector(state => state.groupData.group)
+
+    const [isLoaded, setIsLoaded] = useState(false)
     const [userIsAMember, setUserIsAMember] = useState(false)
     const [isGroupAdmin, setIsGroupAdmin] = useState(false)
 
-    console.log("Group ", groupData)
-    console.log("Is now loaded");
-    console.log("user", sessionUser, "Is a member ==", userIsAMember)
-    useEffect(( ) => {
-        let foundMembership = false
-        foundMembership = groupData.groupAdmin === sessionUser.id
-
-        console.log("Group useEffect running");
-        if (!foundMembership){
-            groupData.users.map((user, idx) => {
-            if (sessionUser.id === user.id){
-                console.log("IsTrue");
-                foundMembership = true
+    useEffect(() => {
+        const getMyGroup = async () => {
+            const myNewGroupData = await dispatch(getOneGroup(groupId));
+            let foundMembership = false
+            foundMembership = myNewGroupData.groupAdmin === sessionUser.id
+            setIsGroupAdmin(foundMembership)
+            if (!foundMembership){
+                myNewGroupData.users.map((user, idx) => {
+                if (sessionUser.id === user.id){
+                    console.log("IsTrue");
+                    foundMembership = true
+                }
+            })
             }
-        })
+            setUserIsAMember(foundMembership)
+            setIsLoaded(true)
         }
-
-        console.log("userIsAMember ===", userIsAMember)
-        setUserIsAMember(foundMembership)
+        getMyGroup();
 
         window.scrollTo(0, 0)
-    }, [sessionUser])
+    }, [])
 
 
     return(
         <>
-        <div className="DnD__GroupView">
-            <GroupViewHeader groupData={groupData} />
-            <GroupViewDetails groupData={groupData} />
-            {}
-            {isGroupAdmin ? <GroupViewAdminPanel groupId={groupData.id} applications={groupData.applications} /> : <> </>}
-            {groupData.users.length > 0 ? <GroupViewMembers groupMembers={groupData.users} /> : <> </>}
-        </div>
 
-        {userIsAMember ?
-            <div className="Dnd__GroupViewContent">
-                <GroupViewContentEvents groupData={groupData} isGroupAdmin={isGroupAdmin} />
-                <GroupViewContentMessages groupData={groupData}/>
+        {isLoaded ?
+                <>
+                <>
+            <div className="DnD__GroupView">
+                <GroupViewHeader groupData={myGroup} />
+                <GroupViewDetails groupData={myGroup} />
+                {}
+                {isGroupAdmin ? <GroupViewAdminPanel groupId={myGroup.id} applications={myGroup.applications}/> : <> </>}
+                {myGroup.users.length > 0 ? <GroupViewMembers groupMembers={myGroup.users} /> : <> </>}
             </div>
-            :
-            <>
+
+            {userIsAMember ?
+                <div className="Dnd__GroupViewContent">
+                    <GroupViewContentEvents groupData={myGroup} isGroupAdmin={isGroupAdmin} />
+                    <GroupViewContentMessages groupData={myGroup}/>
+                </div>
+                :
+                <>
+                </>
+                }
             </>
-            }
+                </>
+                :
+                <>
+                 <p>loading your group...</p>
+                </>
+        }
         </>
+
     )
 }
 

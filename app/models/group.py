@@ -24,7 +24,7 @@ class Group(db.Model):
         secondary=users_groups,
         back_populates="groups"
     )
-    events = db.relationship("Event", back_populates="group")
+    events = db.relationship("Event", back_populates="group", cascade="all, delete")
     applications = db.relationship("Application", back_populates="group")
     messages = db.relationship("Message", back_populates="group")
 

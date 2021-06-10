@@ -13,7 +13,7 @@ export default function DemoUserForm( {setShowModal, setViewingGroup} ){
     const handleOK = async () => {
         const data = await dispatch(login("chrisOdinson@wotc.com", "password"));
         setShowModal(false);
-        setViewingGroup(0)
+        setViewingGroup(-1)
         if (data.errors) {
             console.log("There were errors logging in demo user... :(")
             console.log(data.errors)
