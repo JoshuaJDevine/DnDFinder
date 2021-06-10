@@ -1,7 +1,5 @@
 .DnD__DeleteEventForm{
-    margin-top: 100px;
     display: flex;
-    gap: 5rem;
     flex-direction: column;
     align-items: center;
 }
