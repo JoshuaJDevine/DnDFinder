@@ -10,14 +10,3 @@
 
 .DnD__DeleteEventForm p {
 }
-
-.DnD__DeleteEventForm button {
-    width: 180px;
-    height: 60px;
-    background-image: url("https://i.imgur.com/SqrUFSn.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    background-color: rgba(255, 255, 255, 0);
-    border: rgba(255, 255, 255, 0);
-}

@@ -46,7 +46,7 @@ export default function UpdateMessageForm({setShowModal, message, groupId}) {
         }
     }
     return (
-        <div className='DnD__CreateNewEventForm'>
+        <div className='DnD_UpdateMessageForm'>
             <form onSubmit={handleSubmit}>
                 {errors.length > 0 ?
                     <div className='DnD_Errors'>
@@ -61,22 +61,27 @@ export default function UpdateMessageForm({setShowModal, message, groupId}) {
                 {/*------------------------------------------------------*/}
                 {/*TEXT*/}
                 {/*------------------------------------------------------*/}
-                <label htmlFor='text'>
-                    Message
-                </label>
-                <input
-                    id='text'
-                    type="text"
-                    value={text}
-                    onChange={(e) => setText(e.target.value)}
-                    required
-                />
+                <div className="DnD_UpdateMessageForm--ButtonGroup">
+                    <label htmlFor='text'>
+                        Message
+                    </label>
+                    <textarea
+                        id='text'
+                        type="text"
+                        value={text}
+                        onChange={(e) => setText(e.target.value)}
+                        required
+                    />
+                </div>
+
 
                 {/*------------------------------------------------------*/}
                 {/*SUBMIT*/}
                 {/*------------------------------------------------------*/}
-                <button type="submit">Update</button>
-                <button onClick={handleClose}>Close</button>
+                <div className="DnD__Button--glow">
+                    <div className="DnD_Button--sign fx1" onClick={handleSubmit}>Update</div>
+                    <div className="DnD_Button--sign fx2" onClick={handleClose}>Cancel</div>
+                </div>
             </form>
         </div>
     )

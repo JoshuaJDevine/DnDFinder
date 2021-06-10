@@ -22,11 +22,11 @@ export default function DeleteMessageForm({messageId, setShowModal, group_id}){
     }
     return (
         <div className="DnD__DeleteMessageForm">
-            <p>Are you sure you want to delete your message {messageId}?</p>
+            <p>Are you sure you want to delete your message?</p>
             <p>This cannot be undone.</p>
-            <div className="DnD__DeleteMessageForm--ButtonWrapper">
-                <button onClick={handleCancel}>Cancel</button>
-                <button onClick={handleOK}>Delete</button>
+            <div className="DnD__Button--glow">
+                <div className="DnD_Button--sign fx1" onClick={handleOK}>Delete</div>
+                <div className="DnD_Button--sign fx2" onClick={handleCancel}>Cancel</div>
             </div>
 
         </div>
