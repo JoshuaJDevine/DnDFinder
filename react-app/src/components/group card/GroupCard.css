@@ -10,6 +10,9 @@
     justify-content: flex-start;
     overflow-wrap: break-word;
     margin-top: 10%;
+    color: black;
+    text-shadow: 2px 3px 5px #ffffff;
+
 }
 /*Not Niiiice!*/
 /*.DnD__GroupCard:hover{*/
@@ -56,12 +59,13 @@
     margin: 0;
     padding-left: 16%;
     padding-right: 16%;
+    margin-bottom: 5px;
 }
 .DnD__GroupCard--Buttons{
     display: flex;
     justify-content: center;
-    margin-right: 30%;
-    margin-left: 30%;
+    margin-right: 20%;
+    margin-left: 20%;
     align-items: center;
 }
 
@@ -107,9 +111,29 @@
         margin-top: 5%;
         display: flex;
         justify-content: center;
-        margin-right: 30%;
-        margin-left: 30%;
+        margin-right: 20%;
+        margin-left: 20%;
         align-items: center;
+    }
+    #DnD__DeleteGroupForm--EditButton {
+        width: 3vw !important;
+        height: 3vw !important;
+        margin: 2px;
+    }
+    #DnD__DeleteGroupForm--DeleteButton{
+        width: 3vw !important;
+        height: 3vw !important;
+        margin: 2px;
+    }
+    #DnD__DeleteGroupForm--ViewButton{
+        width: 3vw !important;
+        height: 3vw !important;
+        margin: 2px;
+    }
+    #DnD__NewApplication--Button {
+    width: 3vw !important;
+    height: 3vw !important;
+    margin: 2px;
     }
 }
 /*=============================================================*/
@@ -117,7 +141,7 @@
 /*=============================================================*/
 /*Lg STYLES*/
 @media (max-width: 900px) {
-.DnD__GroupCard h1{
+    .DnD__GroupCard h1{
         font-size: 4vw;
         padding-left: 16%;
         padding-right: 16%;
@@ -169,13 +193,18 @@
         width: 5vw !important;
         height: 5vw !important;
     }
+    #DnD__NewApplication--Button {
+        width: 5vw !important;
+        height: 5vw !important;
+    }
 }
 
 
 
 #DnD__DeleteGroupForm--DeleteButton{
-    width: 2.5vw;
-    height: 2.5vw;
+    width: 2vw;
+    height: 2vw;
+    margin: 2px;
     background: url("https://i.imgur.com/qNKwgWP.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -191,8 +220,9 @@
     box-shadow: 5px 5px 15px 5px #000000;
 }
 #DnD__DeleteGroupForm--EditButton{
-    width: 2.5vw;
-    height: 2.5vw;
+    width: 2vw;
+    height: 2vw;
+    margin: 2px;
     background: url("https://i.imgur.com/skiZWic.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -208,8 +238,9 @@
     box-shadow: 5px 5px 15px 5px #000000;
 }
 #DnD__DeleteGroupForm--ViewButton{
-    width: 2.5vw;
-    height: 2.5vw;
+    width: 2vw;
+    height: 2vw;
+    margin: 2px;
     background: url("https://i.imgur.com/ZC1LiDb.png");
     background-repeat: no-repeat;
     background-position: center;

@@ -86,7 +86,7 @@
 
 .glow-dark button:hover {
   animation: neon5-dark 1s ease-in-out infinite alternate;
-    background: rgba(15, 23, 33, 0.44);
+    /*background: rgba(15, 23, 33, 0.44);*/
     color: white;
     text-shadow: 2px 3px 5px #000000;
     border-radius: 5px;
@@ -97,14 +97,58 @@
   color: #ffffff;
 }
 
+
+
+
+.DnD__Button--glow {
+}
+
+.DnD__Button--glow .DnD_Button--sign {
+    text-decoration: none;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+    font-family: Audiowide;
+    font-weight: bold;
+    width: 160px;
+    height: 40px;
+    font-size: 2rem;
+    background-color: rgba(255, 255, 255, 0);
+    border: rgba(255, 255, 255, 0);
+}
+
+.DnD__Button--glow .DnD_Button--sign:hover {
+    border-radius: 35px;
+    text-shadow: 0px 0px 2px #2d2d2d, 1px 1px 1px #131313;
+    color: #babab3;
+}
+
+
+
+
+
+
+
+
+
+
+
 @keyframes neon5-dark {
   from {
     text-shadow: 0 0 10px #e7e7e7, 0 0 20px #d7d7d7, 0 0 30px #d4d4d4, 0 0 40px #ff0000, 0 0 70px #ff0000, 0 0 80px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
-    box-shadow: 0px 0px 22px 3px #FFFFFF;
 
   }
   to {
     text-shadow: 0 0 5px #e7e7e7, 0 0 10px #d7d7d7, 0 0 15px #d4d4d4, 0 0 20px #ff0000, 0 0 35px #ff0000, 0 0 40px #ff0000, 0 0 50px #ff0000, 0 0 75px #ff0000;
-    box-shadow: 0px 0px 22px 12px #FFFFFF;
+  }
+}
+
+@keyframes wood-dark {
+  from {
+    text-shadow: 0 0 1px #bbb7b7, 0 0 2px #908c8c, 0 0 5px #bbb7b7;
+
+  }
+  to {
+    text-shadow: 0 0 3px #bbb7b7, 0 0 6px #bbb7b7, 0 0 10px #908c8c;
   }
 }
