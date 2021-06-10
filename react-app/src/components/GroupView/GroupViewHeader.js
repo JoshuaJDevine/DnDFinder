@@ -12,10 +12,15 @@ export default function GroupViewHeader({groupData}){
     const deviantArtImages = useSelector(state => state.imageData.images);
     const [myImgNum, setMyImgNum] = useState(getRandomInt(9))
     return(
+        <>
+        <div className="DnD__GroupViewHeader--blur">
+
+        </div>
         <div className="DnD__GroupViewHeader">
+            <h1>{groupData.name}</h1>
+
             {deviantArtImages? <img src={deviantArtImages.results[myImgNum].thumbs[2].src}/> : <p>Failed to fetch imgs</p> }
             <div className="DnD__GroupViewHeader--right">
-                <h1>{groupData.name}</h1>
                 <div>
                     <FontAwesomeIcon icon="user-friends" />
                     Party Size: {groupData.maxPartySize}
@@ -34,11 +39,13 @@ export default function GroupViewHeader({groupData}){
                 </div>
                 <div>
                     <FontAwesomeIcon icon="image" />
-                    <a href={deviantArtImages.results[myImgNum].url} target="_blank">Image by: {deviantArtImages.results[myImgNum].author.username} </a>
+                    <a id="DnDGroup--ImgLink" href={deviantArtImages.results[myImgNum].url} target="_blank">Image by: {deviantArtImages.results[myImgNum].author.username} </a>
                 </div>
             </div>
 
         </div>
+        </>
+
     )
 }
 

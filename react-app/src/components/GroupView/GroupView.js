@@ -50,9 +50,14 @@ export default function GroupView({groupId}){
                 <>
             <div className="DnD__GroupView">
                 {isGroupAdmin ? <GroupViewAdminPanel groupId={myGroup.id} applications={myGroup.applications}/> : <> </>}
-                {myGroup.users.length > 0 ? <GroupViewMembers groupMembers={myGroup.users} /> : <> </>}
+
                 <GroupViewHeader groupData={myGroup} />
-                <GroupViewDetails groupData={myGroup} />
+                <div className="DnD__GroupView--detailContent">
+                    <GroupViewDetails groupData={myGroup} />
+                    {myGroup.users.length > 0 ? <GroupViewMembers groupMembers={myGroup.users} /> : <> </>}
+                </div>
+
+
             </div>
 
             {userIsAMember ?
