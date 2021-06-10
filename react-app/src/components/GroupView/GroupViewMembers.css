@@ -1,4 +1,22 @@
 .DnD__GroupViewMembers{
     display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+    align-items: center;
+}
+.DnD__GroupViewMembers h1{
+    font-size: 30px;
+    text-decoration: underline;
+}
+.DnD__GroupViewMembers p {
+    font-size: 22px;
+    margin-bottom: 40px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.DnD__GroupViewMembers--content{
+    display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
