@@ -29,7 +29,6 @@ export default function Home(){
     //===========================================================
     const [viewingGroup, setViewingGroup] = useState(-1)
 
-
     useEffect(() => {
         (async() => {
             setViewingGroup(-1)
@@ -49,6 +48,19 @@ export default function Home(){
         );
     }
 
+    let newGreeting = "Welcome " + sessionUser.username
+    let newActivity = ""
+    if (viewingGroup <= 0){
+        newActivity = "Searching " + groups.length + " groups."
+    }
+    else {
+        newActivity = "Viewing " + groups[viewingGroup].name
+    }
+    const splashText = {
+        greeting: newGreeting,
+        activity: newActivity
+    }
+
     return (
         <>
         <div className="DnD__Background"></div>
@@ -62,9 +74,6 @@ export default function Home(){
                     <>
                     </>
                 }
-
-
-
 
 
                 {/*//------------------------------------------------------------------------------------------------*/}
@@ -82,7 +91,7 @@ export default function Home(){
                         {/*<NavBar />*/}
 
                         {/*Render the splash bar*/}
-                        <SplashBar numberOfGroups={groups?.length > 0 ? groups.length : 0} setViewingGroup={setViewingGroup}/>
+                        <SplashBar numberOfGroups={groups?.length > 0 ? groups.length : 0} setViewingGroup={setViewingGroup} splashText={splashText}/>
 
                         {/*[WIP] Render filter and search option*/}
                         {/*<SearchBar text={"Filter 1"}/>*/}
@@ -119,7 +128,7 @@ export default function Home(){
                         {/*<NavBar />*/}
 
                         {/*Render the splash bar*/}
-                        <SplashBar numberOfGroups={groups?.length > 0 ? groups.length : 0} setViewingGroup={setViewingGroup}/>
+                        <SplashBar numberOfGroups={groups?.length > 0 ? groups.length : 0} setViewingGroup={setViewingGroup} splashText={splashText}/>
 
                         {/*[WIP] Render filter and search option*/}
                         {/*<SearchBar text={"Filter 1"}/>*/}

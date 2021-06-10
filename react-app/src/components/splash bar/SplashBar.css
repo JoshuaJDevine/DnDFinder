@@ -28,6 +28,7 @@
 .DnD__SplashBar--subTitle p{
     font-size: 2vw;
     margin:0;
+    text-align: center;
 }
 
 .DnD__SplashBar--Options {

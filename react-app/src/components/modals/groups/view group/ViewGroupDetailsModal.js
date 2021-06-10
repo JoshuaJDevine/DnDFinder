@@ -6,7 +6,6 @@ import ViewGroupDetails from "./ViewGroupDetails";
 
 export default function ViewGroupDetailsModal({group, setViewingGroup, myIdx}){
     const [showModal, setShowModal] = useState(false);
-    console.log(myIdx)
     return (
         <>
             <div className="glow">
