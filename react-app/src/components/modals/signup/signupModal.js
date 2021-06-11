@@ -17,7 +17,6 @@ export default function SignUpModalForm({setShowModal}){
     e.preventDefault();
     if (password === repeatPassword) {
         const data = await dispatch(signUp(username, email, password));
-        console.log(data)
         if (data.errors) {
             setErrors(data.errors)
         }

@@ -9,7 +9,6 @@ export default function ViewGroupDetails({setShowModal, data, setViewingGroup, m
     }
     const handleViewGroup = () => {
         setShowModal(false)
-        console.log("setting viewing group to " + myIdx)
         setViewingGroup(myIdx)
     }
 

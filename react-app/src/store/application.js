@@ -71,13 +71,6 @@ export const createNewApplication = (text,
         });
         const data = await response.json();
         if (data.errors) {
-            console.log("==================================================")
-            console.log("==================================================")
-            console.log("==================================================")
-            console.log("==================================================")
-            console.log("//TODO Handle with UI")
-            console.log("Received the following errors");
-            console.log(data.errors);
             return data.errors;
          }
     dispatch(getAllApplications())
@@ -132,7 +125,6 @@ export const manageMyApplication = (decision, applicationId) => async (dispatch)
         method: "POST"
     });
     if (response.ok) {
-        console.log("Managed application res === OK")
         return response;
     }
     else {
