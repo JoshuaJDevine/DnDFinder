@@ -1,13 +1,9 @@
 from app.models import db, Application
 import random
 
+
 def seed_applications():
-    application1 = Application(
-        group_id=3,
-        user_id=1
-    )
-    db.session.add(application1)
-    db.session.commit()
+    pass
 
 
 def undo_applications():

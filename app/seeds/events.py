@@ -3,22 +3,10 @@ import random
 
 
 def seed_events():
-    event1 = Event(
-        name="Session 1",
-        location="Session 1",
-        dayOfWeek="Session 1",
-        startTime="Session 1",
-        endTime="Session 1",
-        timeOfDay="Session 1",
-        notes="Session 1",
-        group_id=1
-    )
-    db.session.add(event1)
-
     for x in range(15):
         randomTime = getRandomTime()
         random_event = Event(
-            name="Session 1",
+            name="Session Zero",
             location=getRandomPlatform(),
             dayOfWeek=getRandomDayOfWeek(),
             startTime=getRandomTime(),

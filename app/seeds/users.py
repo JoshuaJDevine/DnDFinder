@@ -7,24 +7,8 @@ def seed_users():
     demo = User(username='Demo', email='demo@aa.io', password='password')
     db.session.add(demo)
 
-    demo2 = User(username='chrisOdin', email='chrisOdinson@wotc.com', password='password')
-
-    # Test group for user 2
-    groupTest = Group(
-        name="Test Adventure",
-        details="A long description of the details",
-        where="Roll 20",
-        module="Homebrew",
-        dayOfWeek="Monday",
-        startTime="3",
-        endTime="5",
-        timeOfDay="PM",
-        maxPartySize=5,
-        groupAdmin=2,
-        timeZone="PDT"
-    )
-    demo2.groups.append(groupTest)
-    db.session.add(demo)
+    demo2 = User(username='Chris Odin', email='chrisOdinson@wotc.com', password='password')
+    db.session.add(demo2)
 
     db.session.commit()
 

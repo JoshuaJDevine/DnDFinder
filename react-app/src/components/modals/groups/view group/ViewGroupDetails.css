@@ -10,19 +10,57 @@
 }
 .DnD__ViewGroupDetails--ButtonGroup p {
     font-size: 1.4rem;
+    padding-right: 120px;
+    padding-left: 120px;
 }
 .DnD__EditGroupForm--TimeButtonGroup{
     display: flex;
     flex-direction: row;
 }
-@media (max-width: 900px) {
+@media (max-width: 1500px) {
     .DnD__ViewGroupDetails--ButtonGroup p{
-        font-size: 3vw;
+        padding-right: 60px;
+        padding-left: 60px;
+        font-size: 1.4rem;
     }
     .DnD__ViewGroupDetails--ButtonGroup{
         margin-bottom: 1vw;
     }
+}
+@media (max-width: 1200px) {
+    .DnD__ViewGroupDetails--ButtonGroup p{
+        padding-right: 30px;
+        padding-left: 30px;
+        font-size: 1.4rem;
+    }
+    .DnD__ViewGroupDetails--ButtonGroup{
+        margin-bottom: 1vw;
+    }
+}
 
+@media (max-width: 900px) {
+    .DnD__ViewGroupDetails--ButtonGroup p{
+        font-size: 1.3rem;
+    }
+    .DnD__ViewGroupDetails--ButtonGroup{
+        margin-bottom: 1vw;
+    }
+}
+@media (max-width: 700px) {
+    .DnD__ViewGroupDetails--ButtonGroup p{
+        font-size: 1.1rem;
+    }
+    .DnD__ViewGroupDetails--ButtonGroup{
+        margin-bottom: 1vw;
+    }
+}
+@media (max-width: 600px) {
+    .DnD__ViewGroupDetails--ButtonGroup p{
+        font-size: .9rem;
+    }
+    .DnD__ViewGroupDetails--ButtonGroup{
+        margin-bottom: 1vw;
+    }
 }
 #DnD__ENDTIMEFORM{
     margin-right: 0;

@@ -2,26 +2,17 @@ from app.models import db, Group
 import random
 
 def seed_groups():
-    group1 = Group(
-        name="New Adventure",
-        details="A long description of the details",
-        where="Roll 20",
-        module="Homebrew",
-        dayOfWeek="Monday",
-        startTime="3",
-        endTime="5",
-        timeOfDay="PM",
-        maxPartySize=5,
-        groupAdmin=2,
-        timeZone="PDT"
-    )
-    db.session.add(group1)
-
     for x in range(20):
         randomTime = getRandomTime()
         random_group = Group(
             name=getRandomName(),
-            details="A long description of the details",
+            details="A " + getRandomName() + " that will take place on " + getRandomPlatform() + ". We will be "
+                                                                                                 "playing once a week"
+                                                                                                 " and are new player "
+                                                                                                 "friendly.  DM for "
+                                                                                                 "more details or "
+                                                                                                 "apply using in the "
+                                                                                                 "app.",
             where=getRandomPlatform(),
             module=getRandomModule(),
             dayOfWeek=getRandomDayOfWeek(),

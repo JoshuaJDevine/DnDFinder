@@ -81,17 +81,17 @@
     justify-content: center;
     flex-wrap: nowrap;
 }
+@media (max-width: 900px) {
+    #modal-content{
+    top: 28%;
+    }
+}
 @media (max-width: 700px) {
     #modal-content{
-    top: 25%;
+    top:24%;
     }
 }
 @media (max-width: 600px) {
-    #modal-content{
-    top:20%;
-    }
-}
-@media (max-width: 500px) {
     #modal-content{
     top:15%;
     }
