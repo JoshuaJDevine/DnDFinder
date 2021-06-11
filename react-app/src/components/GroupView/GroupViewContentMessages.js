@@ -33,7 +33,8 @@ export default function GroupViewContentMessages({groupData}){
 
     return(
         <div className="DnD__GroupViewContentMessages">
-            <p>MESSAGE CONTENT PANEL</p>
+            <h1>MESSAGE CONTENT PANEL</h1>
+            <CreateNewMessageModal groupId={groupData.id}/>
             {messageData ?
             <div className="DnD__GroupViewContentMessages--messages">
                     {messageData.map((message, idx) => {
@@ -41,8 +42,6 @@ export default function GroupViewContentMessages({groupData}){
                             <Message key={idx} message={message} group_id={groupData.id} isOwner={message.sender_id === sessionUser.id} />
                         )
                     })}
-                    <CreateNewMessageModal groupId={groupData.id}/>
-
             </div>
             :
             <p>No Messages...</p>

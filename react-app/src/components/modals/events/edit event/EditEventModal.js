@@ -9,12 +9,15 @@ export default function EditEventModal({event, groupId}){
 
     return (
         <>
-            <button className="glow" onClick={() => setShowModal(true)}>EDIT EVENT {event.id}</button>
-            {showModal && (
-                <Modal onClose={() => setShowModal(false)}>
+            <div className="glow-dark">
+            <button onClick={() => setShowModal(true)}>Edit</button>
+                {showModal && (
+                    <Modal onClose={() => setShowModal(false)}>
                     <EditEventForm setShowModal={setShowModal} event={event} groupId={groupId}/>
-                </Modal>
-            )}
+                    </Modal>
+                )}
+            </div>
+
         </>
     );
 }

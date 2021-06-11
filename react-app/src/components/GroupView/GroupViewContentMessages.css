@@ -1,5 +1,14 @@
 .DnD__GroupViewContentMessages{
-    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 10px;
+}
+.DnD__GroupViewContentMessages h1 {
+    font-size: 2vw;
+    text-decoration: underline;
+    text-align: center;
+    margin: 0px 0px 10px;
 }
 .DnD__GroupViewContentMessages--messages{
     display: flex;

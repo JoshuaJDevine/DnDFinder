@@ -8,8 +8,8 @@ export default function CreateNewMessageModal( {groupId}){
 
     return(
         <>
-            <div className="glow">
-                <button onClick={() => setShowModal(true)}>New Message</button>
+            <div className="glow-dark">
+                <button id="NewMessageButton" onClick={() => setShowModal(true)}>New Message</button>
                 {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
                         <CreateNewMessageForm setShowModal={setShowModal} groupId={groupId}/>

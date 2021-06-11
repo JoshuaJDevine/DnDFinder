@@ -10,12 +10,15 @@ export default function UpdateMessageModal({message, groupId}){
 
     return (
         <>
-            <button className="glow" onClick={() => setShowModal(true)}>Edit Message {message.id}</button>
-            {showModal && (
-                <Modal onClose={() => setShowModal(false)}>
-                    <UpdateMessageForm setShowModal={setShowModal} message={message} groupId={groupId}/>
-                </Modal>
-            )}
+            <div className="glow-dark">
+                <button className="glow" onClick={() => setShowModal(true)}>Edit</button>
+                {showModal && (
+                    <Modal onClose={() => setShowModal(false)}>
+                        <UpdateMessageForm setShowModal={setShowModal} message={message} groupId={groupId}/>
+                    </Modal>
+                )}
+            </div>
+
         </>
     );
 }

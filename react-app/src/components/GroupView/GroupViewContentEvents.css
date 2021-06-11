@@ -1,6 +1,16 @@
 .GroupViewContentEvents{
-    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 10px;
+    align-items: center;
 }
-.GroupViewContentEvents p {
-
+.GroupViewContentEvents h1 {
+    font-size: 2vw;
+    text-decoration: underline;
+    text-align: center;
+    margin: 0px 0px 10px;
+}
+.DnD__GroupViewContentEvents--events{
+    display: flex;
+    flex-direction: column;
 }

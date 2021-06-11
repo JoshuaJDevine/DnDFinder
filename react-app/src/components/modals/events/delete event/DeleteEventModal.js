@@ -8,12 +8,15 @@ export default function DeleteEventModal( {eventId, groupId} ){
     const [showModal, setShowModal] = useState(false);
     return (
         <>
-            <button id="DnD__DeleteEventModal--DeleteButton" onClick={() => setShowModal(true)}>DELETE</button>
-            {showModal && (
-                <Modal onClose={() => setShowModal(false)}>
-                    <DeleteEventForm eventId={eventId} setShowModal={setShowModal} group_id={groupId}/>
-                </Modal>
-            )}
+            <div className="glow-dark">
+                <button id="DnD__DeleteEventModal--DeleteButton" onClick={() => setShowModal(true)}>Delete</button>
+                {showModal && (
+                    <Modal onClose={() => setShowModal(false)}>
+                        <DeleteEventForm eventId={eventId} setShowModal={setShowModal} group_id={groupId}/>
+                    </Modal>
+                )}
+            </div>
+
         </>
     );
 }

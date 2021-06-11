@@ -32,9 +32,9 @@ export default function GroupViewContentEvents({groupData, isGroupAdmin}){
 
     return(
         <div className="GroupViewContentEvents">
-            <p>EVENTS CONTENT PANEL</p>
+            <h1>EVENTS CONTENT PANEL</h1>
             {eventData ?
-            <div className="DnD__GroupViewContentMessages--events">
+            <div className="DnD__GroupViewContentEvents--events">
                     {eventData.map((event, idx) => {
                         return(
                             <Event key={idx} eventData={event} groupId={groupData.id} isGroupAdmin={isGroupAdmin} />
