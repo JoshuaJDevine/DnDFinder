@@ -1,35 +1,15 @@
 # DnDFinder
-An open source DnD group finder
+Welcome to the DnD group finder.
+To sharpen my full stack development skills, I participated in a week long development challenge to write an application from scratch.
+This PoC app was inspired by meetup. It demonstrates full CRUD for authentication, events, groups, applications, and messages.
+The UI/UX is inspired by minimalism, glassmorphism, and fantasy art with a focus on responsiveness. 
 
-Deploy to Heroku
-Create a new project on Heroku
+![June 1c](https://i.imgur.com/d9VSxc7.png)
 
-Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
+DnDFinder is currently under active development. Check back soon for more features and updates
 
-Install the Heroku CLI
+You can try out the demo version @
+https://dnd-finder.herokuapp.com/
 
-Run
-
-heroku login
-Login to the heroku container registry
-
-heroku container:login
-Update the REACT_APP_BASE_URL variable in the Dockerfile. This should be the full URL of your Heroku app: i.e. "https://flask-react-aa.herokuapp.com"
-
-Push your docker container to heroku from the root directory of your project. This will build the dockerfile and push the image to your heroku container registry
-
-heroku container:push web -a dnd-finder
-Release your docker container to heroku
-
-heroku container:release web -a dnd-finder
-set up your database:
-
-heroku run -a dnd-finder flask db upgrade
-heroku run -a dnd-finder flask seed all
-Under Settings find "Config Vars" and add any additional/secret .env variables.
-
-profit
-
-sounds from zapsplat
-
-https://drive.google.com/file/d/1KiHdif9qkZQhixi9K-hxSB_yRpxiYKgO/view?usp=sharing
+# Technologies 
+Flask, Python, JSX, JS, Node, Express, React, Redux, HTML5, CSS3
