@@ -85,11 +85,12 @@ svg {
 
 .DnD__Splash--overlay{
     position: absolute;
-    top: 90%;
+    top: 85%;
     display: flex;
     z-index: 3;
     width: 100vw;
     justify-content: space-between;
+    align-items: center;
 }
 
 .Splash__glow {

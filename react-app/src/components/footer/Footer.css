@@ -5,3 +5,117 @@
     min-height: 390px;
     color: white;
 }
+.DnD__Footer--content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    min-height: 390px;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+.DnD__Footer--content h1{
+    color: #b8b8b4;
+    cursor: pointer;
+    font-size: 1.5rem;
+    text-shadow: none;
+}
+.DnD__Footer--art h1{
+    color: #b8b8b4;
+    cursor: pointer;
+    font-size: 1.5rem;
+    text-shadow: none;
+}
+.DnD__Footer--art{
+    position: relative;
+    top: -20px;
+    bottom: 0;
+    left: 60%;
+    right: 0;
+}
+
+/*Check out the original codepen by Kevin Miranda*/
+/*https://codepen.io/kevinmiranda*/
+/*https://codepen.io/kevinmiranda/pen/XwaopR*/
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.glass-btn {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(250, 250, 250, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  margin: 2vh 2vw;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.glass-btn:hover {
+  background-color: rgba(245, 245, 245, 0);
+  transform: translateY(-5px);
+  transition: all 0.3s;
+}
+.glass-btn.blue-btn {
+  box-shadow: 0px 20px 20px -17px rgba(0, 111, 255, 0.53);
+}
+.glass-btn.blue-btn:hover {
+  box-shadow: 0px 20px 35px -16px rgba(0, 111, 255, 0.65);
+}
+.glass-btn.blue-btn .content {
+  font-size: 4em;
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(to right, #006fff, #00acff 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 10px 37px rgba(0, 111, 255, 0.8);
+}
+.glass-btn.red-btn {
+  box-shadow: 0px 20px 20px -17px rgba(255, 16, 39, 0.5);
+}
+.glass-btn.red-btn:hover {
+  box-shadow: 0px 20px 35px -16px rgba(255, 16, 39, 0.57);
+}
+.glass-btn.red-btn .content {
+  font-size: 4em;
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(to right, #ff1027, #ff4f06 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 10px 37px rgba(255, 16, 39, 0.6);
+}
+.glass-btn.amber-btn {
+  box-shadow: 0px 20px 20px -17px rgba(255, 159, 16, 0.53);
+}
+.glass-btn.amber-btn:hover {
+  box-shadow: 0px 20px 35px -16px rgba(255, 159, 16, 0.6);
+}
+.glass-btn.amber-btn .content {
+  font-size: 4em;
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(to right, #ff8d00, #f7ad07 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 10px 37px rgba(255, 94, 16, 0.7);
+}
+
+.glass-btn.white-btn {
+  box-shadow: 0px 20px 20px -17px rgba(226, 226, 226, 0.53);
+}
+.glass-btn.white-btn:hover {
+  box-shadow: 0px 20px 35px -16px rgba(226, 226, 226, 0.53);
+}
+.glass-btn.white-btn .content {
+  font-size: 4em;
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(to right, rgba(226, 226, 226, 0.53), #ffffff 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 10px 37px rgba(226, 226, 226, 0.53);
+}
