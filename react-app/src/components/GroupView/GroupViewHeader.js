@@ -19,7 +19,7 @@ export default function GroupViewHeader({groupData}){
         <div className="DnD__GroupViewHeader">
             <h1>{groupData.name}</h1>
 
-            {deviantArtImages? <img src={deviantArtImages.results[myImgNum].thumbs[2].src}/> : <p>Failed to fetch imgs</p> }
+            {deviantArtImages? <img src={deviantArtImages.results[myImgNum].preview.src}/> : <p>Failed to fetch imgs</p> }
             <div className="DnD__GroupViewHeader--right">
                 <div>
                     <FontAwesomeIcon icon="user-friends" />

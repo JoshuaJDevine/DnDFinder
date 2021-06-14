@@ -21,8 +21,8 @@ export default function DemoUserForm( {setShowModal, setViewingGroup} ){
     }
     return(
         <div className="DnD__DemoUserForm">
-            <p>Written from scratch in ~1 week</p>
-            <p>Welcome to the DnD Group Finder</p>
+            <p>Welcome to DnD Group Finder.</p>
+            <p>This app was created using Flask and ReactJs.</p>
             <p>Click stuff to explore the features!</p>
             <div className="DnD__Button--glow">
               <div className="DnD_Button--sign fx2" onClick={handleOK}>Login</div>
